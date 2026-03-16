@@ -1,0 +1,17 @@
+{
+    "metadata": {
+        "title": "مرحباً بك",
+        "description": "تطبيق ويب مبني بـ Next.js"
+    },
+    "home": {
+        "heading": "للبدء، قم بتعديل ملف page.tsx.",
+        "description": "هل تبحث عن نقطة بداية أو تعليمات إضافية؟ توجه إلى <templates>القوالب</templates> أو مركز <learning>التعلم</learning>.",
+        "deploy": "نشر الآن",
+        "docs": "التوثيق"
+    },
+    "localeSwitcher": {
+        "label": "تغيير اللغة",
+        "locale_ar": "العربية",
+        "locale_en": "English"
+    }
+}
