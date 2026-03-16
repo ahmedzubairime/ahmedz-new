@@ -1,0 +1,19 @@
+{
+    "title": "Dashboard",
+    "welcome": "Welcome back",
+    "nav": {
+        "overview": "Overview",
+        "content": "Content",
+        "media": "Media",
+        "pages": "Pages",
+        "settings": "Settings"
+    },
+    "stats": {
+        "totalViews": "Total Views",
+        "totalPosts": "Total Posts",
+        "totalUsers": "Total Users",
+        "activeNow": "Active Now"
+    },
+    "recentActivity": "Recent Activity",
+    "noActivity": "No recent activity"
+}

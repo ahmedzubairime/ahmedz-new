@@ -1,0 +1,24 @@
+{
+    "title": "Projects Management",
+    "subtitle": "Track and manage all your projects",
+    "nav": {
+        "board": "Board",
+        "list": "List",
+        "timeline": "Timeline",
+        "team": "Team",
+        "settings": "Settings"
+    },
+    "columns": {
+        "todo": "To Do",
+        "inProgress": "In Progress",
+        "review": "In Review",
+        "done": "Done"
+    },
+    "stats": {
+        "totalProjects": "Total Projects",
+        "activeTasks": "Active Tasks",
+        "teamMembers": "Team Members",
+        "completed": "Completed"
+    },
+    "emptyState": "No projects yet. Start by creating your first project."
+}

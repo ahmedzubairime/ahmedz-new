@@ -1,0 +1,64 @@
+{
+    "login": {
+        "title": "Sign In",
+        "subtitle": "Welcome back! Sign in to continue",
+        "email": "Email Address",
+        "emailPlaceholder": "Enter your email",
+        "password": "Password",
+        "passwordPlaceholder": "Enter your password",
+        "rememberMe": "Remember me",
+        "forgotPassword": "Forgot password?",
+        "submit": "Sign In",
+        "noAccount": "Don't have an account?",
+        "register": "Create Account"
+    },
+    "register": {
+        "title": "Create Account",
+        "subtitle": "Join us today and start your journey",
+        "fullName": "Full Name",
+        "fullNamePlaceholder": "Enter your full name",
+        "email": "Email Address",
+        "emailPlaceholder": "Enter your email",
+        "password": "Password",
+        "passwordPlaceholder": "Create a strong password",
+        "confirmPassword": "Confirm Password",
+        "confirmPasswordPlaceholder": "Re-enter your password",
+        "agreeTerms": "I agree to the <terms>Terms & Conditions</terms>",
+        "submit": "Create Account",
+        "hasAccount": "Already have an account?",
+        "login": "Sign In"
+    },
+    "confirmAccount": {
+        "title": "Confirm Account",
+        "subtitle": "Enter the verification code sent to your email",
+        "code": "Verification Code",
+        "codePlaceholder": "Enter 6-digit code",
+        "submit": "Confirm Account",
+        "resend": "Didn't receive the code?",
+        "resendLink": "Resend"
+    },
+    "forgotPassword": {
+        "title": "Forgot Password",
+        "subtitle": "Enter your email and we'll send you a reset link",
+        "email": "Email Address",
+        "emailPlaceholder": "Enter your email",
+        "submit": "Send Reset Link",
+        "backToLogin": "Back to Sign In"
+    },
+    "resetPassword": {
+        "title": "Reset Password",
+        "subtitle": "Create a new password for your account",
+        "newPassword": "New Password",
+        "newPasswordPlaceholder": "Enter new password",
+        "confirmPassword": "Confirm New Password",
+        "confirmPasswordPlaceholder": "Re-enter new password",
+        "submit": "Reset Password"
+    },
+    "notAuthorized": {
+        "title": "Not Authorized",
+        "code": "403",
+        "message": "Sorry, you don't have permission to access this page",
+        "backHome": "Go Home",
+        "contactAdmin": "Contact Admin"
+    }
+}

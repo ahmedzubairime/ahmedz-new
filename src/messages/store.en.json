@@ -1,0 +1,28 @@
+{
+    "title": "Store",
+    "subtitle": "Discover our featured products",
+    "nav": {
+        "all": "All",
+        "featured": "Featured",
+        "new": "New",
+        "sale": "Sale"
+    },
+    "product": {
+        "addToCart": "Add to Cart",
+        "details": "Details",
+        "price": "Price",
+        "outOfStock": "Out of Stock"
+    },
+    "cart": {
+        "title": "Shopping Cart",
+        "empty": "Cart is empty",
+        "checkout": "Checkout",
+        "total": "Total"
+    },
+    "stats": {
+        "products": "Products",
+        "categories": "Categories",
+        "orders": "Orders",
+        "revenue": "Revenue"
+    }
+}

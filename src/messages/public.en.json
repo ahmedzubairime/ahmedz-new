@@ -1,0 +1,35 @@
+{
+    "nav": {
+        "home": "Home",
+        "dashboard": "Dashboard",
+        "projects": "Projects",
+        "store": "Store",
+        "login": "Sign In"
+    },
+    "hero": {
+        "badge": "All-in-One Platform",
+        "title": "Build. Manage. Launch.",
+        "subtitle": "A comprehensive platform for content management, project tracking, and e-commerce all in one place",
+        "cta": "Get Started",
+        "secondaryCta": "Explore More"
+    },
+    "features": {
+        "title": "Everything you need in one platform",
+        "cms": {
+            "title": "Content Management",
+            "description": "A powerful dashboard to manage content, media, and pages with ease"
+        },
+        "pms": {
+            "title": "Project Management",
+            "description": "Track tasks, manage teams, and organize projects with professional tools"
+        },
+        "store": {
+            "title": "Online Store",
+            "description": "Build your e-commerce store and manage products and orders seamlessly"
+        }
+    },
+    "footer": {
+        "rights": "All rights reserved",
+        "builtWith": "Built with"
+    }
+}

@@ -1,0 +1,64 @@
+{
+    "login": {
+        "title": "تسجيل الدخول",
+        "subtitle": "مرحباً بعودتك! سجل دخولك للمتابعة",
+        "email": "البريد الإلكتروني",
+        "emailPlaceholder": "أدخل بريدك الإلكتروني",
+        "password": "كلمة المرور",
+        "passwordPlaceholder": "أدخل كلمة المرور",
+        "rememberMe": "تذكرني",
+        "forgotPassword": "نسيت كلمة المرور؟",
+        "submit": "تسجيل الدخول",
+        "noAccount": "ليس لديك حساب؟",
+        "register": "إنشاء حساب"
+    },
+    "register": {
+        "title": "إنشاء حساب جديد",
+        "subtitle": "انضم إلينا اليوم وابدأ رحلتك",
+        "fullName": "الاسم الكامل",
+        "fullNamePlaceholder": "أدخل اسمك الكامل",
+        "email": "البريد الإلكتروني",
+        "emailPlaceholder": "أدخل بريدك الإلكتروني",
+        "password": "كلمة المرور",
+        "passwordPlaceholder": "أنشئ كلمة مرور قوية",
+        "confirmPassword": "تأكيد كلمة المرور",
+        "confirmPasswordPlaceholder": "أعد إدخال كلمة المرور",
+        "agreeTerms": "أوافق على <terms>الشروط والأحكام</terms>",
+        "submit": "إنشاء الحساب",
+        "hasAccount": "لديك حساب بالفعل؟",
+        "login": "تسجيل الدخول"
+    },
+    "confirmAccount": {
+        "title": "تأكيد الحساب",
+        "subtitle": "أدخل رمز التأكيد المرسل إلى بريدك الإلكتروني",
+        "code": "رمز التأكيد",
+        "codePlaceholder": "أدخل الرمز المكون من 6 أرقام",
+        "submit": "تأكيد الحساب",
+        "resend": "لم تستلم الرمز؟",
+        "resendLink": "إعادة الإرسال"
+    },
+    "forgotPassword": {
+        "title": "نسيت كلمة المرور",
+        "subtitle": "أدخل بريدك الإلكتروني وسنرسل لك رابط إعادة التعيين",
+        "email": "البريد الإلكتروني",
+        "emailPlaceholder": "أدخل بريدك الإلكتروني",
+        "submit": "إرسال رابط إعادة التعيين",
+        "backToLogin": "العودة لتسجيل الدخول"
+    },
+    "resetPassword": {
+        "title": "إعادة تعيين كلمة المرور",
+        "subtitle": "أنشئ كلمة مرور جديدة لحسابك",
+        "newPassword": "كلمة المرور الجديدة",
+        "newPasswordPlaceholder": "أدخل كلمة المرور الجديدة",
+        "confirmPassword": "تأكيد كلمة المرور الجديدة",
+        "confirmPasswordPlaceholder": "أعد إدخال كلمة المرور الجديدة",
+        "submit": "إعادة تعيين كلمة المرور"
+    },
+    "notAuthorized": {
+        "title": "غير مصرح",
+        "code": "403",
+        "message": "عذراً، ليس لديك صلاحية للوصول إلى هذه الصفحة",
+        "backHome": "العودة للرئيسية",
+        "contactAdmin": "تواصل مع المسؤول"
+    }
+}

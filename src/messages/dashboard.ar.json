@@ -1,0 +1,19 @@
+{
+    "title": "لوحة التحكم",
+    "welcome": "مرحباً بك مجدداً",
+    "nav": {
+        "overview": "نظرة عامة",
+        "content": "المحتوى",
+        "media": "الوسائط",
+        "pages": "الصفحات",
+        "settings": "الإعدادات"
+    },
+    "stats": {
+        "totalViews": "إجمالي المشاهدات",
+        "totalPosts": "إجمالي المنشورات",
+        "totalUsers": "إجمالي المستخدمين",
+        "activeNow": "نشطون الآن"
+    },
+    "recentActivity": "النشاط الأخير",
+    "noActivity": "لا يوجد نشاط حديث"
+}

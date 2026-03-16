@@ -25,7 +25,7 @@ async function getNamespaceFiles(locale: Locale) {
     // Auto-discover: import all known namespace files
     // To add a new namespace, simply create {name}.ar.json and {name}.en.json
     // then add the namespace string to this array:
-    const knownNamespaces = ["common"];
+    const knownNamespaces = ["common", "auth", "dashboard", "projects", "store", "public"];
 
     for (const ns of knownNamespaces) {
         try {

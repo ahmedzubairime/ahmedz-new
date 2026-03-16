@@ -4,6 +4,7 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Geist, Geist_Mono } from "next/font/google";
 import { routing, type Locale } from "@/i18n/routing";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -55,13 +56,15 @@ export default async function LocaleLayout({ children, params }: Props) {
     const direction = locale === "ar" ? "rtl" : "ltr";
 
     return (
-        <html lang={locale} dir={direction}>
+        <html lang={locale} dir={direction} suppressHydrationWarning>
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased`}
             >
-                <NextIntlClientProvider messages={messages}>
-                    {children}
-                </NextIntlClientProvider>
+                <ThemeProvider>
+                    <NextIntlClientProvider messages={messages}>
+                        {children}
+                    </NextIntlClientProvider>
+                </ThemeProvider>
             </body>
         </html>
     );
