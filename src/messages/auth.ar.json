@@ -9,8 +9,10 @@
         "rememberMe": "تذكرني",
         "forgotPassword": "نسيت كلمة المرور؟",
         "submit": "تسجيل الدخول",
+        "submitting": "جاري تسجيل الدخول...",
         "noAccount": "ليس لديك حساب؟",
-        "register": "إنشاء حساب"
+        "register": "إنشاء حساب",
+        "errorInvalid": "البريد الإلكتروني أو كلمة المرور غير صحيحة"
     },
     "register": {
         "title": "إنشاء حساب جديد",
@@ -20,22 +22,41 @@
         "email": "البريد الإلكتروني",
         "emailPlaceholder": "أدخل بريدك الإلكتروني",
         "password": "كلمة المرور",
-        "passwordPlaceholder": "أنشئ كلمة مرور قوية",
+        "passwordPlaceholder": "أنشئ كلمة مرور قوية (8 أحرف على الأقل)",
         "confirmPassword": "تأكيد كلمة المرور",
         "confirmPasswordPlaceholder": "أعد إدخال كلمة المرور",
         "agreeTerms": "أوافق على <terms>الشروط والأحكام</terms>",
         "submit": "إنشاء الحساب",
+        "submitting": "جاري إنشاء الحساب...",
         "hasAccount": "لديك حساب بالفعل؟",
-        "login": "تسجيل الدخول"
+        "login": "تسجيل الدخول",
+        "passwordMismatch": "كلمتا المرور غير متطابقتين",
+        "passwordTooShort": "كلمة المرور يجب أن تكون 8 أحرف على الأقل"
     },
     "confirmAccount": {
         "title": "تأكيد الحساب",
-        "subtitle": "أدخل رمز التأكيد المرسل إلى بريدك الإلكتروني",
+        "subtitle": "أدخل رمز التأكيد المكون من 8 أرقام المرسل إلى بريدك الإلكتروني",
+        "subtitleWithEmail": "أدخل الرمز المكون من 8 أرقام المرسل إلى {email}",
         "code": "رمز التأكيد",
-        "codePlaceholder": "أدخل الرمز المكون من 6 أرقام",
+        "codePlaceholder": "أدخل الرمز المكون من 8 أرقام",
         "submit": "تأكيد الحساب",
+        "submitting": "جاري التحقق...",
         "resend": "لم تستلم الرمز؟",
-        "resendLink": "إعادة الإرسال"
+        "resendLink": "إعادة الإرسال",
+        "resending": "جاري الإرسال...",
+        "resent": "تم إعادة إرسال الرمز! تحقق من بريدك"
+    },
+    "setupAccount": {
+        "title": "إعداد الحساب",
+        "subtitle": "أكمل ملفك الشخصي للبدء",
+        "fullName": "الاسم الكامل",
+        "fullNamePlaceholder": "أدخل اسمك الكامل",
+        "phone": "رقم الهاتف (اختياري)",
+        "phonePlaceholder": "أدخل رقم هاتفك",
+        "avatar": "صورة الملف الشخصي",
+        "avatarHint": "ارفع صورة شخصية (اختياري)",
+        "submit": "إكمال الإعداد",
+        "submitting": "جاري الإعداد..."
     },
     "forgotPassword": {
         "title": "نسيت كلمة المرور",
@@ -43,6 +64,8 @@
         "email": "البريد الإلكتروني",
         "emailPlaceholder": "أدخل بريدك الإلكتروني",
         "submit": "إرسال رابط إعادة التعيين",
+        "submitting": "جاري الإرسال...",
+        "success": "تم إرسال رابط إعادة التعيين! تحقق من بريدك",
         "backToLogin": "العودة لتسجيل الدخول"
     },
     "resetPassword": {
@@ -52,7 +75,9 @@
         "newPasswordPlaceholder": "أدخل كلمة المرور الجديدة",
         "confirmPassword": "تأكيد كلمة المرور الجديدة",
         "confirmPasswordPlaceholder": "أعد إدخال كلمة المرور الجديدة",
-        "submit": "إعادة تعيين كلمة المرور"
+        "submit": "إعادة تعيين كلمة المرور",
+        "submitting": "جاري إعادة التعيين...",
+        "passwordMismatch": "كلمتا المرور غير متطابقتين"
     },
     "notAuthorized": {
         "title": "غير مصرح",

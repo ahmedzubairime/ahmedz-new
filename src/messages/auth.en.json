@@ -9,8 +9,10 @@
         "rememberMe": "Remember me",
         "forgotPassword": "Forgot password?",
         "submit": "Sign In",
+        "submitting": "Signing in...",
         "noAccount": "Don't have an account?",
-        "register": "Create Account"
+        "register": "Create Account",
+        "errorInvalid": "Invalid email or password"
     },
     "register": {
         "title": "Create Account",
@@ -20,22 +22,41 @@
         "email": "Email Address",
         "emailPlaceholder": "Enter your email",
         "password": "Password",
-        "passwordPlaceholder": "Create a strong password",
+        "passwordPlaceholder": "Create a strong password (min 8 chars)",
         "confirmPassword": "Confirm Password",
         "confirmPasswordPlaceholder": "Re-enter your password",
         "agreeTerms": "I agree to the <terms>Terms & Conditions</terms>",
         "submit": "Create Account",
+        "submitting": "Creating account...",
         "hasAccount": "Already have an account?",
-        "login": "Sign In"
+        "login": "Sign In",
+        "passwordMismatch": "Passwords do not match",
+        "passwordTooShort": "Password must be at least 8 characters"
     },
     "confirmAccount": {
         "title": "Confirm Account",
-        "subtitle": "Enter the verification code sent to your email",
+        "subtitle": "Enter the 8-digit verification code sent to your email",
+        "subtitleWithEmail": "Enter the 8-digit code sent to {email}",
         "code": "Verification Code",
-        "codePlaceholder": "Enter 6-digit code",
+        "codePlaceholder": "Enter 8-digit code",
         "submit": "Confirm Account",
+        "submitting": "Verifying...",
         "resend": "Didn't receive the code?",
-        "resendLink": "Resend"
+        "resendLink": "Resend",
+        "resending": "Sending...",
+        "resent": "Code resent! Check your email"
+    },
+    "setupAccount": {
+        "title": "Setup Your Account",
+        "subtitle": "Complete your profile to get started",
+        "fullName": "Full Name",
+        "fullNamePlaceholder": "Enter your full name",
+        "phone": "Phone Number (Optional)",
+        "phonePlaceholder": "Enter your phone number",
+        "avatar": "Profile Photo",
+        "avatarHint": "Upload a profile photo (optional)",
+        "submit": "Complete Setup",
+        "submitting": "Setting up..."
     },
     "forgotPassword": {
         "title": "Forgot Password",
@@ -43,6 +64,8 @@
         "email": "Email Address",
         "emailPlaceholder": "Enter your email",
         "submit": "Send Reset Link",
+        "submitting": "Sending...",
+        "success": "Reset link sent! Check your email",
         "backToLogin": "Back to Sign In"
     },
     "resetPassword": {
@@ -52,7 +75,9 @@
         "newPasswordPlaceholder": "Enter new password",
         "confirmPassword": "Confirm New Password",
         "confirmPasswordPlaceholder": "Re-enter new password",
-        "submit": "Reset Password"
+        "submit": "Reset Password",
+        "submitting": "Resetting...",
+        "passwordMismatch": "Passwords do not match"
     },
     "notAuthorized": {
         "title": "Not Authorized",
