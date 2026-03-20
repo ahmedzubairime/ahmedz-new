@@ -3,10 +3,18 @@
 import { useTranslations } from "next-intl";
 import { useRouter, usePathname } from "@/i18n/navigation";
 import { verifyOtp } from "@/app/actions/auth";
-import { useState, useTransition, useRef, useEffect } from "react";
+import { useState, useTransition, useRef, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
 export default function ConfirmAccountPage() {
+    return (
+        <Suspense fallback={<div className="flex items-center justify-center py-20"><div className="size-8 animate-spin rounded-full border-2 border-zinc-300 border-t-sky-600" /></div>}>
+            <ConfirmAccountForm />
+        </Suspense>
+    );
+}
+
+function ConfirmAccountForm() {
     const t = useTranslations("auth.confirmAccount");
     const router = useRouter();
     const searchParams = useSearchParams();

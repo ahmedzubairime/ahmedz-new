@@ -29,16 +29,16 @@ export default async function ProjectsLayout({
     const sectionLabel = locale === "ar" ? section.name_ar : section.name_en;
 
     return (
-        <div className="flex min-h-screen bg-zinc-100 dark:bg-zinc-950">
+        <div className="flex h-screen overflow-hidden bg-zinc-100 dark:bg-zinc-950">
             <DynamicSidebar
                 section={section}
                 account={account}
                 sectionLabel={sectionLabel}
                 sectionIcon={section.icon || "folder-kanban"}
             />
-            <div className="flex flex-1 flex-col">
+            <div className="flex flex-1 flex-col overflow-hidden">
                 <Topbar account={account} sectionLabel={sectionLabel} />
-                <main className="flex-1 p-6">{children}</main>
+                <main className="flex-1 overflow-y-auto p-6 custom-scrollbar">{children}</main>
             </div>
         </div>
     );

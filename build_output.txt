@@ -1,0 +1,101 @@
+▲ Next.js 16.1.6 (Turbopack)
+- Environments: .env.local
+
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+  Creating an optimized production build ...
+✓ Compiled successfully in 6.7s
+  Running TypeScript ...
+  Collecting page data using 15 workers ...
+  Generating static pages using 15 workers (0/130) ...
+  Generating static pages using 15 workers (32/130) 
+  Generating static pages using 15 workers (64/130) 
+  Generating static pages using 15 workers (97/130) 
+✓ Generating static pages using 15 workers (130/130) in 820.6ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /_not-found
+├ ƒ /[locale]
+├ ● /[locale]/confirm-account
+│ ├ /ar/confirm-account
+│ └ /en/confirm-account
+├ ƒ /[locale]/dashboard
+├ ƒ /[locale]/dashboard/about-content
+├ ƒ /[locale]/dashboard/about-content/company
+├ ƒ /[locale]/dashboard/about-content/mission
+├ ƒ /[locale]/dashboard/about-content/team
+├ ƒ /[locale]/dashboard/accounts
+├ ƒ /[locale]/dashboard/categories
+├ ƒ /[locale]/dashboard/contact-settings
+├ ƒ /[locale]/dashboard/contact-settings/branches
+├ ƒ /[locale]/dashboard/contact-settings/info
+├ ƒ /[locale]/dashboard/contact-settings/social
+├ ƒ /[locale]/dashboard/homepage-content
+├ ƒ /[locale]/dashboard/homepage-content/features
+├ ƒ /[locale]/dashboard/homepage-content/hero
+├ ƒ /[locale]/dashboard/homepage-content/partners
+├ ƒ /[locale]/dashboard/homepage-content/testimonials
+├ ƒ /[locale]/dashboard/logs
+├ ƒ /[locale]/dashboard/media
+├ ƒ /[locale]/dashboard/media/documents
+├ ƒ /[locale]/dashboard/media/folders
+├ ƒ /[locale]/dashboard/media/images
+├ ƒ /[locale]/dashboard/media/videos
+├ ƒ /[locale]/dashboard/offers-coupons
+├ ƒ /[locale]/dashboard/offers-coupons/campaigns
+├ ƒ /[locale]/dashboard/offers-coupons/coupons
+├ ƒ /[locale]/dashboard/offers-coupons/offers
+├ ƒ /[locale]/dashboard/orders
+├ ƒ /[locale]/dashboard/orders/returns
+├ ƒ /[locale]/dashboard/orders/statuses
+├ ƒ /[locale]/dashboard/orders/tracking
+├ ƒ /[locale]/dashboard/pages
+├ ƒ /[locale]/dashboard/payments
+├ ƒ /[locale]/dashboard/payments/invoices
+├ ƒ /[locale]/dashboard/payments/methods
+├ ƒ /[locale]/dashboard/payments/transactions
+├ ƒ /[locale]/dashboard/permissions
+├ ƒ /[locale]/dashboard/posts
+├ ƒ /[locale]/dashboard/posts/categories
+├ ƒ /[locale]/dashboard/posts/newsletter
+├ ƒ /[locale]/dashboard/posts/newsletter-members
+├ ƒ /[locale]/dashboard/products
+├ ƒ /[locale]/dashboard/products/attributes
+├ ƒ /[locale]/dashboard/products/reviews
+├ ƒ /[locale]/dashboard/products/variants
+├ ƒ /[locale]/dashboard/roles
+├ ƒ /[locale]/dashboard/services-content
+├ ƒ /[locale]/dashboard/services-content/categories
+├ ƒ /[locale]/dashboard/services-content/list
+├ ƒ /[locale]/dashboard/settings
+├ ● /[locale]/forgot-password
+│ ├ /ar/forgot-password
+│ └ /en/forgot-password
+├ ● /[locale]/login
+│ ├ /ar/login
+│ └ /en/login
+├ ƒ /[locale]/not-authorized
+├ ƒ /[locale]/projects-management
+├ ƒ /[locale]/projects-management/branches
+├ ƒ /[locale]/projects-management/members
+├ ƒ /[locale]/projects-management/projects
+├ ƒ /[locale]/projects-management/tasks
+├ ● /[locale]/register
+│ ├ /ar/register
+│ └ /en/register
+├ ● /[locale]/reset-password
+│ ├ /ar/reset-password
+│ └ /en/reset-password
+├ ● /[locale]/setup-account
+│ ├ /ar/setup-account
+│ └ /en/setup-account
+├ ƒ /[locale]/store
+└ ƒ /auth/callback
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+
