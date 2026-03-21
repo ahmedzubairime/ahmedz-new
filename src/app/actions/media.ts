@@ -71,6 +71,10 @@ export async function uploadMedia(formData: FormData) {
     const folderId = formData.get("folderId") as string | null;
     const altAr = (formData.get("altAr") as string) || "";
     const altEn = (formData.get("altEn") as string) || "";
+    const wStr = formData.get("width");
+    const hStr = formData.get("height");
+    const width = wStr ? parseInt(wStr as string, 10) : null;
+    const height = hStr ? parseInt(hStr as string, 10) : null;
 
     if (!file || !bucket) throw new Error("File and bucket are required");
 
@@ -107,6 +111,8 @@ export async function uploadMedia(formData: FormData) {
         original_name: file.name,
         mime_type: file.type,
         size_bytes: file.size,
+        width,
+        height,
         alt_ar: altAr,
         alt_en: altEn,
         created_by: user.id,

@@ -4,6 +4,7 @@ import { useState, useTransition, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { uploadMedia, deleteMedia } from "@/app/actions/media";
 import { SidebarIcon } from "@/components/SidebarIcon";
+import { UploadDialog } from "./UploadDialog";
 
 type MediaFile = {
     id: string;
@@ -67,8 +68,11 @@ export function MediaGrid({ files, folders, bucket, locale, totalCount }: Props)
     const [dragActive, setDragActive] = useState(false);
     const [preview, setPreview] = useState<MediaFile | null>(null);
     const [isPending, startTransition] = useTransition();
+    const [isUploadDialogOpen, setIsUploadDialogOpen] = useState(false);
     const fileInputRef = useRef<HTMLInputElement>(null);
     const router = useRouter();
+
+    const [stagedFiles, setStagedFiles] = useState<File[]>([]);
 
     const bucketFolders = folders.filter((f) => {
         // Show root-level folders
@@ -81,23 +85,10 @@ export function MediaGrid({ files, folders, bucket, locale, totalCount }: Props)
         return matchesSearch && matchesFolder;
     });
 
-    async function handleUpload(fileList: FileList) {
-        setUploading(true);
-        try {
-            for (const file of Array.from(fileList)) {
-                const formData = new FormData();
-                formData.set("file", file);
-                formData.set("bucket", bucket);
-                if (selectedFolder !== "all") formData.set("folderId", selectedFolder);
-                await uploadMedia(formData);
-            }
-            router.refresh();
-        } catch (err) {
-            console.error("Upload failed:", err);
-        } finally {
-            setUploading(false);
-            setDragActive(false);
-        }
+    function handleUpload(fileList: FileList) {
+        setStagedFiles(Array.from(fileList));
+        setDragActive(false);
+        setIsUploadDialogOpen(true);
     }
 
     function handleDrop(e: React.DragEvent) {
@@ -168,7 +159,10 @@ export function MediaGrid({ files, folders, bucket, locale, totalCount }: Props)
 
                 {/* Upload button */}
                 <button
-                    onClick={() => fileInputRef.current?.click()}
+                    onClick={() => {
+                        setStagedFiles([]);
+                        setIsUploadDialogOpen(true);
+                    }}
                     disabled={uploading}
                     className="ms-auto cursor-pointer rounded-lg bg-[var(--brand-primary)] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[var(--brand-primary-light)] disabled:opacity-50"
                 >
@@ -192,8 +186,8 @@ export function MediaGrid({ files, folders, bucket, locale, totalCount }: Props)
                 onDragLeave={() => setDragActive(false)}
                 onDrop={handleDrop}
                 className={`relative min-h-[300px] rounded-xl border-2 border-dashed transition-colors ${dragActive
-                        ? "border-[var(--brand-primary)] bg-[var(--brand-primary-50)] dark:bg-[var(--brand-primary)]/5"
-                        : "border-zinc-200 dark:border-zinc-800"
+                    ? "border-[var(--brand-primary)] bg-[var(--brand-primary-50)] dark:bg-[var(--brand-primary)]/5"
+                    : "border-zinc-200 dark:border-zinc-800"
                     }`}
             >
                 {dragActive && (
@@ -358,6 +352,26 @@ export function MediaGrid({ files, folders, bucket, locale, totalCount }: Props)
                         </div>
                     </div>
                 </>
+            )}
+
+            {/* Upload Dialog */}
+            {isUploadDialogOpen && (
+                <UploadDialog
+                    initialFiles={stagedFiles}
+                    folders={folders}
+                    bucket={bucket}
+                    defaultFolderId={selectedFolder}
+                    locale={locale}
+                    onClose={() => {
+                        setIsUploadDialogOpen(false);
+                        setStagedFiles([]);
+                    }}
+                    onSuccess={() => {
+                        setIsUploadDialogOpen(false);
+                        setStagedFiles([]);
+                        router.refresh();
+                    }}
+                />
             )}
         </div>
     );
