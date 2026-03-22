@@ -1,12 +1,14 @@
 import { getLocale } from "next-intl/server";
+import { getHomepageHero } from "@/app/actions/cms";
+import { HeroForm } from "@/components/cms/HeroForm";
 
-export default async function HeroSectionPage() {
+export default async function HeroPage() {
     const locale = await getLocale();
+
+    // Fetch directly from the strict single-row table
+    const initialData = await getHomepageHero();
+
     return (
-        <div className="space-y-4">
-            <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
-                {locale === "ar" ? "القسم الرئيسي" : "Hero Section"}
-            </h1>
-        </div>
+        <HeroForm locale={locale} initialData={initialData} />
     );
 }

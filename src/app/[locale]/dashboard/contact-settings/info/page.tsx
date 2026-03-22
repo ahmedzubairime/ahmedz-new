@@ -1,12 +1,14 @@
 import { getLocale } from "next-intl/server";
+import { getContactInfo } from "@/app/actions/cms";
+import { ContactInfoForm } from "@/components/cms/ContactInfoForm";
 
 export default async function ContactInfoPage() {
     const locale = await getLocale();
+
+    // Fetch directly from the strict single-row table
+    const initialData = await getContactInfo();
+
     return (
-        <div className="space-y-4">
-            <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
-                {locale === "ar" ? "معلومات التواصل" : "Contact Info"}
-            </h1>
-        </div>
+        <ContactInfoForm locale={locale} initialData={initialData} />
     );
 }

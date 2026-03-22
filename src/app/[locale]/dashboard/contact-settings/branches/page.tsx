@@ -1,12 +1,10 @@
 import { getLocale } from "next-intl/server";
+import { getBranches } from "@/app/actions/external-lists";
+import { BranchesGrid } from "@/components/cms/BranchesGrid";
 
-export default async function BranchesLocationsPage() {
+export default async function BranchesPage() {
     const locale = await getLocale();
-    return (
-        <div className="space-y-4">
-            <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
-                {locale === "ar" ? "الفروع والمواقع" : "Branches & Locations"}
-            </h1>
-        </div>
-    );
+    const data = await getBranches();
+
+    return <BranchesGrid locale={locale} branches={data} />;
 }

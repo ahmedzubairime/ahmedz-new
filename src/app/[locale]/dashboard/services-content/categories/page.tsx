@@ -1,12 +1,10 @@
 import { getLocale } from "next-intl/server";
+import { getCategories } from "@/app/actions/services-lists";
+import { CategoriesGrid } from "@/components/cms/CategoriesGrid";
 
-export default async function ServiceCategoriesPage() {
+export default async function CategoriesPage() {
     const locale = await getLocale();
-    return (
-        <div className="space-y-4">
-            <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
-                {locale === "ar" ? "تصنيفات الخدمات" : "Service Categories"}
-            </h1>
-        </div>
-    );
+    const data = await getCategories();
+
+    return <CategoriesGrid locale={locale} categories={data} />;
 }

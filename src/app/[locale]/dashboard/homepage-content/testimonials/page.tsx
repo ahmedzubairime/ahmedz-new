@@ -1,12 +1,10 @@
 import { getLocale } from "next-intl/server";
+import { getTestimonials } from "@/app/actions/homepage-lists";
+import { TestimonialsGrid } from "@/components/cms/TestimonialsGrid";
 
 export default async function TestimonialsPage() {
     const locale = await getLocale();
-    return (
-        <div className="space-y-4">
-            <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
-                {locale === "ar" ? "آراء العملاء" : "Testimonials"}
-            </h1>
-        </div>
-    );
+    const data = await getTestimonials();
+
+    return <TestimonialsGrid locale={locale} testimonials={data} />;
 }

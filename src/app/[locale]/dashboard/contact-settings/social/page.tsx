@@ -1,12 +1,10 @@
 import { getLocale } from "next-intl/server";
+import { getSocialLinks } from "@/app/actions/external-lists";
+import { SocialGrid } from "@/components/cms/SocialGrid";
 
-export default async function SocialMediaPage() {
+export default async function SocialPage() {
     const locale = await getLocale();
-    return (
-        <div className="space-y-4">
-            <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
-                {locale === "ar" ? "التواصل الاجتماعي" : "Social Media"}
-            </h1>
-        </div>
-    );
+    const data = await getSocialLinks();
+
+    return <SocialGrid locale={locale} links={data} />;
 }
