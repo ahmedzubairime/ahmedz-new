@@ -30,7 +30,7 @@ type Props = {
     defaultFolderId: string | "all";
     locale: string;
     onClose: () => void;
-    onSuccess: () => void;
+    onSuccess: (urls?: string[]) => void;
 };
 
 export function UploadDialog({ initialFiles = [], folders, bucket, defaultFolderId, locale, onClose, onSuccess }: Props) {
@@ -120,37 +120,41 @@ export function UploadDialog({ initialFiles = [], folders, bucket, defaultFolder
         if (stagedFiles.length === 0) return;
         setUploading(true);
 
-        const uploadPromises = stagedFiles.map(async (staged) => {
-            if (staged.status === "success") return; // Skip already uploaded
+        const uploadedUrls: string[] = [];
 
-            updateFile(staged.id, { status: "uploading", progress: 20 });
+        const uploadPromises = stagedFiles
+            .filter((f) => f.status !== "success")
+            .map(async (staged) => {
+                const formData = new FormData();
+                formData.append("file", staged.file);
+                formData.append("bucket", bucket);
+                if (targetFolder) formData.append("folderId", targetFolder);
+                formData.append("altAr", staged.altAr);
+                formData.append("altEn", staged.altEn);
+                if (staged.width) formData.append("width", staged.width.toString());
+                if (staged.height) formData.append("height", staged.height.toString());
 
-            const formData = new FormData();
-            formData.set("file", staged.file);
-            formData.set("bucket", bucket);
-            if (targetFolder) formData.set("folderId", targetFolder);
-            if (staged.altAr) formData.set("altAr", staged.altAr);
-            if (staged.altEn) formData.set("altEn", staged.altEn);
-            if (staged.width) formData.set("width", staged.width.toString());
-            if (staged.height) formData.set("height", staged.height.toString());
+                try {
+                    updateFile(staged.id, { status: "uploading", progress: 0 });
 
-            try {
-                // Simulate progressive upload visually
-                let progress = 20;
-                const interval = setInterval(() => {
-                    progress = Math.min(progress + 15, 90);
-                    updateFile(staged.id, { progress });
-                }, 200);
+                    let progress = 0;
+                    const interval = setInterval(() => {
+                        progress = Math.min(progress + 15, 90);
+                        updateFile(staged.id, { progress });
+                    }, 200);
 
-                await uploadMedia(formData);
+                    const result = await uploadMedia(formData);
+                    if (result && result.publicUrl) {
+                        uploadedUrls.push(result.publicUrl);
+                    }
 
-                clearInterval(interval);
-                updateFile(staged.id, { status: "success", progress: 100 });
-            } catch (err: unknown) {
-                const message = err instanceof Error ? err.message : "Upload failed";
-                updateFile(staged.id, { status: "error", errorMsg: message });
-            }
-        });
+                    clearInterval(interval);
+                    updateFile(staged.id, { status: "success", progress: 100 });
+                } catch (err: unknown) {
+                    const message = err instanceof Error ? err.message : "Upload failed";
+                    updateFile(staged.id, { status: "error", errorMsg: message });
+                }
+            });
 
         await Promise.all(uploadPromises);
         setUploading(false);
@@ -159,7 +163,7 @@ export function UploadDialog({ initialFiles = [], folders, bucket, defaultFolder
         setStagedFiles((current) => {
             const allSuccess = current.every((f) => f.status === "success");
             if (allSuccess) {
-                setTimeout(() => onSuccess(), 1000); // Close automatically after 1s
+                setTimeout(() => onSuccess(uploadedUrls), 1000); // Close automatically after 1s
             }
             return current;
         });
