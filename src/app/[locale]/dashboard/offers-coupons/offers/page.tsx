@@ -1,12 +1,15 @@
 import { getLocale } from "next-intl/server";
+import { getOffers } from "@/app/actions/store-marketing";
+import { getStoreProducts } from "@/app/actions/store-products";
+import { getStoreCategories } from "@/app/actions/store-categories";
+import { OffersGrid } from "@/components/cms/OffersGrid";
 
 export default async function OffersPage() {
-    const locale = await getLocale();
-    return (
-        <div className="space-y-4">
-            <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
-                {locale === "ar" ? "العروض" : "Offers"}
-            </h1>
-        </div>
-    );
+    const [locale, offers, products, categories] = await Promise.all([
+        getLocale(),
+        getOffers(),
+        getStoreProducts(),
+        getStoreCategories()
+    ]);
+    return <OffersGrid locale={locale} offers={offers} products={products} categories={categories} />;
 }

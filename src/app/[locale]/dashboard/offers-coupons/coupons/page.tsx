@@ -1,12 +1,11 @@
 import { getLocale } from "next-intl/server";
+import { getCoupons } from "@/app/actions/store-marketing";
+import { CouponsGrid } from "@/components/cms/CouponsGrid";
 
 export default async function CouponsPage() {
-    const locale = await getLocale();
-    return (
-        <div className="space-y-4">
-            <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
-                {locale === "ar" ? "الكوبونات" : "Coupons"}
-            </h1>
-        </div>
-    );
+    const [locale, coupons] = await Promise.all([
+        getLocale(),
+        getCoupons()
+    ]);
+    return <CouponsGrid locale={locale} coupons={coupons} />;
 }

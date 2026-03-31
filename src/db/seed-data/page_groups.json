@@ -1,0 +1,65 @@
+[
+  {
+    "id": "dashboard.users-management",
+    "icon": "users",
+    "name_ar": "إدارة المستخدمين والصلاحيات",
+    "name_en": "Users & Roles",
+    "created_at": "2026-03-17T03:14:52.689104+00:00",
+    "section_id": "dashboard",
+    "sort_order": 1
+  },
+  {
+    "id": "dashboard.content-management",
+    "icon": "file-text",
+    "name_ar": "إدارة المحتوى",
+    "name_en": "Content Management",
+    "created_at": "2026-03-17T03:14:52.689104+00:00",
+    "section_id": "dashboard",
+    "sort_order": 2
+  },
+  {
+    "id": "dashboard.store-management",
+    "icon": "shopping-bag",
+    "name_ar": "إدارة المتجر",
+    "name_en": "Store Management",
+    "created_at": "2026-03-17T03:14:52.689104+00:00",
+    "section_id": "dashboard",
+    "sort_order": 3
+  },
+  {
+    "id": "pms.projects",
+    "icon": "kanban",
+    "name_ar": "المشاريع",
+    "name_en": "Projects",
+    "created_at": "2026-03-17T03:14:52.689104+00:00",
+    "section_id": "pms",
+    "sort_order": 1
+  },
+  {
+    "id": "pms.team",
+    "icon": "users",
+    "name_ar": "إدارة الفريق",
+    "name_en": "Team Management",
+    "created_at": "2026-03-17T03:14:52.689104+00:00",
+    "section_id": "pms",
+    "sort_order": 2
+  },
+  {
+    "id": "dashboard.settings",
+    "icon": "settings",
+    "name_ar": "الإعدادات",
+    "name_en": "Settings",
+    "created_at": "2026-03-17T03:14:52.689104+00:00",
+    "section_id": "dashboard",
+    "sort_order": 5
+  },
+  {
+    "id": "dashboard.public-management",
+    "icon": "globe",
+    "name_ar": "إدارة الموقع العام",
+    "name_en": "Public Management",
+    "created_at": "2026-03-17T19:10:22.699394+00:00",
+    "section_id": "dashboard",
+    "sort_order": 4
+  }
+]

@@ -1,12 +1,13 @@
 import { getLocale } from "next-intl/server";
+import { getAllVariants } from "@/app/actions/store-products";
+import { getStoreProducts } from "@/app/actions/store-products";
+import { VariantsGrid } from "@/components/cms/VariantsGrid";
 
-export default async function ProductVariantsPage() {
-    const locale = await getLocale();
-    return (
-        <div className="space-y-4">
-            <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
-                {locale === "ar" ? "متغيرات المنتجات" : "Product Variants"}
-            </h1>
-        </div>
-    );
+export default async function VariantsPage() {
+    const [locale, variants, products] = await Promise.all([
+        getLocale(),
+        getAllVariants(),
+        getStoreProducts()
+    ]);
+    return <VariantsGrid locale={locale} variants={variants} products={products} />;
 }

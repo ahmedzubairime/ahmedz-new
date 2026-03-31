@@ -1,0 +1,20 @@
+[
+  {
+    "id": "dashboard",
+    "icon": "layout-dashboard",
+    "path": "/dashboard",
+    "name_ar": "لوحة التحكم",
+    "name_en": "Dashboard",
+    "created_at": "2026-03-17T03:14:52.689104+00:00",
+    "sort_order": 1
+  },
+  {
+    "id": "pms",
+    "icon": "folder-kanban",
+    "path": "/projects-management",
+    "name_ar": "إدارة المشاريع",
+    "name_en": "Projects Management",
+    "created_at": "2026-03-17T03:14:52.689104+00:00",
+    "sort_order": 2
+  }
+]

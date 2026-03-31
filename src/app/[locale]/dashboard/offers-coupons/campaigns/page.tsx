@@ -1,12 +1,11 @@
 import { getLocale } from "next-intl/server";
+import { getCampaigns } from "@/app/actions/store-marketing";
+import { CampaignsGrid } from "@/components/cms/CampaignsGrid";
 
 export default async function CampaignsPage() {
-    const locale = await getLocale();
-    return (
-        <div className="space-y-4">
-            <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
-                {locale === "ar" ? "الحملات الترويجية" : "Campaigns"}
-            </h1>
-        </div>
-    );
+    const [locale, campaigns] = await Promise.all([
+        getLocale(),
+        getCampaigns()
+    ]);
+    return <CampaignsGrid locale={locale} campaigns={campaigns} />;
 }
