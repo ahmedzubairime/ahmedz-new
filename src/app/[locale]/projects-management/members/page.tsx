@@ -1,15 +1,22 @@
 import { getLocale } from "next-intl/server";
+import { getUserAccount, getUserPagePermissions } from "@/lib/permissions";
+import { getAllAccounts } from "@/app/actions/pms-tasks";
+import { MembersGrid } from "@/components/pms/MembersGrid";
 
 export default async function MembersPage() {
     const locale = await getLocale();
+    const account = await getUserAccount();
+    if (!account) return null;
+
+    const perms = await getUserPagePermissions("pms.members");
+    const accounts = await getAllAccounts();
+
     return (
-        <div className="space-y-4">
-            <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
-                {locale === "ar" ? "الأعضاء" : "Members"}
-            </h1>
-            <p className="text-zinc-500 dark:text-zinc-400">
-                {locale === "ar" ? "إدارة أعضاء الفريق" : "Manage team members"}
-            </p>
-        </div>
+        <MembersGrid
+            locale={locale}
+            accounts={accounts}
+            perms={perms}
+            currentAccountId={account.id}
+        />
     );
 }

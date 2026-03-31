@@ -169,3 +169,34 @@ export async function getUserSidebar(sectionId: string): Promise<SidebarSection 
         groups,
     };
 }
+
+export type CrudPermissions = {
+    can_create: boolean;
+    can_read: boolean;
+    can_update: boolean;
+    can_delete: boolean;
+};
+
+export async function getUserPagePermissions(pageId: string): Promise<CrudPermissions> {
+    const supabase = await createClient();
+    const {
+        data: { user },
+    } = await supabase.auth.getUser();
+
+    if (!user) return { can_create: false, can_read: false, can_update: false, can_delete: false };
+
+    const { data: permissions, error } = await supabase.rpc("get_user_permissions", {
+        user_id: user.id,
+    });
+
+    if (error || !permissions) return { can_create: false, can_read: false, can_update: false, can_delete: false };
+
+    const match = permissions.find((p: Record<string, unknown>) => p.page_id === pageId);
+
+    return {
+        can_create: match?.can_create ?? false,
+        can_read: match?.can_read ?? false,
+        can_update: match?.can_update ?? false,
+        can_delete: match?.can_delete ?? false,
+    };
+}

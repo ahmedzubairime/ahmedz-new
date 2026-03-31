@@ -1,15 +1,26 @@
 import { getLocale } from "next-intl/server";
+import { getUserAccount, getUserPagePermissions } from "@/lib/permissions";
+import { createClient } from "@/lib/supabase/server";
+import { BranchesGrid } from "@/components/pms/BranchesGrid";
 
 export default async function BranchesPage() {
     const locale = await getLocale();
+    const account = await getUserAccount();
+    if (!account) return null;
+
+    const perms = await getUserPagePermissions("pms.branches");
+
+    const supabase = await createClient();
+    const { data: branches } = await supabase
+        .from("branches")
+        .select("*")
+        .order("sort_order", { ascending: true });
+
     return (
-        <div className="space-y-4">
-            <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
-                {locale === "ar" ? "الفروع" : "Branches"}
-            </h1>
-            <p className="text-zinc-500 dark:text-zinc-400">
-                {locale === "ar" ? "إدارة فروع المنظمة" : "Manage organization branches"}
-            </p>
-        </div>
+        <BranchesGrid
+            locale={locale}
+            branches={branches || []}
+            perms={perms}
+        />
     );
 }
