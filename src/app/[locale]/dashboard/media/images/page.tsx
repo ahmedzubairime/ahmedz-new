@@ -1,29 +1,42 @@
 import { getLocale } from "next-intl/server";
 import { getMediaFiles, getMediaFolders } from "@/app/actions/media";
 import { MediaGrid } from "@/components/media/MediaGrid";
+import { Suspense } from "react";
+import { TableSkeleton } from "@/components/ui/Skeletons";
 
-export default async function ImagesPage() {
-    const locale = await getLocale();
+async function ImagesWrapper({ locale }: { locale: string }) {
     const { files, count } = await getMediaFiles({ bucket: "images", limit: 50 });
     const folders = await getMediaFolders();
 
     return (
+        <MediaGrid
+            files={files}
+            folders={folders}
+            bucket="images"
+            locale={locale}
+            totalCount={count}
+        />
+    );
+}
+
+export default async function ImagesPage() {
+    const locale = await getLocale();
+
+    return (
         <div className="space-y-6">
-            <div>
-                <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
-                    {locale === "ar" ? "الصور" : "Images"}
-                </h1>
-                <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
-                    {locale === "ar" ? `${count} صورة` : `${count} images`}
-                </p>
+            <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-zinc-200 bg-white/50 p-6 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-900/50">
+                <div>
+                    <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
+                        {locale === "ar" ? "الصور" : "Images"}
+                    </h1>
+                    <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
+                        {locale === "ar" ? "إدارة صور النظام" : "Manage system images"}
+                    </p>
+                </div>
             </div>
-            <MediaGrid
-                files={files}
-                folders={folders}
-                bucket="images"
-                locale={locale}
-                totalCount={count}
-            />
+            <Suspense fallback={<TableSkeleton rowCount={6} />}>
+                <ImagesWrapper locale={locale} />
+            </Suspense>
         </div>
     );
 }

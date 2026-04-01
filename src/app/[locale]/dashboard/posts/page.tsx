@@ -3,13 +3,21 @@ import { getPosts } from "@/app/actions/posts";
 import { PostsList } from "@/components/posts/PostsList";
 import Link from "next/link";
 import { SidebarIcon } from "@/components/SidebarIcon";
+import { Suspense } from "react";
+import { TableSkeleton } from "@/components/ui/Skeletons";
+
+// Separate async component for data fetching
+async function PostsDataWrapper({ searchParams, locale }: { searchParams: { status?: string; search?: string }, locale: string }) {
+    const posts = await getPosts(searchParams);
+    return <PostsList locale={locale} posts={posts} />;
+}
 
 export default async function PostsPage({ searchParams }: { searchParams: { status?: string; search?: string } }) {
     const locale = await getLocale();
-    const posts = await getPosts(searchParams);
 
     return (
         <div className="space-y-6 max-w-7xl mx-auto">
+            {/* Page Header (Renders Instantly) */}
             <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-zinc-200 bg-white/50 p-6 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-900/50">
                 <div>
                     <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
@@ -33,7 +41,10 @@ export default async function PostsPage({ searchParams }: { searchParams: { stat
 
             {/* In a real scenario, we'd add filters here (Search, Status Draft/Published dropdowns) */}
 
-            <PostsList locale={locale} posts={posts} />
+            <Suspense fallback={<TableSkeleton rowCount={5} />}>
+                {/* @ts-ignore - Async Server Component */}
+                <PostsDataWrapper searchParams={searchParams} locale={locale} />
+            </Suspense>
         </div>
     );
 }
