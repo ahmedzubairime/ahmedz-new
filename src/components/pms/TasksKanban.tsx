@@ -4,6 +4,7 @@ import { useState, useTransition } from "react";
 import { SidebarIcon } from "@/components/SidebarIcon";
 import { saveTask, updateTaskStatus, deleteTask } from "@/app/actions/pms-tasks";
 import type { CrudPermissions } from "@/lib/permissions";
+import { TaskDetailDrawer } from "./TaskDetailDrawer";
 
 type Props = {
     locale: string;
@@ -25,6 +26,7 @@ const PRIORITY_BADGE: Record<string, { color: string; icon: string }> = {
 };
 
 export function TasksKanban({ locale, tasks, statuses, labels, projects, accounts, perms, currentAccountId, userRoles }: Props) {
+    const [openedTaskId, setOpenedTaskId] = useState<string | null>(null);
     const [isPending, startTransition] = useTransition();
     const [isModalOpen, setModalOpen] = useState(false);
     const [editing, setEditing] = useState<any>(null);
@@ -175,7 +177,7 @@ export function TasksKanban({ locale, tasks, statuses, labels, projects, account
                                 col.tasks.map((t: any) => {
                                     const pri = PRIORITY_BADGE[t.priority] || PRIORITY_BADGE.medium;
                                     return (
-                                        <div key={t.id} className="group rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-3.5 shadow-sm hover:shadow-md transition-all">
+                                        <div key={t.id} onClick={() => setOpenedTaskId(t.id)} className="group cursor-pointer rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-3.5 shadow-sm hover:shadow-md transition-all">
                                             {/* Top: Project + Priority */}
                                             <div className="flex items-center justify-between mb-2">
                                                 {t.project && (
@@ -227,10 +229,10 @@ export function TasksKanban({ locale, tasks, statuses, labels, projects, account
 
                                                 {canManageTask(t) && (
                                                     <div className="flex gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity">
-                                                        <button onClick={() => openEdit(t)} className="flex size-6 cursor-pointer items-center justify-center rounded hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-400"><SidebarIcon name="edit" className="size-3" /></button>
-                                                        {perms.can_delete && <button onClick={() => handleDelete(t.id)} className="flex size-6 cursor-pointer items-center justify-center rounded hover:bg-rose-50 hover:text-rose-500 dark:hover:bg-rose-500/10 text-zinc-400"><SidebarIcon name="trash" className="size-3" /></button>}
+                                                        <button onClick={(e) => { e.stopPropagation(); openEdit(t); }} className="flex size-6 cursor-pointer items-center justify-center rounded hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-400"><SidebarIcon name="edit" className="size-3" /></button>
+                                                        {perms.can_delete && <button onClick={(e) => { e.stopPropagation(); handleDelete(t.id); }} className="flex size-6 cursor-pointer items-center justify-center rounded hover:bg-rose-50 hover:text-rose-500 dark:hover:bg-rose-500/10 text-zinc-400"><SidebarIcon name="trash" className="size-3" /></button>}
                                                         {/* Quick move dropdown */}
-                                                        <select onChange={(e) => { if (e.target.value) handleStatusChange(t.id, e.target.value); e.target.value = ""; }} value="" className="w-5 h-6 opacity-0 group-hover:opacity-100 cursor-pointer text-[10px] bg-transparent border-0 outline-none">
+                                                        <select onClick={(e) => e.stopPropagation()} onChange={(e) => { if (e.target.value) handleStatusChange(t.id, e.target.value); e.target.value = ""; }} value="" className="w-5 h-6 opacity-0 group-hover:opacity-100 cursor-pointer text-[10px] bg-transparent border-0 outline-none">
                                                             <option value="">→</option>
                                                             {statuses.filter((s: any) => s.id !== col.id).map((s: any) => (
                                                                 <option key={s.id} value={s.id}>{isAr ? s.name_ar : s.name_en}</option>
@@ -342,6 +344,19 @@ export function TasksKanban({ locale, tasks, statuses, labels, projects, account
                         </div>
                     </div>
                 </div>
+            )}
+
+            {openedTaskId && (
+                <TaskDetailDrawer
+                    locale={locale}
+                    taskId={openedTaskId}
+                    onClose={() => setOpenedTaskId(null)}
+                    onUpdated={() => {}}
+                    currentAccountId={currentAccountId}
+                    isAdmin={isAdmin}
+                    statuses={statuses}
+                    accounts={accounts}
+                />
             )}
         </div>
     );

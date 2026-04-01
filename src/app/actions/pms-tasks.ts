@@ -2,6 +2,7 @@
 
 import { createClient } from "@/lib/supabase/server";
 import { revalidatePath } from "next/cache";
+import { logActivity } from "./pms-activity";
 
 const REVALIDATE = "/projects-management";
 
@@ -160,6 +161,17 @@ export async function saveTask(payload: any, id?: string) {
                 labels.map((labelId: string) => ({ task_id: task.id, label_id: labelId }))
             );
         }
+
+        if (task) {
+            await logActivity({
+                action_type: "create",
+                entity_type: "task",
+                entity_id: task.id,
+                project_id: rest.project_id || null,
+                task_id: task.id,
+                details: { title: payload.title_en }
+            });
+        }
     }
     revalidatePath(REVALIDATE);
 }
@@ -176,6 +188,15 @@ export async function updateTaskStatus(taskId: string, statusId: string) {
     }
     const { error } = await supabase.from("pms_tasks").update(updates).eq("id", taskId);
     if (error) throw new Error(error.message);
+
+    await logActivity({
+        action_type: "status_change",
+        entity_type: "task",
+        entity_id: taskId,
+        task_id: taskId,
+        details: { status_id: statusId, completed: status?.is_final || false }
+    });
+
     revalidatePath(REVALIDATE);
 }
 
@@ -199,6 +220,15 @@ export async function addComment(taskId: string, contentText: string) {
         content_text: contentText,
     });
     if (error) throw new Error(error.message);
+
+    await logActivity({
+        action_type: "comment",
+        entity_type: "comment",
+        entity_id: taskId,
+        task_id: taskId,
+        details: { text: contentText }
+    });
+
     revalidatePath(REVALIDATE);
 }
 
@@ -236,6 +266,14 @@ export async function addTimeEntry(taskId: string, durationMinutes: number, desc
     // Update logged_hours on task
     const hours = durationMinutes / 60;
     await supabase.rpc("increment_logged_hours", { p_task_id: taskId, p_hours: hours }).then(() => {});
+
+    await logActivity({
+        action_type: "log_time",
+        entity_type: "task",
+        entity_id: taskId,
+        task_id: taskId,
+        details: { duration_minutes: durationMinutes, description }
+    });
 
     revalidatePath(REVALIDATE);
 }
