@@ -33,6 +33,18 @@
   --sidebar-border: rgba(255, 255, 255, 0.08);
   --sidebar-width: 260px;
   --sidebar-collapsed-width: 72px;
+
+  /* Sidebar groups */
+  --sidebar-group-bg: rgba(255, 255, 255, 0.03);
+  --sidebar-group-bg-hover: rgba(255, 255, 255, 0.07);
+  --sidebar-group-accent: #38bdf8;
+  --sidebar-group-separator: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.06) 30%,
+    rgba(255, 255, 255, 0.06) 70%,
+    transparent
+  );
 }
 
 .dark {
@@ -46,6 +58,17 @@
   --sidebar-active: #38bdf8;
   --sidebar-active-bg: rgba(56, 189, 248, 0.1);
   --sidebar-border: rgba(255, 255, 255, 0.06);
+
+  --sidebar-group-bg: rgba(255, 255, 255, 0.025);
+  --sidebar-group-bg-hover: rgba(255, 255, 255, 0.055);
+  --sidebar-group-accent: #38bdf8;
+  --sidebar-group-separator: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.04) 30%,
+    rgba(255, 255, 255, 0.04) 70%,
+    transparent
+  );
 }
 
 @theme inline {
@@ -88,4 +111,59 @@ body {
 /* Sidebar transition */
 .sidebar-transition {
   transition: width 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Sidebar group collapse animation — CSS grid trick for height: auto */
+.sidebar-group-body {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: grid-template-rows 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-group-body[data-collapsed="true"] {
+  grid-template-rows: 0fr;
+}
+
+.sidebar-group-body > div {
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* Group gradient separator */
+.sidebar-group-separator {
+  height: 1px;
+  background: var(--sidebar-group-separator);
+  margin: 6px 12px;
+}
+
+/* Group accent dot */
+.sidebar-group-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--sidebar-group-accent);
+  opacity: 0.6;
+  flex-shrink: 0;
+  transition: opacity 200ms, transform 200ms;
+}
+
+.sidebar-group-header:hover .sidebar-group-dot {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* Page count badge */
+.sidebar-group-badge {
+  font-size: 10px;
+  line-height: 1;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--sidebar-text-muted);
+  font-variant-numeric: tabular-nums;
+  transition: background 200ms;
+}
+
+.sidebar-group-header:hover .sidebar-group-badge {
+  background: rgba(255, 255, 255, 0.1);
 }

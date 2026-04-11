@@ -158,38 +158,57 @@ export function DynamicSidebar({ section, account, sectionLabel, sectionIcon }: 
             {/* Navigation */}
             <nav className="flex-1 overflow-y-auto custom-scrollbar p-2.5">
                 <div className="space-y-1">
-                    {section.groups.map((group) => {
+                    {section.groups.map((group, groupIndex) => {
                         const isGroupCollapsed = collapsed[group.id] ?? false;
+                        const pageCount = group.pages.length;
 
                         if (isCollapsed) {
                             return (
-                                <div key={group.id} className="space-y-0.5">
-                                    <div className="my-2 h-px bg-[var(--sidebar-border)]" />
-                                    {group.pages.map((page) => renderPage(page))}
+                                <div key={group.id}>
+                                    {groupIndex > 0 && <div className="sidebar-group-separator" />}
+                                    {group.icon && (
+                                        <div
+                                            title={locale === "ar" ? group.name_ar : group.name_en}
+                                            className="mx-auto my-1.5 flex size-8 items-center justify-center rounded-lg bg-[var(--sidebar-group-bg)] text-[var(--sidebar-text-muted)] transition-colors hover:bg-[var(--sidebar-group-bg-hover)] hover:text-[var(--sidebar-text)]"
+                                        >
+                                            <SidebarIcon name={group.icon} className="size-3.5" />
+                                        </div>
+                                    )}
+                                    <div className="space-y-0.5">
+                                        {group.pages.map((page) => renderPage(page))}
+                                    </div>
                                 </div>
                             );
                         }
 
                         return (
                             <div key={group.id}>
+                                {groupIndex > 0 && <div className="sidebar-group-separator" />}
                                 <button
                                     onClick={() => toggleGroup(group.id)}
-                                    className="flex w-full cursor-pointer items-center justify-between rounded px-3 py-2 text-[11px] font-semibold uppercase tracking-wider text-[var(--sidebar-text-muted)] transition-colors hover:text-[var(--sidebar-text)]"
+                                    className="sidebar-group-header flex w-full cursor-pointer items-center gap-2 rounded-lg bg-[var(--sidebar-group-bg)] px-3 py-2 text-[11px] font-semibold uppercase tracking-wider text-[var(--sidebar-text-muted)] transition-all duration-200 hover:bg-[var(--sidebar-group-bg-hover)] hover:text-[var(--sidebar-text)]"
                                 >
-                                    <div className="flex items-center gap-2">
-                                        {group.icon && <SidebarIcon name={group.icon} className="size-3.5" />}
-                                        <span>{locale === "ar" ? group.name_ar : group.name_en}</span>
-                                    </div>
+                                    <span className="sidebar-group-dot" />
+                                    {group.icon && <SidebarIcon name={group.icon} className="size-3.5" />}
+                                    <span className="flex-1 truncate text-start">
+                                        {locale === "ar" ? group.name_ar : group.name_en}
+                                    </span>
+                                    <span className="sidebar-group-badge">{pageCount}</span>
                                     <SidebarIcon
                                         name="chevron-down"
                                         className={`size-3 transition-transform duration-200 ${isGroupCollapsed ? "ltr:-rotate-90 rtl:rotate-90" : ""}`}
                                     />
                                 </button>
-                                {!isGroupCollapsed && (
-                                    <div className="mt-0.5 space-y-0.5">
-                                        {group.pages.map((page) => renderPage(page))}
+                                <div
+                                    className="sidebar-group-body"
+                                    data-collapsed={isGroupCollapsed}
+                                >
+                                    <div>
+                                        <div className="mt-0.5 space-y-0.5">
+                                            {group.pages.map((page) => renderPage(page))}
+                                        </div>
                                     </div>
-                                )}
+                                </div>
                             </div>
                         );
                     })}
