@@ -19,6 +19,7 @@ const getTestimonialSchema = (locale: string) => z.object({
   role_en: z.string().optional(),
   content_ar: z.string().min(1, locale === "ar" ? "مطلوب" : "Required"),
   content_en: z.string().min(1, locale === "ar" ? "مطلوب" : "Required"),
+  rating: z.any(),
   is_active: z.boolean(),
   sort_order: z.any()
 });
@@ -36,7 +37,7 @@ export function TestimonialsGrid({ locale, testimonials }: Props) {
 
     const { register, handleSubmit, control, reset, formState: { errors } } = useForm<TestimonialFormValues>({
         resolver: zodResolver(schema),
-        defaultValues: { is_active: true, sort_order: 0 }
+        defaultValues: { is_active: true, sort_order: 0, rating: 5 }
     });
 
     const [avatarId, setAvatarId] = useState<string | null>(null);
@@ -45,7 +46,7 @@ export function TestimonialsGrid({ locale, testimonials }: Props) {
 
     function openNew() {
         setEditingId(null);
-        reset({ author_name_ar: "", author_name_en: "", role_ar: "", role_en: "", content_ar: "", content_en: "", is_active: true, sort_order: 0 });
+        reset({ author_name_ar: "", author_name_en: "", role_ar: "", role_en: "", content_ar: "", content_en: "", is_active: true, sort_order: 0, rating: 5 });
         setAvatarId(null); setAvatarUrl(null); setModalOpen(true);
     }
 
@@ -55,7 +56,7 @@ export function TestimonialsGrid({ locale, testimonials }: Props) {
             author_name_ar: t.author_name_ar || "", author_name_en: t.author_name_en || "",
             role_ar: t.role_ar || "", role_en: t.role_en || "",
             content_ar: t.content_ar || "", content_en: t.content_en || "",
-            is_active: t.is_active, sort_order: t.sort_order || 0
+            is_active: t.is_active, sort_order: t.sort_order || 0, rating: t.rating || 5
         });
         setAvatarId(t.avatar_id || null);
         setAvatarUrl(t.avatar ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/${t.avatar.bucket}/${t.avatar.storage_path}` : null);
@@ -67,7 +68,7 @@ export function TestimonialsGrid({ locale, testimonials }: Props) {
     function onSubmit(data: TestimonialFormValues) {
         startTransition(async () => {
             try {
-                const payload = { ...data, sort_order: parseInt(String(data.sort_order)) || 0, avatar_id: avatarId };
+                const payload = { ...data, sort_order: parseInt(String(data.sort_order)) || 0, rating: parseInt(String(data.rating)) || 5, avatar_id: avatarId };
                 await saveTestimonial(payload, editingId || undefined);
                 close();
                 toast.success(locale === "ar" ? "تم الحفظ بنجاح" : "Saved successfully", { icon: "🗣️" });
@@ -155,6 +156,11 @@ export function TestimonialsGrid({ locale, testimonials }: Props) {
                                     </div>
 
                                     <div className="flex-1 z-10 mt-1">
+                                        <div className="flex items-center gap-0.5 mb-2">
+                                            {[1,2,3,4,5].map(star => (
+                                                <SidebarIcon key={star} name="star" className={`size-4 ${star <= (t.rating || 5) ? 'text-amber-400 fill-amber-400' : 'text-zinc-200 dark:text-zinc-700'}`} />
+                                            ))}
+                                        </div>
                                         <p className="text-[15px] font-medium leading-relaxed text-zinc-600 dark:text-zinc-300 italic line-clamp-5 px-1 tracking-wide relative">
                                             {locale === "ar" ? t.content_ar : t.content_en}
                                         </p>
@@ -221,8 +227,9 @@ export function TestimonialsGrid({ locale, testimonials }: Props) {
                         <PlayfulTextarea label={locale === "ar" ? "نص المراجعة (AR)" : "Arabic Testimonial"} dir="rtl" rows={4} {...register("content_ar")} error={errors.content_ar?.message} />
                     </div>
 
-                    <div className="flex gap-4 p-5 rounded-3xl bg-zinc-50/50 dark:bg-zinc-900/30 border border-zinc-100 dark:border-zinc-800">
+                        <div className="flex gap-4 p-5 rounded-3xl bg-zinc-50/50 dark:bg-zinc-900/30 border border-zinc-100 dark:border-zinc-800">
                         <PlayfulInput label={locale === "ar" ? "الترتيب" : "Sort Order"} type="number" dir="ltr" {...register("sort_order")} error={errors.sort_order?.message as string} className="max-w-24 text-center font-black !m-0" />
+                        <PlayfulInput label={locale === "ar" ? "التقييم" : "Rating (1-5)"} type="number" dir="ltr" min={1} max={5} {...register("rating")} className="max-w-24 text-center font-black !m-0" />
                         <div className="flex-1 pt-2">
                             <Controller name="is_active" control={control} render={({ field }) => (
                                 <PlayfulSwitch label={locale === "ar" ? "مرئي بالموقع" : "Visible on Site"} checked={field.value} onChange={field.onChange} />

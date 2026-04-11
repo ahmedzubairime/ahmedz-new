@@ -3,6 +3,7 @@
 import { useState, useTransition, useMemo } from "react";
 import { SidebarIcon } from "@/components/SidebarIcon";
 import { saveFeature, deleteFeature } from "@/app/actions/homepage-lists";
+import { UploadDialog } from "@/components/media/UploadDialog";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -41,9 +42,14 @@ export function FeaturesGrid({ locale, features }: Props) {
 
     const currentIcon = watch("icon_name") || "star";
 
+    const [imageId, setImageId] = useState<string | null>(null);
+    const [imageUrl, setImageUrl] = useState<string | null>(null);
+    const [isImageDialogOpen, setIsImageDialogOpen] = useState(false);
+
     function openNew() {
         setEditingId(null);
         reset({ title_ar: "", title_en: "", description_ar: "", description_en: "", icon_name: "star", is_active: true });
+        setImageId(null); setImageUrl(null);
         setModalOpen(true);
     }
 
@@ -54,6 +60,8 @@ export function FeaturesGrid({ locale, features }: Props) {
             description_ar: f.description_ar || "", description_en: f.description_en || "",
             icon_name: f.icon_name || "star", is_active: f.is_active
         });
+        setImageId(f.image_id || null);
+        setImageUrl(f.feature_image ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/${f.feature_image.bucket}/${f.feature_image.storage_path}` : null);
         setModalOpen(true);
     }
 
@@ -62,7 +70,7 @@ export function FeaturesGrid({ locale, features }: Props) {
     function onSubmit(data: FeatureFormValues) {
         startTransition(async () => {
             try {
-                await saveFeature(data, editingId || undefined);
+                await saveFeature({ ...data, image_id: imageId }, editingId || undefined);
                 close();
                 toast.success(locale === "ar" ? "تم الحفظ بنجاح" : "Saved successfully", { icon: "✨" });
             } catch (err) {
@@ -189,8 +197,34 @@ export function FeaturesGrid({ locale, features }: Props) {
                             </div>
                         )} />
                     </div>
+
+                    {/* Optional Image */}
+                    <div className="p-4 rounded-3xl bg-zinc-50/50 dark:bg-zinc-900/30 border border-zinc-100 dark:border-zinc-800 space-y-3">
+                        <label className="text-xs font-black uppercase tracking-widest text-zinc-500">{locale === "ar" ? "صورة الميزة (اختياري)" : "Feature Image (Optional)"}</label>
+                        {imageUrl ? (
+                            <div className="relative overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-700 aspect-video max-w-xs group shadow-sm">
+                                <img src={imageUrl} alt="" className="size-full object-cover" />
+                                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 backdrop-blur-sm">
+                                    <button type="button" onClick={() => setIsImageDialogOpen(true)} className="px-3 py-1.5 bg-white text-zinc-900 rounded-lg text-xs font-bold hover:scale-105 transition-transform">Change</button>
+                                    <button type="button" onClick={() => { setImageId(null); setImageUrl(null); }} className="px-3 py-1.5 bg-rose-600 text-white rounded-lg text-xs font-bold hover:scale-105 transition-transform">Remove</button>
+                                </div>
+                            </div>
+                        ) : (
+                            <div onClick={() => setIsImageDialogOpen(true)} className="group flex cursor-pointer items-center justify-center rounded-xl border-2 border-dashed border-zinc-300 bg-white/50 py-8 max-w-xs transition-all hover:border-[var(--brand-primary)] dark:border-zinc-700 dark:bg-zinc-900/50">
+                                <SidebarIcon name="image-plus" className="size-5 text-zinc-400 group-hover:text-[var(--brand-primary)]" />
+                                <span className="ml-2 text-xs text-zinc-500">{locale === "ar" ? "اختيار صورة" : "Select Image"}</span>
+                            </div>
+                        )}
+                    </div>
                 </form>
             </PlayfulModal>
+
+            {isImageDialogOpen && (
+                <UploadDialog folders={[]} bucket="images" defaultFolderId="all" locale={locale}
+                    onClose={() => setIsImageDialogOpen(false)}
+                    onSuccess={(urls) => { setIsImageDialogOpen(false); if (urls?.[0]) setImageUrl(urls[0]); }}
+                />
+            )}
         </div>
     );
 }

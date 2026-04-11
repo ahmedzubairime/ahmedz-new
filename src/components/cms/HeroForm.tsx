@@ -17,9 +17,14 @@ const getHeroSchema = (locale: string) => z.object({
   title_en: z.string().optional(),
   subtitle_ar: z.string().optional(),
   subtitle_en: z.string().optional(),
+  badge_text_ar: z.string().optional(),
+  badge_text_en: z.string().optional(),
   cta_primary_text_ar: z.string().optional(),
   cta_primary_text_en: z.string().optional(),
   cta_primary_link: z.string().optional(),
+  cta_secondary_text_ar: z.string().optional(),
+  cta_secondary_text_en: z.string().optional(),
+  cta_secondary_link: z.string().optional(),
 });
 
 type HeroFormValues = z.infer<ReturnType<typeof getHeroSchema>>;
@@ -50,9 +55,14 @@ export function HeroForm({ locale, initialData }: Props) {
             title_en: initialData?.title_en || "",
             subtitle_ar: initialData?.subtitle_ar || "",
             subtitle_en: initialData?.subtitle_en || "",
+            badge_text_ar: initialData?.badge_text_ar || "",
+            badge_text_en: initialData?.badge_text_en || "",
             cta_primary_text_ar: initialData?.cta_primary_text_ar || "",
             cta_primary_text_en: initialData?.cta_primary_text_en || "",
             cta_primary_link: initialData?.cta_primary_link || "",
+            cta_secondary_text_ar: initialData?.cta_secondary_text_ar || "",
+            cta_secondary_text_en: initialData?.cta_secondary_text_en || "",
+            cta_secondary_link: initialData?.cta_secondary_link || "",
         }
     });
 
@@ -65,9 +75,14 @@ export function HeroForm({ locale, initialData }: Props) {
             title_en: initialData?.title_en || "",
             subtitle_ar: initialData?.subtitle_ar || "",
             subtitle_en: initialData?.subtitle_en || "",
+            badge_text_ar: initialData?.badge_text_ar || "",
+            badge_text_en: initialData?.badge_text_en || "",
             cta_primary_text_ar: initialData?.cta_primary_text_ar || "",
             cta_primary_text_en: initialData?.cta_primary_text_en || "",
             cta_primary_link: initialData?.cta_primary_link || "",
+            cta_secondary_text_ar: initialData?.cta_secondary_text_ar || "",
+            cta_secondary_text_en: initialData?.cta_secondary_text_en || "",
+            cta_secondary_link: initialData?.cta_secondary_link || "",
         });
         setImageId(initialData?.image_id || null);
         setCoverUrl(initialData?.cover ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/${initialData.cover.bucket}/${initialData.cover.storage_path}` : null);
@@ -117,9 +132,11 @@ export function HeroForm({ locale, initialData }: Props) {
                         <span className="rounded-lg bg-zinc-100 px-3 flex items-center justify-center py-1 text-xs font-bold font-mono tracking-widest text-zinc-500 dark:bg-zinc-800 dark:text-zinc-400">LTR</span>
                     </div>
                     <div className="space-y-4">
+                        <PlayfulInput label="Badge Text" dir="ltr" placeholder="🚀 New Feature" {...register("badge_text_en")} error={errors.badge_text_en?.message} />
                         <PlayfulInput label="Hero Title (H1)" dir="ltr" placeholder="E.g., Empowering the Future" {...register("title_en")} error={errors.title_en?.message} />
                         <PlayfulTextarea label="Subtitle (H2 / P)" dir="ltr" rows={3} placeholder="Enter supporting text..." {...register("subtitle_en")} error={errors.subtitle_en?.message} className="bg-zinc-50/50 dark:bg-zinc-900/40" />
                         <PlayfulInput label="Primary CTA Text" dir="ltr" placeholder="E.g., Get Started" {...register("cta_primary_text_en")} error={errors.cta_primary_text_en?.message} />
+                        <PlayfulInput label="Secondary CTA Text" dir="ltr" placeholder="E.g., Learn More" {...register("cta_secondary_text_en")} error={errors.cta_secondary_text_en?.message} />
                     </div>
                 </motion.div>
 
@@ -130,9 +147,11 @@ export function HeroForm({ locale, initialData }: Props) {
                         <span className="rounded-lg bg-[var(--brand-primary)]/10 px-3 flex items-center justify-center py-1 text-xs font-bold font-mono tracking-widest text-[var(--brand-primary)]">RTL</span>
                     </div>
                     <div className="space-y-4">
+                        <PlayfulInput label="نص الشارة" dir="rtl" placeholder="🚀 ميزة جديدة" {...register("badge_text_ar")} error={errors.badge_text_ar?.message} />
                         <PlayfulInput label="العنوان الرئيسي (H1)" dir="rtl" placeholder="مثال: تمكين المستقبل" {...register("title_ar")} error={errors.title_ar?.message} />
                         <PlayfulTextarea label="النص الفرعي (H2 / P)" dir="rtl" rows={3} placeholder="أدخل النص الداعم..." {...register("subtitle_ar")} error={errors.subtitle_ar?.message} className="bg-zinc-50/50 dark:bg-zinc-900/40" />
-                        <PlayfulInput label="نص الزر التفاعلي" dir="rtl" placeholder="مثال: ابدأ الآن" {...register("cta_primary_text_ar")} error={errors.cta_primary_text_ar?.message} />
+                        <PlayfulInput label="نص الزر الرئيسي" dir="rtl" placeholder="مثال: ابدأ الآن" {...register("cta_primary_text_ar")} error={errors.cta_primary_text_ar?.message} />
+                        <PlayfulInput label="نص الزر الثانوي" dir="rtl" placeholder="مثال: اعرف المزيد" {...register("cta_secondary_text_ar")} error={errors.cta_secondary_text_ar?.message} />
                     </div>
                 </motion.div>
             </div>
@@ -146,7 +165,8 @@ export function HeroForm({ locale, initialData }: Props) {
                         </div>
                         <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">{locale === "ar" ? "رابط الزر (Global)" : "Button URL (Global)"}</h3>
                     </div>
-                    <PlayfulInput label="URL" dir="ltr" placeholder="https://... or /contact" {...register("cta_primary_link")} error={errors.cta_primary_link?.message} />
+                    <PlayfulInput label={locale === "ar" ? "رابط الزر الرئيسي" : "Primary CTA URL"} dir="ltr" placeholder="https://... or /contact" {...register("cta_primary_link")} error={errors.cta_primary_link?.message} />
+                    <PlayfulInput label={locale === "ar" ? "رابط الزر الثانوي" : "Secondary CTA URL"} dir="ltr" placeholder="https://... or /about" {...register("cta_secondary_link")} error={errors.cta_secondary_link?.message} />
                 </div>
 
                 <div className="space-y-4 rounded-3xl border-2 border-zinc-200/60 bg-white/80 p-8 shadow-xl shadow-zinc-200/20 backdrop-blur-md dark:border-zinc-800/80 dark:bg-zinc-900/80 dark:shadow-none">

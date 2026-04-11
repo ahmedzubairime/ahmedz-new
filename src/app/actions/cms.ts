@@ -12,6 +12,11 @@ export type HomepageHero = {
     cta_primary_text_ar: string | null;
     cta_primary_text_en: string | null;
     cta_primary_link: string | null;
+    cta_secondary_text_ar: string | null;
+    cta_secondary_text_en: string | null;
+    cta_secondary_link: string | null;
+    badge_text_ar: string | null;
+    badge_text_en: string | null;
     image_id: string | null;
 };
 
@@ -84,4 +89,69 @@ export async function saveContactInfo(payload: Partial<ContactInfo>) {
 
     revalidatePath("/dashboard/contact-settings/info");
     return data;
+}
+
+// --- HOMEPAGE SEO (Singleton) ---
+export type HomepageSeo = {
+    id: number;
+    meta_title_ar: string | null;
+    meta_title_en: string | null;
+    meta_description_ar: string | null;
+    meta_description_en: string | null;
+    og_image_id: string | null;
+};
+
+export async function getHomepageSeo() {
+    const supabase = await createClient();
+    const { data, error } = await supabase
+        .from("homepage_seo")
+        .select("*, og_image:media!homepage_seo_og_image_id_fkey(bucket, storage_path)")
+        .eq("id", 1)
+        .single();
+    if (error) return null;
+    return data;
+}
+
+export async function saveHomepageSeo(payload: Partial<HomepageSeo>) {
+    const supabase = await createClient();
+    const { error } = await supabase
+        .from("homepage_seo")
+        .update({ ...payload, updated_at: new Date().toISOString() })
+        .eq("id", 1);
+    if (error) throw new Error(error.message);
+    revalidatePath("/dashboard/homepage-content/seo");
+}
+
+// --- HOMEPAGE CTA (Singleton) ---
+export type HomepageCta = {
+    id: number;
+    title_ar: string;
+    title_en: string;
+    subtitle_ar: string | null;
+    subtitle_en: string | null;
+    button_text_ar: string | null;
+    button_text_en: string | null;
+    button_link: string | null;
+    background_image_id: string | null;
+};
+
+export async function getHomepageCta() {
+    const supabase = await createClient();
+    const { data, error } = await supabase
+        .from("homepage_cta")
+        .select("*, bg_image:media!homepage_cta_background_image_id_fkey(bucket, storage_path)")
+        .eq("id", 1)
+        .single();
+    if (error) return null;
+    return data;
+}
+
+export async function saveHomepageCta(payload: Partial<HomepageCta>) {
+    const supabase = await createClient();
+    const { error } = await supabase
+        .from("homepage_cta")
+        .update({ ...payload, updated_at: new Date().toISOString() })
+        .eq("id", 1);
+    if (error) throw new Error(error.message);
+    revalidatePath("/dashboard/homepage-content/cta");
 }

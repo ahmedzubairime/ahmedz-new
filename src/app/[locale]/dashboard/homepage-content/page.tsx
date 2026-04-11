@@ -45,6 +45,46 @@ export default async function HomepageContentOverview() {
             icon: "message-square-quote",
             color: "text-emerald-500",
             bg: "bg-emerald-500/10"
+        },
+        {
+            href: `/${locale}/dashboard/homepage-content/stats`,
+            title_ar: "الإحصائيات والعدادات",
+            title_en: "Stats & Counters",
+            desc_ar: "أرقام مثل عدد العملاء، المشاريع المنجزة.",
+            desc_en: "Numbers like clients served, projects completed.",
+            icon: "bar-chart-2",
+            color: "text-amber-500",
+            bg: "bg-amber-500/10"
+        },
+        {
+            href: `/${locale}/dashboard/homepage-content/cta`,
+            title_ar: "شريط الدعوة للإجراء",
+            title_en: "CTA Banner",
+            desc_ar: "تخصيص شريط الدعوة للإجراء الظاهر في الصفحة الرئيسية.",
+            desc_en: "Customize the call-to-action banner on the homepage.",
+            icon: "megaphone",
+            color: "text-rose-500",
+            bg: "bg-rose-500/10"
+        },
+        {
+            href: `/${locale}/dashboard/homepage-content/faq`,
+            title_ar: "الأسئلة الشائعة",
+            title_en: "FAQ",
+            desc_ar: "أدر الأسئلة المتكررة التي تظهر في الصفحة الرئيسية.",
+            desc_en: "Manage frequently asked questions displayed on the homepage.",
+            icon: "message-square",
+            color: "text-sky-500",
+            bg: "bg-sky-500/10"
+        },
+        {
+            href: `/${locale}/dashboard/homepage-content/seo`,
+            title_ar: "إعدادات السيو",
+            title_en: "SEO Settings",
+            desc_ar: "تحسين ظهور الصفحة الرئيسية في محركات البحث.",
+            desc_en: "Optimize how the homepage appears in search engines.",
+            icon: "search",
+            color: "text-teal-500",
+            bg: "bg-teal-500/10"
         }
     ];
 

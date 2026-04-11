@@ -8,7 +8,7 @@ export async function getFeatures() {
     const supabase = await createClient();
     const { data, error } = await supabase
         .from("homepage_features")
-        .select("*")
+        .select("*, feature_image:media!homepage_features_image_id_fkey(bucket, storage_path)")
         .order("sort_order", { ascending: true })
         .order("created_at", { ascending: false });
     if (error) throw new Error(error.message);
@@ -100,4 +100,66 @@ export async function deleteTestimonial(id: string) {
     const { error } = await supabase.from("homepage_testimonials").delete().eq("id", id);
     if (error) throw new Error(error.message);
     revalidatePath("/dashboard/homepage-content/testimonials");
+}
+
+// --- STATS ---
+export async function getHomepageStats() {
+    const supabase = await createClient();
+    const { data, error } = await supabase
+        .from("homepage_stats")
+        .select("*")
+        .order("sort_order", { ascending: true })
+        .order("created_at", { ascending: false });
+    if (error) throw new Error(error.message);
+    return data;
+}
+
+export async function saveHomepageStat(payload: any, id?: string) {
+    const supabase = await createClient();
+    if (id) {
+        const { error } = await supabase.from("homepage_stats").update(payload).eq("id", id);
+        if (error) throw new Error(error.message);
+    } else {
+        const { error } = await supabase.from("homepage_stats").insert(payload);
+        if (error) throw new Error(error.message);
+    }
+    revalidatePath("/dashboard/homepage-content/stats");
+}
+
+export async function deleteHomepageStat(id: string) {
+    const supabase = await createClient();
+    const { error } = await supabase.from("homepage_stats").delete().eq("id", id);
+    if (error) throw new Error(error.message);
+    revalidatePath("/dashboard/homepage-content/stats");
+}
+
+// --- FAQ ---
+export async function getHomepageFaq() {
+    const supabase = await createClient();
+    const { data, error } = await supabase
+        .from("homepage_faq")
+        .select("*")
+        .order("sort_order", { ascending: true })
+        .order("created_at", { ascending: false });
+    if (error) throw new Error(error.message);
+    return data;
+}
+
+export async function saveHomepageFaq(payload: any, id?: string) {
+    const supabase = await createClient();
+    if (id) {
+        const { error } = await supabase.from("homepage_faq").update(payload).eq("id", id);
+        if (error) throw new Error(error.message);
+    } else {
+        const { error } = await supabase.from("homepage_faq").insert(payload);
+        if (error) throw new Error(error.message);
+    }
+    revalidatePath("/dashboard/homepage-content/faq");
+}
+
+export async function deleteHomepageFaq(id: string) {
+    const supabase = await createClient();
+    const { error } = await supabase.from("homepage_faq").delete().eq("id", id);
+    if (error) throw new Error(error.message);
+    revalidatePath("/dashboard/homepage-content/faq");
 }
