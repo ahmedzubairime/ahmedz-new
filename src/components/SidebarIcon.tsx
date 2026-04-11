@@ -313,12 +313,12 @@ const icons: Record<string, (props: IconProps) => React.ReactElement> = {
             <path d="M21 12a9 9 0 11-6.219-8.56" />
         </svg>
     ),
-    save: ({ className }: IconProps) => (
+    "save": ({ className }: IconProps) => (
         <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
             <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z" /><polyline points="17 21 17 13 7 13 7 21" /><polyline points="7 3 7 8 15 8" />
         </svg>
     ),
-    box: ({ className }: IconProps) => (
+    "box": ({ className }: IconProps) => (
         <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
             <line x1="16.5" y1="9.4" x2="7.5" y2="4.21" /><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" /><polyline points="3.27 6.96 12 12.01 20.73 6.96" /><line x1="12" y1="22.08" x2="12" y2="12" />
         </svg>
@@ -335,7 +335,7 @@ const icons: Record<string, (props: IconProps) => React.ReactElement> = {
     ),
     "folder-tree": ({ className }: IconProps) => (
         <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
-            <path d="M13 10h7a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-6.57a1 1 0 0 1-.71-.29l-1.42-1.42a1 1 0 0 0-.71-.29H3a1 1 0 0 0-1 1v18a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1h-7"/><path d="M12 10v5.5a2.5 2.5 0 0 1-2.5 2.5H2"/>
+            <path d="M13 10h7a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-6.57a1 1 0 0 1-.71-.29l-1.42-1.42a1 1 0 0 0-.71-.29H3a1 1 0 0 0-1 1v18a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1h-7" /><path d="M12 10v5.5a2.5 2.5 0 0 1-2.5 2.5H2" />
         </svg>
     ),
     archive: ({ className }: IconProps) => (
@@ -345,7 +345,7 @@ const icons: Record<string, (props: IconProps) => React.ReactElement> = {
     ),
     "message-square-quote": ({ className }: IconProps) => (
         <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 12a2 2 0 0 0 2-2V8H8"/><path d="M14 12a2 2 0 0 0 2-2V8h-2"/>
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /><path d="M8 12a2 2 0 0 0 2-2V8H8" /><path d="M14 12a2 2 0 0 0 2-2V8h-2" />
         </svg>
     ),
     camera: ({ className }: IconProps) => (
@@ -381,6 +381,26 @@ const icons: Record<string, (props: IconProps) => React.ReactElement> = {
     list: ({ className }: IconProps) => (
         <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
             <line x1="8" y1="6" x2="21" y2="6" /><line x1="8" y1="12" x2="21" y2="12" /><line x1="8" y1="18" x2="21" y2="18" /><line x1="3" y1="6" x2="3.01" y2="6" /><line x1="3" y1="12" x2="3.01" y2="12" /><line x1="3" y1="18" x2="3.01" y2="18" />
+        </svg>
+    ),
+    map: ({ className }: IconProps) => (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21" /><line x1="9" y1="3" x2="9" y2="18" /><line x1="15" y1="6" x2="15" y2="21" />
+        </svg>
+    ),
+    "layout-grid": ({ className }: IconProps) => (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
+            <rect x="3" y="3" width="7" height="7" rx="1" /><rect x="14" y="3" width="7" height="7" rx="1" /><rect x="14" y="14" width="7" height="7" rx="1" /><rect x="3" y="14" width="7" height="7" rx="1" />
+        </svg>
+    ),
+    "package-search": ({ className }: IconProps) => (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
+            <path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14" /><path d="m7.5 4.27 9 5.15" /><polyline points="3.29 7 12 12 20.71 7" /><line x1="12" y1="22" x2="12" y2="12" /><circle cx="18.5" cy="15.5" r="2.5" /><line x1="20.27" y1="17.27" x2="22.5" y2="19.5" />
+        </svg>
+    ),
+    "alert-circle": ({ className }: IconProps) => (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" />
         </svg>
     )
 };

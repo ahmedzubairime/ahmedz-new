@@ -3,71 +3,104 @@
 import { useState, useTransition } from "react";
 import { SidebarIcon } from "@/components/SidebarIcon";
 import { saveStoreProduct, deleteStoreProduct } from "@/app/actions/store-products";
+import { useForm, Controller } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { PlayfulInput, PlayfulTextarea, PlayfulSelect, PlayfulSwitch, PlayfulButton } from "@/components/ui/PlayfulInputs";
+import { PlayfulModal } from "@/components/ui/PlayfulModal";
+import { toast } from "sonner";
+import { motion } from "framer-motion";
+
+const getProductSchema = (locale: string) => z.object({
+  title_ar: z.string().min(1, locale === "ar" ? "مطلوب" : "Required"),
+  title_en: z.string().min(1, locale === "ar" ? "مطلوب" : "Required"),
+  slug: z.string().min(1, locale === "ar" ? "مطلوب" : "Required").regex(/^[a-z0-9-]+$/, locale === "ar" ? "أحرف إنجليزية صغيرة وأرقام فقط" : "Lowercase, numbers & hyphens only"),
+  description_ar: z.string().optional(),
+  description_en: z.string().optional(),
+  base_price: z.any(),
+  sale_price: z.any(),
+  sku: z.string().optional(),
+  barcode: z.string().optional(),
+  stock_quantity: z.any(),
+  category_id: z.string().optional(),
+  is_active: z.boolean(),
+});
+
+type ProductFormValues = z.infer<ReturnType<typeof getProductSchema>>;
 
 type Props = { locale: string; products: any[]; categories: any[]; };
 
 export function StoreProductsGrid({ locale, products, categories }: Props) {
     const [isPending, startTransition] = useTransition();
     const [isModalOpen, setModalOpen] = useState(false);
-    const [editing, setEditing] = useState<any>(null);
+    const [editingId, setEditingId] = useState<string | null>(null);
     const [search, setSearch] = useState("");
 
-    const [titleAr, setTitleAr] = useState("");
-    const [titleEn, setTitleEn] = useState("");
-    const [slug, setSlug] = useState("");
-    const [descAr, setDescAr] = useState("");
-    const [descEn, setDescEn] = useState("");
-    const [basePrice, setBasePrice] = useState("0");
-    const [salePrice, setSalePrice] = useState("");
-    const [sku, setSku] = useState("");
-    const [barcode, setBarcode] = useState("");
-    const [stockQty, setStockQty] = useState("0");
-    const [categoryId, setCategoryId] = useState("");
-    const [isActive, setIsActive] = useState(true);
+    const schema = getProductSchema(locale);
+
+    const { register, handleSubmit, control, reset, setValue, formState: { errors } } = useForm<ProductFormValues>({
+        resolver: zodResolver(schema) as any,
+        defaultValues: { base_price: 0, stock_quantity: 0, is_active: true }
+    });
 
     function openNew() {
-        setEditing(null); setTitleAr(""); setTitleEn(""); setSlug(""); setDescAr(""); setDescEn("");
-        setBasePrice("0"); setSalePrice(""); setSku(""); setBarcode(""); setStockQty("0");
-        setCategoryId(""); setIsActive(true); setModalOpen(true);
+        setEditingId(null);
+        reset({ title_ar: "", title_en: "", slug: "", description_ar: "", description_en: "", base_price: 0, sale_price: null, sku: "", barcode: "", stock_quantity: 0, category_id: "", is_active: true });
+        setModalOpen(true);
     }
 
     function openEdit(p: any) {
-        setEditing(p); setTitleAr(p.title_ar || ""); setTitleEn(p.title_en || ""); setSlug(p.slug || "");
-        setDescAr(p.description_ar || ""); setDescEn(p.description_en || "");
-        setBasePrice(String(p.base_price || 0)); setSalePrice(String(p.sale_price || ""));
-        setSku(p.sku || ""); setBarcode(p.barcode || ""); setStockQty(String(p.stock_quantity || 0));
-        setCategoryId(p.category_id || ""); setIsActive(p.is_active); setModalOpen(true);
+        setEditingId(p.id);
+        reset({
+            title_ar: p.title_ar || "", title_en: p.title_en || "", slug: p.slug || "",
+            description_ar: p.description_ar || "", description_en: p.description_en || "",
+            base_price: p.base_price || 0, sale_price: p.sale_price ?? null,
+            sku: p.sku || "", barcode: p.barcode || "", stock_quantity: p.stock_quantity || 0,
+            category_id: p.category_id || "", is_active: p.is_active
+        });
+        setModalOpen(true);
     }
 
     function close() { setModalOpen(false); }
 
-    function handleTitleEnChange(val: string) {
-        setTitleEn(val);
-        if (!editing) setSlug(val.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''));
+    function handleTitleEnChange(e: React.ChangeEvent<HTMLInputElement>) {
+        const val = e.target.value;
+        setValue("title_en", val, { shouldValidate: true });
+        if (!editingId) setValue("slug", val.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''), { shouldValidate: true });
     }
 
-    function handleSave(e: React.FormEvent) {
-        e.preventDefault();
+    function onSubmit(data: any) {
         startTransition(async () => {
-            const payload: any = {
-                title_ar: titleAr, title_en: titleEn, slug,
-                description_ar: descAr, description_en: descEn,
-                base_price: parseFloat(basePrice) || 0,
-                sale_price: salePrice ? parseFloat(salePrice) : null,
-                sku: sku || null, barcode: barcode || null,
-                stock_quantity: parseInt(stockQty) || 0,
-                category_id: categoryId || null, is_active: isActive,
+            const payload = {
+                ...data,
+                base_price: parseFloat(String(data.base_price)) || 0,
+                stock_quantity: parseInt(String(data.stock_quantity)) || 0,
+                sale_price: (Number.isNaN(parseFloat(String(data.sale_price))) || parseFloat(String(data.sale_price)) === 0) ? null : parseFloat(String(data.sale_price)),
+                sku: data.sku || null,
+                barcode: data.barcode || null,
+                category_id: data.category_id || null,
             };
             try {
-                await saveStoreProduct(payload, editing?.id);
+                await saveStoreProduct(payload, editingId || undefined);
                 close();
-            } catch (err) { console.error(err); alert(locale === "ar" ? "فشل الحفظ" : "Save failed"); }
+                toast.success(locale === "ar" ? "تم الحفظ بنجاح!" : "Saved successfully!", { icon: "🛍️" });
+            } catch (err) {
+                console.error(err);
+                toast.error(locale === "ar" ? "فشل الحفظ" : "Save failed");
+            }
         });
     }
 
     function handleDelete(id: string) {
         if (!confirm(locale === "ar" ? "سيتم أرشفة المنتج (لن يُحذف نهائياً)" : "Product will be archived (soft delete)")) return;
-        startTransition(async () => { await deleteStoreProduct(id); });
+        startTransition(async () => { 
+            try {
+                await deleteStoreProduct(id); 
+                toast.success(locale === "ar" ? "تم الأرشفة" : "Archived");
+            } catch {
+                toast.error("Failed");
+            }
+        });
     }
 
     const filtered = products.filter(p => {
@@ -80,84 +113,91 @@ export function StoreProductsGrid({ locale, products, categories }: Props) {
     return (
         <div className="space-y-6 max-w-7xl mx-auto">
             {/* Header */}
-            <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-zinc-200 bg-white/50 p-6 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-900/50">
+            <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="flex flex-wrap items-center justify-between gap-4 rounded-3xl border-2 border-white/50 bg-white/40 p-6 backdrop-blur-xl shadow-lg shadow-blue-500/5 dark:border-zinc-800/50 dark:bg-zinc-900/40">
                 <div>
-                    <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">{locale === "ar" ? "المنتجات" : "Products"}</h1>
-                    <p className="mt-1 text-sm text-zinc-500">{locale === "ar" ? "مخزون المنتجات والأسعار والتصنيفات." : "Manage inventory, pricing, and categories."}</p>
+                    <h1 className="text-3xl font-black text-zinc-900 dark:text-zinc-50 tracking-tight">{locale === "ar" ? "المنتجات" : "Products"}</h1>
+                    <p className="mt-1 flex items-center gap-2 text-sm font-medium text-zinc-500"><SidebarIcon name="package" className="size-4" />{locale === "ar" ? "مخزون المنتجات والأسعار والتصنيفات." : "Manage inventory, pricing, and categories."}</p>
                 </div>
-                <button onClick={openNew} className="flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-[var(--brand-primary)] px-6 py-3 text-sm font-bold text-white shadow-lg shadow-[var(--brand-primary)]/20 transition-all hover:brightness-110 hover:shadow-xl hover:-translate-y-0.5">
+                <PlayfulButton onClick={openNew} className="!bg-[var(--brand-primary)] hover:!shadow-[var(--brand-primary)]/30">
                     <SidebarIcon name="plus" className="size-5" />
                     {locale === "ar" ? "منتج جديد" : "New Product"}
-                </button>
-            </div>
+                </PlayfulButton>
+            </motion.div>
 
             {/* Search */}
-            <div className="relative">
-                <SidebarIcon name="search" className="absolute start-3 top-1/2 -translate-y-1/2 size-4 text-zinc-400" />
-                <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder={locale === "ar" ? "بحث بالاسم أو SKU..." : "Search by name or SKU..."} className="w-full rounded-xl border border-zinc-200 bg-white ps-10 pe-4 py-2.5 text-sm outline-none focus:border-[var(--brand-primary)] dark:border-zinc-800 dark:bg-zinc-900 dark:text-white" />
-            </div>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="relative group">
+                <SidebarIcon name="search" className="absolute start-4 top-1/2 -translate-y-1/2 size-5 text-zinc-400 transition-colors group-focus-within:text-[var(--brand-primary)]" />
+                <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder={locale === "ar" ? "بحث بالاسم أو SKU..." : "Search by name or SKU..."} className="w-full rounded-2xl border-2 border-zinc-200 bg-white/60 ps-12 pe-4 py-3 outline-none backdrop-blur-md transition-all focus:border-[var(--brand-primary)] focus:bg-white focus:ring-4 focus:ring-[var(--brand-primary)]/20 shadow-sm dark:border-zinc-800 dark:bg-zinc-900/60 dark:text-white" />
+            </motion.div>
 
             {/* Table */}
             {filtered.length === 0 ? (
-                <div className="flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-zinc-200 bg-zinc-50 py-20 dark:border-zinc-800 dark:bg-zinc-900/50">
-                    <div className="flex size-16 items-center justify-center rounded-full bg-white dark:bg-zinc-800 mb-4 shadow-sm text-zinc-400"><SidebarIcon name="package" className="size-8" /></div>
-                    <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-50">{locale === "ar" ? "لا توجد منتجات" : "No products yet"}</h3>
-                </div>
+                <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="flex justify-center rounded-3xl border-2 border-dashed border-zinc-200 bg-white/20 py-24 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-900/20 flex-col items-center">
+                    <div className="flex size-20 items-center justify-center rounded-3xl bg-[var(--brand-primary)]/10 text-[var(--brand-primary)] mb-4 animate-bounce"><SidebarIcon name="package-search" className="size-10" /></div>
+                    <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-50">{locale === "ar" ? "لا توجد منتجات مطابقة" : "No products found"}</h3>
+                </motion.div>
             ) : (
-                <div className="rounded-2xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900 overflow-hidden">
-                    <div className="overflow-x-auto">
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="rounded-3xl border-2 border-zinc-200/60 bg-white/80 dark:border-zinc-800/80 dark:bg-zinc-900/80 overflow-hidden shadow-xl shadow-zinc-200/20 dark:shadow-none backdrop-blur-md">
+                    <div className="overflow-x-auto custom-scrollbar">
                         <table className="w-full text-sm">
                             <thead>
-                                <tr className="border-b border-zinc-100 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/80">
-                                    <th className="px-4 py-3 text-start font-semibold text-zinc-500 dark:text-zinc-400">{locale === "ar" ? "المنتج" : "Product"}</th>
-                                    <th className="px-4 py-3 text-start font-semibold text-zinc-500 dark:text-zinc-400">SKU</th>
-                                    <th className="px-4 py-3 text-start font-semibold text-zinc-500 dark:text-zinc-400">{locale === "ar" ? "السعر" : "Price"}</th>
-                                    <th className="px-4 py-3 text-start font-semibold text-zinc-500 dark:text-zinc-400">{locale === "ar" ? "المخزون" : "Stock"}</th>
-                                    <th className="px-4 py-3 text-start font-semibold text-zinc-500 dark:text-zinc-400">{locale === "ar" ? "التصنيف" : "Category"}</th>
-                                    <th className="px-4 py-3 text-end font-semibold text-zinc-500 dark:text-zinc-400">{locale === "ar" ? "إجراءات" : "Actions"}</th>
+                                <tr className="border-b-2 border-zinc-100 dark:border-zinc-800/50 bg-zinc-50/50 dark:bg-zinc-900/50">
+                                    <th className="px-6 py-4 text-start font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">{locale === "ar" ? "المنتج" : "Product"}</th>
+                                    <th className="px-6 py-4 text-start font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">SKU</th>
+                                    <th className="px-6 py-4 text-start font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">{locale === "ar" ? "السعر" : "Price"}</th>
+                                    <th className="px-6 py-4 text-start font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">{locale === "ar" ? "المخزون" : "Stock"}</th>
+                                    <th className="px-6 py-4 text-start font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">{locale === "ar" ? "التصنيف" : "Category"}</th>
+                                    <th className="px-6 py-4 text-end font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">{locale === "ar" ? "إجراءات" : "Actions"}</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {filtered.map((p) => (
-                                    <tr key={p.id} className="group border-b border-zinc-50 dark:border-zinc-800/50 hover:bg-zinc-50 dark:hover:bg-zinc-800/30 transition-colors">
-                                        <td className="px-4 py-3">
-                                            <div className="flex items-center gap-3">
-                                                <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-zinc-100 dark:bg-zinc-800 overflow-hidden">
+                                    <tr key={p.id} className="group border-b border-zinc-50 dark:border-zinc-800/30 hover:bg-zinc-50/80 dark:hover:bg-zinc-800/50 transition-colors">
+                                        <td className="px-6 py-4">
+                                            <div className="flex items-center gap-4">
+                                                <div className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-zinc-100 shadow-inner dark:bg-zinc-800 overflow-hidden relative">
                                                     {p.cover?.storage_path ? (
-                                                        <img src={`${supabaseUrl}/storage/v1/object/public/${p.cover.bucket}/${p.cover.storage_path}`} alt="" className="size-10 object-cover" />
+                                                        <img src={`${supabaseUrl}/storage/v1/object/public/${p.cover.bucket}/${p.cover.storage_path}`} alt="" className="absolute inset-0 size-full object-cover group-hover:scale-110 transition-transform duration-500" />
                                                     ) : (
-                                                        <SidebarIcon name="image" className="size-4 text-zinc-400" />
+                                                        <SidebarIcon name="image" className="size-5 text-zinc-400" />
                                                     )}
                                                 </div>
                                                 <div className="min-w-0">
-                                                    <p className="font-semibold text-zinc-900 dark:text-zinc-100 truncate">{locale === "ar" ? p.title_ar : p.title_en}</p>
-                                                    <p className="text-xs text-zinc-400 font-mono truncate">/{p.slug}</p>
+                                                    <p className="font-bold text-zinc-900 dark:text-zinc-100 truncate text-base">{locale === "ar" ? p.title_ar : p.title_en}</p>
+                                                    <p className="text-xs font-semibold text-zinc-400 font-mono truncate bg-zinc-100 dark:bg-zinc-800 w-fit px-2 py-0.5 rounded-md mt-1">/{p.slug}</p>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td className="px-4 py-3 font-mono text-xs text-zinc-500">{p.sku || "—"}</td>
-                                        <td className="px-4 py-3">
-                                            <div className="flex flex-col">
+                                        <td className="px-6 py-4 font-mono font-medium text-xs text-zinc-500">{p.sku || "—"}</td>
+                                        <td className="px-6 py-4">
+                                            <div className="flex flex-col gap-0.5">
                                                 {p.sale_price ? (
                                                     <>
-                                                        <span className="font-bold text-emerald-600 dark:text-emerald-400">{p.sale_price}</span>
-                                                        <span className="text-xs text-zinc-400 line-through">{p.base_price}</span>
+                                                        <span className="font-black text-emerald-600 dark:text-emerald-400 text-lg">${p.sale_price}</span>
+                                                        <span className="text-xs font-medium text-zinc-400 line-through decoration-rose-400/50">${p.base_price}</span>
                                                     </>
                                                 ) : (
-                                                    <span className="font-bold text-zinc-700 dark:text-zinc-300">{p.base_price}</span>
+                                                    <span className="font-black text-zinc-700 dark:text-zinc-300 text-lg">${p.base_price}</span>
                                                 )}
                                             </div>
                                         </td>
-                                        <td className="px-4 py-3">
-                                            <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-bold ${p.stock_quantity > 10 ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400' : p.stock_quantity > 0 ? 'bg-amber-50 text-amber-700 dark:bg-amber-500/10 dark:text-amber-400' : 'bg-rose-50 text-rose-700 dark:bg-rose-500/10 dark:text-rose-400'}`}>
+                                        <td className="px-6 py-4">
+                                            <span className={`inline-flex items-center gap-1.5 rounded-xl px-3 py-1 text-xs font-black shadow-sm ${p.stock_quantity > 10 ? 'bg-emerald-50 text-emerald-600 border border-emerald-200 dark:border-none dark:bg-emerald-500/10 dark:text-emerald-400' : p.stock_quantity > 0 ? 'bg-amber-50 text-amber-600 border border-amber-200 dark:border-none dark:bg-amber-500/10 dark:text-amber-400' : 'bg-rose-50 text-rose-600 border border-rose-200 dark:border-none dark:bg-rose-500/10 dark:text-rose-400'}`}>
+                                                {p.stock_quantity === 0 && <SidebarIcon name="alert-circle" className="size-3" />}
                                                 {p.stock_quantity}
                                             </span>
                                         </td>
-                                        <td className="px-4 py-3 text-xs text-zinc-500">{p.category ? (locale === "ar" ? p.category.name_ar : p.category.name_en) : "—"}</td>
-                                        <td className="px-4 py-3">
-                                            <div className="flex justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                                                <button onClick={() => openEdit(p)} className="flex size-8 cursor-pointer items-center justify-center rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-700 text-zinc-400 transition-colors"><SidebarIcon name="edit" className="size-4" /></button>
-                                                <button onClick={() => handleDelete(p.id)} disabled={isPending} className="flex size-8 cursor-pointer items-center justify-center rounded-lg hover:bg-rose-50 hover:text-rose-600 dark:hover:bg-rose-500/10 text-zinc-400 transition-colors"><SidebarIcon name="archive" className="size-4" /></button>
+                                        <td className="px-6 py-4">
+                                            {p.category ? (
+                                                <span className="inline-flex items-center gap-1.5 text-xs font-bold text-zinc-600 bg-zinc-100 dark:bg-zinc-800/80 px-2.5 py-1 rounded-lg">
+                                                    <SidebarIcon name="folder" className="size-3" /> {locale === "ar" ? p.category.name_ar : p.category.name_en}
+                                                </span>
+                                            ) : "—"}
+                                        </td>
+                                        <td className="px-6 py-4">
+                                            <div className="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-all translate-x-4 group-hover:translate-x-0 duration-300">
+                                                <button onClick={() => openEdit(p)} className="flex size-9 cursor-pointer items-center justify-center rounded-xl bg-white shadow-sm hover:scale-110 hover:bg-zinc-50 hover:text-zinc-900 border border-zinc-200 dark:border-zinc-700 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:text-zinc-400 transition-all"><SidebarIcon name="edit" className="size-4" /></button>
+                                                <button onClick={() => handleDelete(p.id)} disabled={isPending} className="flex size-9 cursor-pointer items-center justify-center rounded-xl bg-rose-50 shadow-sm border border-rose-100 hover:scale-110 hover:bg-rose-100 hover:text-rose-600 dark:border-rose-900 dark:bg-rose-500/10 text-rose-500 transition-all"><SidebarIcon name="archive" className="size-4" /></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -165,101 +205,57 @@ export function StoreProductsGrid({ locale, products, categories }: Props) {
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </motion.div>
             )}
 
-            {/* Modal */}
-            {isModalOpen && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
-                    <div onClick={close} className="absolute inset-0 bg-black/40 backdrop-blur-sm animate-in fade-in duration-300" />
-                    <div className="relative w-full max-w-2xl max-h-[90vh] bg-white dark:bg-zinc-950 shadow-2xl flex flex-col rounded-2xl animate-in fade-in zoom-in-95 duration-300 overflow-hidden border border-zinc-200 dark:border-zinc-800">
-                        <div className="flex items-center justify-between border-b border-zinc-100 p-6 dark:border-zinc-800">
-                            <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-50">
-                                {editing ? (locale === "ar" ? "تعديل المنتج" : "Edit Product") : (locale === "ar" ? "منتج جديد" : "New Product")}
-                            </h2>
-                            <button onClick={close} className="rounded-full p-2 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-500 transition-colors"><SidebarIcon name="x" className="size-5" /></button>
-                        </div>
-                        <div className="flex-1 overflow-y-auto p-6">
-                            <form id="product-form" onSubmit={handleSave} className="space-y-5">
-                                {/* Bilingual Titles */}
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div className="space-y-2">
-                                        <label className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">{locale === "ar" ? "اسم المنتج (EN)" : "Product Name (EN)"}</label>
-                                        <input required dir="ltr" value={titleEn} onChange={(e) => handleTitleEnChange(e.target.value)} className="w-full rounded-xl border border-zinc-200 bg-transparent px-3 py-2 outline-none focus:border-[var(--brand-primary)] dark:border-zinc-800 dark:text-white" />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <label className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">{locale === "ar" ? "اسم المنتج (AR)" : "Product Name (AR)"}</label>
-                                        <input required dir="rtl" value={titleAr} onChange={(e) => setTitleAr(e.target.value)} className="w-full rounded-xl border border-zinc-200 bg-transparent px-3 py-2 outline-none focus:border-[var(--brand-primary)] dark:border-zinc-800 dark:text-white" />
-                                    </div>
-                                </div>
-                                {/* Slug */}
-                                <div className="space-y-2">
-                                    <label className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">{locale === "ar" ? "الرابط (Slug)" : "URL Slug"}</label>
-                                    <input required dir="ltr" value={slug} onChange={(e) => setSlug(e.target.value.toLowerCase().replace(/[^a-z0-9]+/g, '-'))} className="w-full rounded-xl border border-zinc-200 bg-transparent px-3 py-2 outline-none focus:border-[var(--brand-primary)] dark:border-zinc-800 dark:text-white font-mono text-sm" />
-                                </div>
-                                {/* Bilingual Descriptions */}
-                                <div className="space-y-2">
-                                    <label className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">{locale === "ar" ? "الوصف (EN)" : "Description (EN)"}</label>
-                                    <textarea dir="ltr" rows={2} value={descEn} onChange={(e) => setDescEn(e.target.value)} className="w-full resize-none rounded-xl border border-zinc-200 bg-transparent px-3 py-2 outline-none focus:border-[var(--brand-primary)] dark:border-zinc-800 dark:text-white" />
-                                </div>
-                                <div className="space-y-2">
-                                    <label className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">{locale === "ar" ? "الوصف (AR)" : "Description (AR)"}</label>
-                                    <textarea dir="rtl" rows={2} value={descAr} onChange={(e) => setDescAr(e.target.value)} className="w-full resize-none rounded-xl border border-zinc-200 bg-transparent px-3 py-2 outline-none focus:border-[var(--brand-primary)] dark:border-zinc-800 dark:text-white" />
-                                </div>
-                                {/* Pricing */}
-                                <div className="grid grid-cols-3 gap-4">
-                                    <div className="space-y-2">
-                                        <label className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">{locale === "ar" ? "السعر الأساسي" : "Base Price"}</label>
-                                        <input required dir="ltr" type="number" step="0.01" min="0" value={basePrice} onChange={(e) => setBasePrice(e.target.value)} className="w-full rounded-xl border border-zinc-200 bg-transparent px-3 py-2 outline-none focus:border-[var(--brand-primary)] dark:border-zinc-800 dark:text-white" />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <label className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">{locale === "ar" ? "سعر التخفيض" : "Sale Price"}</label>
-                                        <input dir="ltr" type="number" step="0.01" min="0" value={salePrice} onChange={(e) => setSalePrice(e.target.value)} placeholder="—" className="w-full rounded-xl border border-zinc-200 bg-transparent px-3 py-2 outline-none focus:border-[var(--brand-primary)] dark:border-zinc-800 dark:text-white" />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <label className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">{locale === "ar" ? "الكمية" : "Stock"}</label>
-                                        <input dir="ltr" type="number" min="0" value={stockQty} onChange={(e) => setStockQty(e.target.value)} className="w-full rounded-xl border border-zinc-200 bg-transparent px-3 py-2 outline-none focus:border-[var(--brand-primary)] dark:border-zinc-800 dark:text-white" />
-                                    </div>
-                                </div>
-                                {/* SKU + Barcode */}
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div className="space-y-2">
-                                        <label className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">SKU</label>
-                                        <input dir="ltr" value={sku} onChange={(e) => setSku(e.target.value)} placeholder="PRD-001" className="w-full rounded-xl border border-zinc-200 bg-transparent px-3 py-2 outline-none focus:border-[var(--brand-primary)] dark:border-zinc-800 dark:text-white font-mono text-sm" />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <label className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">{locale === "ar" ? "الباركود" : "Barcode"}</label>
-                                        <input dir="ltr" value={barcode} onChange={(e) => setBarcode(e.target.value)} className="w-full rounded-xl border border-zinc-200 bg-transparent px-3 py-2 outline-none focus:border-[var(--brand-primary)] dark:border-zinc-800 dark:text-white font-mono text-sm" />
-                                    </div>
-                                </div>
-                                {/* Category + Active */}
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div className="space-y-2">
-                                        <label className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">{locale === "ar" ? "التصنيف" : "Category"}</label>
-                                        <select value={categoryId} onChange={(e) => setCategoryId(e.target.value)} className="w-full rounded-xl border border-zinc-200 bg-transparent px-3 py-2 outline-none focus:border-[var(--brand-primary)] dark:border-zinc-800 dark:text-white">
-                                            <option value="">{locale === "ar" ? "-- بدون تصنيف --" : "-- No Category --"}</option>
-                                            {categories.map(c => (<option key={c.id} value={c.id}>{locale === "ar" ? c.name_ar : c.name_en}</option>))}
-                                        </select>
-                                    </div>
-                                    <div className="flex items-center gap-3 pt-8">
-                                        <div onClick={() => setIsActive(!isActive)} className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full transition-colors ${isActive ? 'bg-[var(--brand-primary)]' : 'bg-zinc-200 dark:bg-zinc-700'}`}>
-                                            <span className={`inline-block size-4 transform rounded-full bg-white transition-transform ${isActive ? 'translate-x-6' : 'translate-x-1'}`} />
-                                        </div>
-                                        <span className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">{locale === "ar" ? "نشط" : "Active"}</span>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div className="border-t border-zinc-100 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900/50 flex justify-end gap-3">
-                            <button onClick={close} type="button" className="rounded-xl border border-zinc-200 px-5 py-2 text-sm font-semibold text-zinc-700 hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800 transition-colors">{locale === "ar" ? "إلغاء" : "Cancel"}</button>
-                            <button type="submit" form="product-form" disabled={isPending} className="flex items-center gap-2 rounded-xl bg-[var(--brand-primary)] px-6 py-2 text-sm font-bold text-white shadow-lg transition-all hover:brightness-110 hover:shadow-xl disabled:opacity-50">
-                                {isPending && <SidebarIcon name="loader-2" className="size-4 animate-spin" />}
-                                {editing ? (locale === "ar" ? "حفظ التغييرات" : "Save Changes") : (locale === "ar" ? "إضافة منتج" : "Create Product")}
-                            </button>
-                        </div>
+            {/* Form Modal */}
+            <PlayfulModal isOpen={isModalOpen} onClose={close} title={editingId ? (locale === "ar" ? "تعديل المنتج" : "Edit Product") : (locale === "ar" ? "منتج جديد" : "New Product")}
+                footer={
+                    <>
+                        <PlayfulButton variant="secondary" onClick={close}>{locale === "ar" ? "إلغاء" : "Cancel"}</PlayfulButton>
+                        <PlayfulButton onClick={handleSubmit(onSubmit)} disabled={isPending}>
+                            {isPending && <SidebarIcon name="loader-2" className="size-4 animate-spin" />}
+                            {editingId ? "Save" : "Create"}
+                        </PlayfulButton>
+                    </>
+                }
+            >
+                <form id="product-form" onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                    <div className="grid grid-cols-2 gap-4">
+                        <PlayfulInput label={locale === "ar" ? "اسم المنتج (EN)" : "Product Name (EN)"} dir="ltr" {...register("title_en")} onChange={handleTitleEnChange} error={errors.title_en?.message} />
+                        <PlayfulInput label={locale === "ar" ? "اسم المنتج (AR)" : "Product Name (AR)"} dir="rtl" {...register("title_ar")} error={errors.title_ar?.message} />
                     </div>
-                </div>
-            )}
+                    
+                    <PlayfulInput label={locale === "ar" ? "الرابط (Slug)" : "URL Slug"} dir="ltr" {...register("slug")} error={errors.slug?.message} />
+                    
+                    <div className="grid grid-cols-2 gap-4 bg-zinc-50/50 dark:bg-zinc-900/30 p-4 rounded-3xl border border-zinc-100 dark:border-zinc-800">
+                        <PlayfulTextarea label={locale === "ar" ? "الوصف (EN)" : "Description (EN)"} dir="ltr" rows={2} {...register("description_en")} error={errors.description_en?.message} />
+                        <PlayfulTextarea label={locale === "ar" ? "الوصف (AR)" : "Description (AR)"} dir="rtl" rows={2} {...register("description_ar")} error={errors.description_ar?.message} />
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-4 border-2 border-emerald-500/20 bg-emerald-500/5 p-4 rounded-3xl dark:border-emerald-500/10">
+                        <PlayfulInput label={locale === "ar" ? "السعر الأساسي" : "Base Price (USD)"} type="number" step="0.01" dir="ltr" {...register("base_price", { valueAsNumber: true })} error={errors.base_price?.message as string} />
+                        <PlayfulInput label={locale === "ar" ? "سعر التخفيض" : "Sale Price"} type="number" step="0.01" dir="ltr" placeholder="—" {...register("sale_price", { valueAsNumber: true })} error={errors.sale_price?.message as string} />
+                        <PlayfulInput label={locale === "ar" ? "الكمية" : "Stock Qty"} type="number" dir="ltr" {...register("stock_quantity", { valueAsNumber: true })} error={errors.stock_quantity?.message as string} />
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-4">
+                        <PlayfulInput label="SKU" dir="ltr" placeholder="PRD-001" {...register("sku")} error={errors.sku?.message} />
+                        <PlayfulInput label={locale === "ar" ? "الباركود" : "Barcode"} dir="ltr" {...register("barcode")} error={errors.barcode?.message} />
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-4">
+                        <PlayfulSelect label={locale === "ar" ? "التصنيف" : "Category"} {...register("category_id")} error={errors.category_id?.message}
+                            options={[{ value: "", label: "-- No Category --" }, ...categories.map(c => ({ value: c.id, label: locale === "ar" ? c.name_ar : c.name_en }))]} 
+                        />
+                        <Controller name="is_active" control={control} render={({ field }) => (
+                            <div className="pt-2 pl-4">
+                                <PlayfulSwitch label={locale === "ar" ? "نشط ومتاح للبيع" : "Active & Available"} checked={field.value} onChange={field.onChange} />
+                            </div>
+                        )} />
+                    </div>
+                </form>
+            </PlayfulModal>
         </div>
     );
 }

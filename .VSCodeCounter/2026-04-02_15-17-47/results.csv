@@ -1,0 +1,390 @@
+"filename", "language", "JavaScript", "TypeScript", "JSON with Comments", "Markdown", "MS SQL", "JSON", "TypeScript JSX", "CSS", "XML", "Python", "comment", "blank", "total"
+"d:\webapps\2026\next\.agent\.shared\ui-ux-pro-max\scripts\core.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 206, 9, 44, 259
+"d:\webapps\2026\next\.agent\.shared\ui-ux-pro-max\scripts\design_system.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 845, 81, 142, 1068
+"d:\webapps\2026\next\.agent\.shared\ui-ux-pro-max\scripts\search.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 85, 8, 14, 107
+"d:\webapps\2026\next\.agent\ARCHITECTURE.md", "Markdown", 0, 0, 0, 216, 0, 0, 0, 0, 0, 0, 0, 73, 289
+"d:\webapps\2026\next\.agent\agents\backend-specialist.md", "Markdown", 0, 0, 0, 199, 0, 0, 0, 0, 0, 0, 0, 65, 264
+"d:\webapps\2026\next\.agent\agents\code-archaeologist.md", "Markdown", 0, 0, 0, 76, 0, 0, 0, 0, 0, 0, 0, 31, 107
+"d:\webapps\2026\next\.agent\agents\database-architect.md", "Markdown", 0, 0, 0, 167, 0, 0, 0, 0, 0, 0, 0, 60, 227
+"d:\webapps\2026\next\.agent\agents\debugger.md", "Markdown", 0, 0, 0, 172, 0, 0, 0, 0, 0, 0, 0, 54, 226
+"d:\webapps\2026\next\.agent\agents\devops-engineer.md", "Markdown", 0, 0, 0, 179, 0, 0, 0, 0, 0, 0, 0, 64, 243
+"d:\webapps\2026\next\.agent\agents\documentation-writer.md", "Markdown", 0, 0, 0, 78, 0, 0, 0, 0, 0, 0, 0, 27, 105
+"d:\webapps\2026\next\.agent\agents\explorer-agent.md", "Markdown", 0, 0, 0, 55, 0, 0, 0, 0, 0, 0, 0, 19, 74
+"d:\webapps\2026\next\.agent\agents\frontend-specialist.md", "Markdown", 0, 0, 0, 423, 0, 0, 0, 0, 0, 0, 0, 171, 594
+"d:\webapps\2026\next\.agent\agents\game-developer.md", "Markdown", 0, 0, 0, 123, 0, 0, 0, 0, 0, 0, 0, 40, 163
+"d:\webapps\2026\next\.agent\agents\mobile-developer.md", "Markdown", 0, 0, 0, 278, 0, 0, 0, 0, 0, 0, 0, 100, 378
+"d:\webapps\2026\next\.agent\agents\orchestrator.md", "Markdown", 0, 0, 0, 310, 0, 0, 0, 0, 0, 0, 0, 107, 417
+"d:\webapps\2026\next\.agent\agents\penetration-tester.md", "Markdown", 0, 0, 0, 135, 0, 0, 0, 0, 0, 0, 0, 54, 189
+"d:\webapps\2026\next\.agent\agents\performance-optimizer.md", "Markdown", 0, 0, 0, 140, 0, 0, 0, 0, 0, 0, 0, 48, 188
+"d:\webapps\2026\next\.agent\agents\product-manager.md", "Markdown", 0, 0, 0, 81, 0, 0, 0, 0, 0, 0, 0, 32, 113
+"d:\webapps\2026\next\.agent\agents\product-owner.md", "Markdown", 0, 0, 0, 71, 0, 0, 0, 0, 0, 0, 0, 25, 96
+"d:\webapps\2026\next\.agent\agents\project-planner.md", "Markdown", 0, 0, 0, 294, 0, 0, 0, 0, 0, 0, 0, 113, 407
+"d:\webapps\2026\next\.agent\agents\qa-automation-engineer.md", "Markdown", 0, 0, 0, 74, 0, 0, 0, 0, 0, 0, 0, 30, 104
+"d:\webapps\2026\next\.agent\agents\security-auditor.md", "Markdown", 0, 0, 0, 124, 0, 0, 0, 0, 0, 0, 0, 47, 171
+"d:\webapps\2026\next\.agent\agents\seo-specialist.md", "Markdown", 0, 0, 0, 81, 0, 0, 0, 0, 0, 0, 0, 31, 112
+"d:\webapps\2026\next\.agent\agents\test-engineer.md", "Markdown", 0, 0, 0, 114, 0, 0, 0, 0, 0, 0, 0, 45, 159
+"d:\webapps\2026\next\.agent\mcp_config.json", "JSON with Comments", 0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 2, 3, 25
+"d:\webapps\2026\next\.agent\rules\GEMINI.md", "Markdown", 0, 0, 0, 181, 0, 0, 0, 0, 0, 0, 0, 93, 274
+"d:\webapps\2026\next\.agent\scripts\auto_preview.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 120, 4, 25, 149
+"d:\webapps\2026\next\.agent\scripts\checklist.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 165, 10, 43, 218
+"d:\webapps\2026\next\.agent\scripts\session_manager.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 94, 4, 23, 121
+"d:\webapps\2026\next\.agent\scripts\verify_all.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 247, 26, 55, 328
+"d:\webapps\2026\next\.agent\skills\api-patterns\SKILL.md", "Markdown", 0, 0, 0, 59, 0, 0, 0, 0, 0, 0, 0, 23, 82
+"d:\webapps\2026\next\.agent\skills\api-patterns\api-style.md", "Markdown", 0, 0, 0, 35, 0, 0, 0, 0, 0, 0, 0, 8, 43
+"d:\webapps\2026\next\.agent\skills\api-patterns\auth.md", "Markdown", 0, 0, 0, 19, 0, 0, 0, 0, 0, 0, 0, 6, 25
+"d:\webapps\2026\next\.agent\skills\api-patterns\documentation.md", "Markdown", 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 0, 6, 27
+"d:\webapps\2026\next\.agent\skills\api-patterns\graphql.md", "Markdown", 0, 0, 0, 33, 0, 0, 0, 0, 0, 0, 0, 9, 42
+"d:\webapps\2026\next\.agent\skills\api-patterns\rate-limiting.md", "Markdown", 0, 0, 0, 24, 0, 0, 0, 0, 0, 0, 0, 8, 32
+"d:\webapps\2026\next\.agent\skills\api-patterns\response.md", "Markdown", 0, 0, 0, 28, 0, 0, 0, 0, 0, 0, 0, 10, 38
+"d:\webapps\2026\next\.agent\skills\api-patterns\rest.md", "Markdown", 0, 0, 0, 33, 0, 0, 0, 0, 0, 0, 0, 8, 41
+"d:\webapps\2026\next\.agent\skills\api-patterns\scripts\api_validator.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 162, 13, 37, 212
+"d:\webapps\2026\next\.agent\skills\api-patterns\security-testing.md", "Markdown", 0, 0, 0, 88, 0, 0, 0, 0, 0, 0, 0, 35, 123
+"d:\webapps\2026\next\.agent\skills\api-patterns\trpc.md", "Markdown", 0, 0, 0, 33, 0, 0, 0, 0, 0, 0, 0, 9, 42
+"d:\webapps\2026\next\.agent\skills\api-patterns\versioning.md", "Markdown", 0, 0, 0, 17, 0, 0, 0, 0, 0, 0, 0, 6, 23
+"d:\webapps\2026\next\.agent\skills\app-builder\SKILL.md", "Markdown", 0, 0, 0, 59, 0, 0, 0, 0, 0, 0, 0, 17, 76
+"d:\webapps\2026\next\.agent\skills\app-builder\agent-coordination.md", "Markdown", 0, 0, 0, 65, 0, 0, 0, 0, 0, 0, 0, 7, 72
+"d:\webapps\2026\next\.agent\skills\app-builder\feature-building.md", "Markdown", 0, 0, 0, 43, 0, 0, 0, 0, 0, 0, 0, 11, 54
+"d:\webapps\2026\next\.agent\skills\app-builder\project-detection.md", "Markdown", 0, 0, 0, 29, 0, 0, 0, 0, 0, 0, 0, 6, 35
+"d:\webapps\2026\next\.agent\skills\app-builder\scaffolding.md", "Markdown", 0, 0, 0, 102, 0, 0, 0, 0, 0, 0, 0, 17, 119
+"d:\webapps\2026\next\.agent\skills\app-builder\tech-stack.md", "Markdown", 0, 0, 0, 31, 0, 0, 0, 0, 0, 0, 0, 10, 41
+"d:\webapps\2026\next\.agent\skills\app-builder\templates\SKILL.md", "Markdown", 0, 0, 0, 30, 0, 0, 0, 0, 0, 0, 0, 10, 40
+"d:\webapps\2026\next\.agent\skills\app-builder\templates\astro-static\TEMPLATE.md", "Markdown", 0, 0, 0, 58, 0, 0, 0, 0, 0, 0, 0, 19, 77
+"d:\webapps\2026\next\.agent\skills\app-builder\templates\chrome-extension\TEMPLATE.md", "Markdown", 0, 0, 0, 71, 0, 0, 0, 0, 0, 0, 0, 22, 93
+"d:\webapps\2026\next\.agent\skills\app-builder\templates\cli-tool\TEMPLATE.md", "Markdown", 0, 0, 0, 67, 0, 0, 0, 0, 0, 0, 0, 22, 89
+"d:\webapps\2026\next\.agent\skills\app-builder\templates\electron-desktop\TEMPLATE.md", "Markdown", 0, 0, 0, 67, 0, 0, 0, 0, 0, 0, 0, 22, 89
+"d:\webapps\2026\next\.agent\skills\app-builder\templates\express-api\TEMPLATE.md", "Markdown", 0, 0, 0, 65, 0, 0, 0, 0, 0, 0, 0, 19, 84
+"d:\webapps\2026\next\.agent\skills\app-builder\templates\flutter-app\TEMPLATE.md", "Markdown", 0, 0, 0, 72, 0, 0, 0, 0, 0, 0, 0, 19, 91
+"d:\webapps\2026\next\.agent\skills\app-builder\templates\monorepo-turborepo\TEMPLATE.md", "Markdown", 0, 0, 0, 69, 0, 0, 0, 0, 0, 0, 0, 22, 91
+"d:\webapps\2026\next\.agent\skills\app-builder\templates\nextjs-fullstack\TEMPLATE.md", "Markdown", 0, 0, 0, 99, 0, 0, 0, 0, 0, 0, 0, 24, 123
+"d:\webapps\2026\next\.agent\skills\app-builder\templates\nextjs-saas\TEMPLATE.md", "Markdown", 0, 0, 0, 98, 0, 0, 0, 0, 0, 0, 0, 25, 123
+"d:\webapps\2026\next\.agent\skills\app-builder\templates\nextjs-static\TEMPLATE.md", "Markdown", 0, 0, 0, 132, 0, 0, 0, 0, 0, 0, 0, 38, 170
+"d:\webapps\2026\next\.agent\skills\app-builder\templates\nuxt-app\TEMPLATE.md", "Markdown", 0, 0, 0, 109, 0, 0, 0, 0, 0, 0, 0, 26, 135
+"d:\webapps\2026\next\.agent\skills\app-builder\templates\python-fastapi\TEMPLATE.md", "Markdown", 0, 0, 0, 65, 0, 0, 0, 0, 0, 0, 0, 19, 84
+"d:\webapps\2026\next\.agent\skills\app-builder\templates\react-native-app\TEMPLATE.md", "Markdown", 0, 0, 0, 95, 0, 0, 0, 0, 0, 0, 0, 25, 120
+"d:\webapps\2026\next\.agent\skills\architecture\SKILL.md", "Markdown", 0, 0, 0, 39, 0, 0, 0, 0, 0, 0, 0, 17, 56
+"d:\webapps\2026\next\.agent\skills\architecture\context-discovery.md", "Markdown", 0, 0, 0, 34, 0, 0, 0, 0, 0, 0, 0, 10, 44
+"d:\webapps\2026\next\.agent\skills\architecture\examples.md", "Markdown", 0, 0, 0, 76, 0, 0, 0, 0, 0, 0, 0, 19, 95
+"d:\webapps\2026\next\.agent\skills\architecture\pattern-selection.md", "Markdown", 0, 0, 0, 60, 0, 0, 0, 0, 0, 0, 0, 9, 69
+"d:\webapps\2026\next\.agent\skills\architecture\patterns-reference.md", "Markdown", 0, 0, 0, 37, 0, 0, 0, 0, 0, 0, 0, 14, 51
+"d:\webapps\2026\next\.agent\skills\architecture\trade-off-analysis.md", "Markdown", 0, 0, 0, 55, 0, 0, 0, 0, 0, 0, 0, 23, 78
+"d:\webapps\2026\next\.agent\skills\bash-linux\SKILL.md", "Markdown", 0, 0, 0, 147, 0, 0, 0, 0, 0, 0, 0, 53, 200
+"d:\webapps\2026\next\.agent\skills\behavioral-modes\SKILL.md", "Markdown", 0, 0, 0, 173, 0, 0, 0, 0, 0, 0, 0, 70, 243
+"d:\webapps\2026\next\.agent\skills\brainstorming\SKILL.md", "Markdown", 0, 0, 0, 115, 0, 0, 0, 0, 0, 0, 0, 49, 164
+"d:\webapps\2026\next\.agent\skills\brainstorming\dynamic-questioning.md", "Markdown", 0, 0, 0, 249, 0, 0, 0, 0, 0, 0, 0, 102, 351
+"d:\webapps\2026\next\.agent\skills\clean-code\SKILL.md", "Markdown", 0, 0, 0, 147, 0, 0, 0, 0, 0, 0, 0, 55, 202
+"d:\webapps\2026\next\.agent\skills\code-review-checklist\SKILL.md", "Markdown", 0, 0, 0, 84, 0, 0, 0, 0, 0, 0, 0, 26, 110
+"d:\webapps\2026\next\.agent\skills\database-design\SKILL.md", "Markdown", 0, 0, 0, 37, 0, 0, 0, 0, 0, 0, 0, 16, 53
+"d:\webapps\2026\next\.agent\skills\database-design\database-selection.md", "Markdown", 0, 0, 0, 36, 0, 0, 0, 0, 0, 0, 0, 8, 44
+"d:\webapps\2026\next\.agent\skills\database-design\indexing.md", "Markdown", 0, 0, 0, 31, 0, 0, 0, 0, 0, 0, 0, 9, 40
+"d:\webapps\2026\next\.agent\skills\database-design\migrations.md", "Markdown", 0, 0, 0, 38, 0, 0, 0, 0, 0, 0, 0, 11, 49
+"d:\webapps\2026\next\.agent\skills\database-design\optimization.md", "Markdown", 0, 0, 0, 28, 0, 0, 0, 0, 0, 0, 0, 9, 37
+"d:\webapps\2026\next\.agent\skills\database-design\orm-selection.md", "Markdown", 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 6, 31
+"d:\webapps\2026\next\.agent\skills\database-design\schema-design.md", "Markdown", 0, 0, 0, 43, 0, 0, 0, 0, 0, 0, 0, 14, 57
+"d:\webapps\2026\next\.agent\skills\database-design\scripts\schema_validator.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 119, 15, 39, 173
+"d:\webapps\2026\next\.agent\skills\deployment-procedures\SKILL.md", "Markdown", 0, 0, 0, 175, 0, 0, 0, 0, 0, 0, 0, 67, 242
+"d:\webapps\2026\next\.agent\skills\doc.md", "Markdown", 0, 0, 0, 118, 0, 0, 0, 0, 0, 0, 0, 60, 178
+"d:\webapps\2026\next\.agent\skills\documentation-templates\SKILL.md", "Markdown", 0, 0, 0, 135, 0, 0, 0, 0, 0, 0, 0, 60, 195
+"d:\webapps\2026\next\.agent\skills\frontend-design\SKILL.md", "Markdown", 0, 0, 0, 302, 0, 0, 0, 0, 0, 0, 0, 117, 419
+"d:\webapps\2026\next\.agent\skills\frontend-design\animation-guide.md", "Markdown", 0, 0, 0, 246, 0, 0, 0, 0, 0, 0, 0, 86, 332
+"d:\webapps\2026\next\.agent\skills\frontend-design\color-system.md", "Markdown", 0, 0, 0, 244, 0, 0, 0, 0, 0, 0, 0, 68, 312
+"d:\webapps\2026\next\.agent\skills\frontend-design\decision-trees.md", "Markdown", 0, 0, 0, 352, 0, 0, 0, 0, 0, 0, 0, 67, 419
+"d:\webapps\2026\next\.agent\skills\frontend-design\motion-graphics.md", "Markdown", 0, 0, 0, 231, 0, 0, 0, 0, 0, 0, 0, 76, 307
+"d:\webapps\2026\next\.agent\skills\frontend-design\scripts\accessibility_checker.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 130, 16, 38, 184
+"d:\webapps\2026\next\.agent\skills\frontend-design\scripts\ux_audit.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 473, 136, 114, 723
+"d:\webapps\2026\next\.agent\skills\frontend-design\typography-system.md", "Markdown", 0, 0, 0, 253, 0, 0, 0, 0, 0, 0, 0, 93, 346
+"d:\webapps\2026\next\.agent\skills\frontend-design\ux-psychology.md", "Markdown", 0, 0, 0, 876, 0, 0, 0, 0, 0, 0, 0, 241, 1117
+"d:\webapps\2026\next\.agent\skills\frontend-design\visual-effects.md", "Markdown", 0, 0, 0, 286, 0, 0, 0, 0, 0, 0, 0, 98, 384
+"d:\webapps\2026\next\.agent\skills\game-development\2d-games\SKILL.md", "Markdown", 0, 0, 0, 82, 0, 0, 0, 0, 0, 0, 0, 38, 120
+"d:\webapps\2026\next\.agent\skills\game-development\3d-games\SKILL.md", "Markdown", 0, 0, 0, 94, 0, 0, 0, 0, 0, 0, 0, 42, 136
+"d:\webapps\2026\next\.agent\skills\game-development\SKILL.md", "Markdown", 0, 0, 0, 119, 0, 0, 0, 0, 0, 0, 0, 49, 168
+"d:\webapps\2026\next\.agent\skills\game-development\game-art\SKILL.md", "Markdown", 0, 0, 0, 141, 0, 0, 0, 0, 0, 0, 0, 45, 186
+"d:\webapps\2026\next\.agent\skills\game-development\game-audio\SKILL.md", "Markdown", 0, 0, 0, 140, 0, 0, 0, 0, 0, 0, 0, 51, 191
+"d:\webapps\2026\next\.agent\skills\game-development\game-design\SKILL.md", "Markdown", 0, 0, 0, 92, 0, 0, 0, 0, 0, 0, 0, 38, 130
+"d:\webapps\2026\next\.agent\skills\game-development\mobile-games\SKILL.md", "Markdown", 0, 0, 0, 76, 0, 0, 0, 0, 0, 0, 0, 33, 109
+"d:\webapps\2026\next\.agent\skills\game-development\multiplayer\SKILL.md", "Markdown", 0, 0, 0, 97, 0, 0, 0, 0, 0, 0, 0, 36, 133
+"d:\webapps\2026\next\.agent\skills\game-development\pc-games\SKILL.md", "Markdown", 0, 0, 0, 105, 0, 0, 0, 0, 0, 0, 0, 40, 145
+"d:\webapps\2026\next\.agent\skills\game-development\vr-ar\SKILL.md", "Markdown", 0, 0, 0, 86, 0, 0, 0, 0, 0, 0, 0, 38, 124
+"d:\webapps\2026\next\.agent\skills\game-development\web-games\SKILL.md", "Markdown", 0, 0, 0, 107, 0, 0, 0, 0, 0, 0, 0, 44, 151
+"d:\webapps\2026\next\.agent\skills\geo-fundamentals\SKILL.md", "Markdown", 0, 0, 0, 111, 0, 0, 0, 0, 0, 0, 0, 46, 157
+"d:\webapps\2026\next\.agent\skills\geo-fundamentals\scripts\geo_checker.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 208, 28, 54, 290
+"d:\webapps\2026\next\.agent\skills\i18n-localization\SKILL.md", "Markdown", 0, 0, 0, 112, 0, 0, 0, 0, 0, 0, 0, 43, 155
+"d:\webapps\2026\next\.agent\skills\i18n-localization\scripts\i18n_checker.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 178, 19, 45, 242
+"d:\webapps\2026\next\.agent\skills\intelligent-routing\SKILL.md", "Markdown", 0, 0, 0, 236, 0, 0, 0, 0, 0, 0, 0, 100, 336
+"d:\webapps\2026\next\.agent\skills\lint-and-validate\SKILL.md", "Markdown", 0, 0, 0, 33, 0, 0, 0, 0, 0, 0, 0, 13, 46
+"d:\webapps\2026\next\.agent\skills\lint-and-validate\scripts\lint_runner.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 134, 13, 38, 185
+"d:\webapps\2026\next\.agent\skills\lint-and-validate\scripts\type_coverage.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 124, 14, 36, 174
+"d:\webapps\2026\next\.agent\skills\mcp-builder\SKILL.md", "Markdown", 0, 0, 0, 121, 0, 0, 0, 0, 0, 0, 0, 56, 177
+"d:\webapps\2026\next\.agent\skills\mobile-design\SKILL.md", "Markdown", 0, 0, 0, 304, 0, 0, 0, 0, 0, 0, 0, 91, 395
+"d:\webapps\2026\next\.agent\skills\mobile-design\decision-trees.md", "Markdown", 0, 0, 0, 436, 0, 0, 0, 0, 0, 0, 0, 81, 517
+"d:\webapps\2026\next\.agent\skills\mobile-design\mobile-backend.md", "Markdown", 0, 0, 0, 393, 0, 0, 0, 0, 0, 0, 0, 99, 492
+"d:\webapps\2026\next\.agent\skills\mobile-design\mobile-color-system.md", "Markdown", 0, 0, 0, 318, 0, 0, 0, 0, 0, 0, 0, 103, 421
+"d:\webapps\2026\next\.agent\skills\mobile-design\mobile-debugging.md", "Markdown", 0, 0, 0, 88, 0, 0, 0, 0, 0, 0, 0, 35, 123
+"d:\webapps\2026\next\.agent\skills\mobile-design\mobile-design-thinking.md", "Markdown", 0, 0, 0, 297, 0, 0, 0, 0, 0, 0, 0, 61, 358
+"d:\webapps\2026\next\.agent\skills\mobile-design\mobile-navigation.md", "Markdown", 0, 0, 0, 357, 0, 0, 0, 0, 0, 0, 0, 102, 459
+"d:\webapps\2026\next\.agent\skills\mobile-design\mobile-performance.md", "Markdown", 0, 0, 0, 610, 0, 0, 0, 0, 0, 0, 0, 158, 768
+"d:\webapps\2026\next\.agent\skills\mobile-design\mobile-testing.md", "Markdown", 0, 0, 0, 281, 0, 0, 0, 0, 0, 0, 0, 76, 357
+"d:\webapps\2026\next\.agent\skills\mobile-design\mobile-typography.md", "Markdown", 0, 0, 0, 334, 0, 0, 0, 0, 0, 0, 0, 100, 434
+"d:\webapps\2026\next\.agent\skills\mobile-design\platform-android.md", "Markdown", 0, 0, 0, 513, 0, 0, 0, 0, 0, 0, 0, 154, 667
+"d:\webapps\2026\next\.agent\skills\mobile-design\platform-ios.md", "Markdown", 0, 0, 0, 431, 0, 0, 0, 0, 0, 0, 0, 131, 562
+"d:\webapps\2026\next\.agent\skills\mobile-design\scripts\mobile_audit.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 446, 108, 117, 671
+"d:\webapps\2026\next\.agent\skills\mobile-design\touch-psychology.md", "Markdown", 0, 0, 0, 417, 0, 0, 0, 0, 0, 0, 0, 121, 538
+"d:\webapps\2026\next\.agent\skills\nextjs-react-expert\1-async-eliminating-waterfalls.md", "Markdown", 0, 0, 0, 228, 0, 0, 0, 0, 0, 0, 0, 85, 313
+"d:\webapps\2026\next\.agent\skills\nextjs-react-expert\2-bundle-bundle-size-optimization.md", "Markdown", 0, 0, 0, 170, 0, 0, 0, 0, 0, 0, 0, 71, 241
+"d:\webapps\2026\next\.agent\skills\nextjs-react-expert\3-server-server-side-performance.md", "Markdown", 0, 0, 0, 347, 0, 0, 0, 0, 0, 0, 0, 144, 491
+"d:\webapps\2026\next\.agent\skills\nextjs-react-expert\4-client-client-side-data-fetching.md", "Markdown", 0, 0, 0, 196, 0, 0, 0, 0, 0, 0, 0, 69, 265
+"d:\webapps\2026\next\.agent\skills\nextjs-react-expert\5-rerender-re-render-optimization.md", "Markdown", 0, 0, 0, 417, 0, 0, 0, 0, 0, 0, 0, 165, 582
+"d:\webapps\2026\next\.agent\skills\nextjs-react-expert\6-rendering-rendering-performance.md", "Markdown", 0, 0, 0, 318, 0, 0, 0, 0, 0, 0, 0, 115, 433
+"d:\webapps\2026\next\.agent\skills\nextjs-react-expert\7-js-javascript-performance.md", "Markdown", 0, 0, 0, 504, 0, 0, 0, 0, 0, 0, 0, 181, 685
+"d:\webapps\2026\next\.agent\skills\nextjs-react-expert\8-advanced-advanced-patterns.md", "Markdown", 0, 0, 0, 105, 0, 0, 0, 0, 0, 0, 0, 46, 151
+"d:\webapps\2026\next\.agent\skills\nextjs-react-expert\SKILL.md", "Markdown", 0, 0, 0, 197, 0, 0, 0, 0, 0, 0, 0, 90, 287
+"d:\webapps\2026\next\.agent\skills\nextjs-react-expert\scripts\convert_rules.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 160, 16, 47, 223
+"d:\webapps\2026\next\.agent\skills\nextjs-react-expert\scripts\react_performance_checker.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 194, 10, 49, 253
+"d:\webapps\2026\next\.agent\skills\nodejs-best-practices\SKILL.md", "Markdown", 0, 0, 0, 255, 0, 0, 0, 0, 0, 0, 0, 79, 334
+"d:\webapps\2026\next\.agent\skills\parallel-agents\SKILL.md", "Markdown", 0, 0, 0, 132, 0, 0, 0, 0, 0, 0, 0, 44, 176
+"d:\webapps\2026\next\.agent\skills\performance-profiling\SKILL.md", "Markdown", 0, 0, 0, 102, 0, 0, 0, 0, 0, 0, 0, 42, 144
+"d:\webapps\2026\next\.agent\skills\performance-profiling\scripts\lighthouse_audit.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 67, 1, 9, 77
+"d:\webapps\2026\next\.agent\skills\plan-writing\SKILL.md", "Markdown", 0, 0, 0, 108, 0, 0, 0, 0, 0, 0, 0, 45, 153
+"d:\webapps\2026\next\.agent\skills\powershell-windows\SKILL.md", "Markdown", 0, 0, 0, 114, 0, 0, 0, 0, 0, 0, 0, 54, 168
+"d:\webapps\2026\next\.agent\skills\python-patterns\SKILL.md", "Markdown", 0, 0, 0, 339, 0, 0, 0, 0, 0, 0, 0, 103, 442
+"d:\webapps\2026\next\.agent\skills\red-team-tactics\SKILL.md", "Markdown", 0, 0, 0, 142, 0, 0, 0, 0, 0, 0, 0, 58, 200
+"d:\webapps\2026\next\.agent\skills\rust-pro\SKILL.md", "Markdown", 0, 0, 0, 154, 0, 0, 0, 0, 0, 0, 0, 22, 176
+"d:\webapps\2026\next\.agent\skills\seo-fundamentals\SKILL.md", "Markdown", 0, 0, 0, 94, 0, 0, 0, 0, 0, 0, 0, 36, 130
+"d:\webapps\2026\next\.agent\skills\seo-fundamentals\scripts\seo_checker.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 148, 22, 50, 220
+"d:\webapps\2026\next\.agent\skills\server-management\SKILL.md", "Markdown", 0, 0, 0, 115, 0, 0, 0, 0, 0, 0, 0, 47, 162
+"d:\webapps\2026\next\.agent\skills\systematic-debugging\SKILL.md", "Markdown", 0, 0, 0, 86, 0, 0, 0, 0, 0, 0, 0, 24, 110
+"d:\webapps\2026\next\.agent\skills\tailwind-patterns\SKILL.md", "Markdown", 0, 0, 0, 194, 0, 0, 0, 0, 0, 0, 0, 76, 270
+"d:\webapps\2026\next\.agent\skills\tdd-workflow\SKILL.md", "Markdown", 0, 0, 0, 104, 0, 0, 0, 0, 0, 0, 0, 46, 150
+"d:\webapps\2026\next\.agent\skills\testing-patterns\SKILL.md", "Markdown", 0, 0, 0, 128, 0, 0, 0, 0, 0, 0, 0, 51, 179
+"d:\webapps\2026\next\.agent\skills\testing-patterns\scripts\test_runner.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 167, 14, 39, 220
+"d:\webapps\2026\next\.agent\skills\vulnerability-scanner\SKILL.md", "Markdown", 0, 0, 0, 202, 0, 0, 0, 0, 0, 0, 0, 75, 277
+"d:\webapps\2026\next\.agent\skills\vulnerability-scanner\checklists.md", "Markdown", 0, 0, 0, 91, 0, 0, 0, 0, 0, 0, 0, 31, 122
+"d:\webapps\2026\next\.agent\skills\vulnerability-scanner\scripts\security_scan.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 345, 28, 86, 459
+"d:\webapps\2026\next\.agent\skills\web-design-guidelines\SKILL.md", "Markdown", 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 0, 17, 58
+"d:\webapps\2026\next\.agent\skills\webapp-testing\SKILL.md", "Markdown", 0, 0, 0, 133, 0, 0, 0, 0, 0, 0, 0, 55, 188
+"d:\webapps\2026\next\.agent\skills\webapp-testing\scripts\playwright_runner.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 132, 11, 31, 174
+"d:\webapps\2026\next\.agent\tasks\auth-rbac-setup.md", "Markdown", 0, 0, 0, 94, 0, 0, 0, 0, 0, 0, 0, 26, 120
+"d:\webapps\2026\next\.agent\tasks\i18n-multilocale-setup.md", "Markdown", 0, 0, 0, 38, 0, 0, 0, 0, 0, 0, 0, 11, 49
+"d:\webapps\2026\next\.agent\workflows\brainstorm.md", "Markdown", 0, 0, 0, 73, 0, 0, 0, 0, 0, 0, 0, 41, 114
+"d:\webapps\2026\next\.agent\workflows\create.md", "Markdown", 0, 0, 0, 42, 0, 0, 0, 0, 0, 0, 0, 18, 60
+"d:\webapps\2026\next\.agent\workflows\debug.md", "Markdown", 0, 0, 0, 72, 0, 0, 0, 0, 0, 0, 0, 32, 104
+"d:\webapps\2026\next\.agent\workflows\deploy.md", "Markdown", 0, 0, 0, 136, 0, 0, 0, 0, 0, 0, 0, 41, 177
+"d:\webapps\2026\next\.agent\workflows\enhance.md", "Markdown", 0, 0, 0, 45, 0, 0, 0, 0, 0, 0, 0, 19, 64
+"d:\webapps\2026\next\.agent\workflows\orchestrate.md", "Markdown", 0, 0, 0, 176, 0, 0, 0, 0, 0, 0, 0, 62, 238
+"d:\webapps\2026\next\.agent\workflows\plan.md", "Markdown", 0, 0, 0, 65, 0, 0, 0, 0, 0, 0, 0, 25, 90
+"d:\webapps\2026\next\.agent\workflows\preview.md", "Markdown", 0, 0, 0, 57, 0, 0, 0, 0, 0, 0, 0, 25, 82
+"d:\webapps\2026\next\.agent\workflows\status.md", "Markdown", 0, 0, 0, 61, 0, 0, 0, 0, 0, 0, 0, 26, 87
+"d:\webapps\2026\next\.agent\workflows\test.md", "Markdown", 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 45, 145
+"d:\webapps\2026\next\.agent\workflows\ui-ux-pro-max.md", "Markdown", 0, 0, 0, 215, 0, 0, 0, 0, 0, 0, 0, 81, 296
+"d:\webapps\2026\next\README.md", "Markdown", 0, 0, 0, 23, 0, 0, 0, 0, 0, 0, 0, 14, 37
+"d:\webapps\2026\next\dashboard-performance.md", "Markdown", 0, 0, 0, 17, 0, 0, 0, 0, 0, 0, 0, 4, 21
+"d:\webapps\2026\next\docs\PLAN-external-lists.md", "Markdown", 0, 0, 0, 11, 0, 0, 0, 0, 0, 0, 0, 4, 15
+"d:\webapps\2026\next\docs\PLAN-homepage-lists.md", "Markdown", 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 4, 17
+"d:\webapps\2026\next\docs\PLAN-posts-module.md", "Markdown", 0, 0, 0, 60, 0, 0, 0, 0, 0, 0, 0, 14, 74
+"d:\webapps\2026\next\docs\PLAN-public-management.md", "Markdown", 0, 0, 0, 39, 0, 0, 0, 0, 0, 0, 0, 13, 52
+"d:\webapps\2026\next\docs\PLAN-services-lists.md", "Markdown", 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 4, 16
+"d:\webapps\2026\next\eslint.config.mjs", "JavaScript", 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 3, 19
+"d:\webapps\2026\next\fixTernary.js", "JavaScript", 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 5, 17
+"d:\webapps\2026\next\get_icons.mjs", "JavaScript", 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 21
+"d:\webapps\2026\next\migrate_cms.js", "JavaScript", 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 8, 33
+"d:\webapps\2026\next\next.config.ts", "TypeScript", 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 11
+"d:\webapps\2026\next\package-lock.json", "JSON", 0, 0, 0, 0, 0, 10142, 0, 0, 0, 0, 0, 1, 10143
+"d:\webapps\2026\next\package.json", "JSON", 0, 0, 0, 0, 0, 55, 0, 0, 0, 0, 0, 1, 56
+"d:\webapps\2026\next\pms-teams-plan.md", "Markdown", 0, 0, 0, 28, 0, 0, 0, 0, 0, 0, 0, 9, 37
+"d:\webapps\2026\next\postcss.config.mjs", "JavaScript", 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8
+"d:\webapps\2026\next\projects-management.md", "Markdown", 0, 0, 0, 44, 0, 0, 0, 0, 0, 0, 0, 13, 57
+"d:\webapps\2026\next\public\file.svg", "XML", 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1
+"d:\webapps\2026\next\public\globe.svg", "XML", 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1
+"d:\webapps\2026\next\public\next.svg", "XML", 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1
+"d:\webapps\2026\next\public\vercel.svg", "XML", 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1
+"d:\webapps\2026\next\public\window.svg", "XML", 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1
+"d:\webapps\2026\next\refactor-ui.js", "JavaScript", 151, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 17, 187
+"d:\webapps\2026\next\scripts\extract-seeds.js", "JavaScript", 35, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 8, 44
+"d:\webapps\2026\next\src\app\[locale]\(auth)\confirm-account\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 129, 0, 0, 0, 0, 18, 147
+"d:\webapps\2026\next\src\app\[locale]\(auth)\forgot-password\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 73, 0, 0, 0, 0, 11, 84
+"d:\webapps\2026\next\src\app\[locale]\(auth)\layout.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 17, 0, 0, 0, 0, 1, 18
+"d:\webapps\2026\next\src\app\[locale]\(auth)\login\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 87, 0, 0, 0, 0, 11, 98
+"d:\webapps\2026\next\src\app\[locale]\(auth)\not-authorized\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 31, 0, 0, 0, 0, 3, 34
+"d:\webapps\2026\next\src\app\[locale]\(auth)\register\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 108, 0, 0, 0, 0, 15, 123
+"d:\webapps\2026\next\src\app\[locale]\(auth)\reset-password\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 84, 0, 0, 0, 0, 12, 96
+"d:\webapps\2026\next\src\app\[locale]\(auth)\setup-account\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 81, 0, 0, 0, 0, 10, 91
+"d:\webapps\2026\next\src\app\[locale]\(public)\layout.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 71, 0, 0, 0, 0, 8, 79
+"d:\webapps\2026\next\src\app\[locale]\(public)\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 97, 0, 0, 0, 3, 9, 109
+"d:\webapps\2026\next\src\app\[locale]\dashboard\about-content\company\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 11, 0, 0, 0, 0, 2, 13
+"d:\webapps\2026\next\src\app\[locale]\dashboard\about-content\mission\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 11, 0, 0, 0, 0, 2, 13
+"d:\webapps\2026\next\src\app\[locale]\dashboard\about-content\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 2, 16
+"d:\webapps\2026\next\src\app\[locale]\dashboard\about-content\team\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 11, 0, 0, 0, 0, 2, 13
+"d:\webapps\2026\next\src\app\[locale]\dashboard\accounts\AccountsTable.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 191, 0, 0, 0, 7, 20, 218
+"d:\webapps\2026\next\src\app\[locale]\dashboard\accounts\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 33, 0, 0, 0, 1, 4, 38
+"d:\webapps\2026\next\src\app\[locale]\dashboard\categories\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 29, 0, 0, 0, 0, 3, 32
+"d:\webapps\2026\next\src\app\[locale]\dashboard\contact-settings\branches\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 17, 0, 0, 0, 1, 4, 22
+"d:\webapps\2026\next\src\app\[locale]\dashboard\contact-settings\info\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 17, 0, 0, 0, 1, 4, 22
+"d:\webapps\2026\next\src\app\[locale]\dashboard\contact-settings\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 76, 0, 0, 0, 0, 5, 81
+"d:\webapps\2026\next\src\app\[locale]\dashboard\contact-settings\social\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 17, 0, 0, 0, 1, 4, 22
+"d:\webapps\2026\next\src\app\[locale]\dashboard\homepage-content\features\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 17, 0, 0, 0, 1, 4, 22
+"d:\webapps\2026\next\src\app\[locale]\dashboard\homepage-content\hero\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 17, 0, 0, 0, 1, 4, 22
+"d:\webapps\2026\next\src\app\[locale]\dashboard\homepage-content\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 86, 0, 0, 0, 0, 5, 91
+"d:\webapps\2026\next\src\app\[locale]\dashboard\homepage-content\partners\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 17, 0, 0, 0, 1, 4, 22
+"d:\webapps\2026\next\src\app\[locale]\dashboard\homepage-content\testimonials\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 17, 0, 0, 0, 1, 4, 22
+"d:\webapps\2026\next\src\app\[locale]\dashboard\layout.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 40, 0, 0, 0, 0, 8, 48
+"d:\webapps\2026\next\src\app\[locale]\dashboard\logs\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 126, 0, 0, 0, 1, 13, 140
+"d:\webapps\2026\next\src\app\[locale]\dashboard\media\documents\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 38, 0, 0, 0, 0, 6, 44
+"d:\webapps\2026\next\src\app\[locale]\dashboard\media\folders\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 38, 0, 0, 0, 0, 4, 42
+"d:\webapps\2026\next\src\app\[locale]\dashboard\media\images\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 38, 0, 0, 0, 0, 5, 43
+"d:\webapps\2026\next\src\app\[locale]\dashboard\media\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 136, 0, 0, 0, 4, 11, 151
+"d:\webapps\2026\next\src\app\[locale]\dashboard\media\videos\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 38, 0, 0, 0, 0, 5, 43
+"d:\webapps\2026\next\src\app\[locale]\dashboard\offers-coupons\campaigns\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 29, 0, 0, 0, 0, 3, 32
+"d:\webapps\2026\next\src\app\[locale]\dashboard\offers-coupons\coupons\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 29, 0, 0, 0, 0, 3, 32
+"d:\webapps\2026\next\src\app\[locale]\dashboard\offers-coupons\offers\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 35, 0, 0, 0, 0, 3, 38
+"d:\webapps\2026\next\src\app\[locale]\dashboard\offers-coupons\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 2, 16
+"d:\webapps\2026\next\src\app\[locale]\dashboard\orders\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 38, 0, 0, 0, 3, 4, 45
+"d:\webapps\2026\next\src\app\[locale]\dashboard\orders\returns\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 29, 0, 0, 0, 0, 3, 32
+"d:\webapps\2026\next\src\app\[locale]\dashboard\orders\statuses\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 29, 0, 0, 0, 0, 3, 32
+"d:\webapps\2026\next\src\app\[locale]\dashboard\orders\tracking\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 32, 0, 0, 0, 0, 3, 35
+"d:\webapps\2026\next\src\app\[locale]\dashboard\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 91, 0, 0, 0, 11, 11, 113
+"d:\webapps\2026\next\src\app\[locale]\dashboard\pages\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 2, 16
+"d:\webapps\2026\next\src\app\[locale]\dashboard\payments\invoices\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 11, 0, 0, 0, 0, 2, 13
+"d:\webapps\2026\next\src\app\[locale]\dashboard\payments\methods\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 11, 0, 0, 0, 0, 2, 13
+"d:\webapps\2026\next\src\app\[locale]\dashboard\payments\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 2, 16
+"d:\webapps\2026\next\src\app\[locale]\dashboard\payments\transactions\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 11, 0, 0, 0, 0, 2, 13
+"d:\webapps\2026\next\src\app\[locale]\dashboard\permissions\PermissionsMatrix.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 135, 0, 0, 0, 4, 12, 151
+"d:\webapps\2026\next\src\app\[locale]\dashboard\permissions\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 29, 0, 0, 0, 1, 5, 35
+"d:\webapps\2026\next\src\app\[locale]\dashboard\posts\[id]\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 40, 0, 0, 0, 2, 6, 48
+"d:\webapps\2026\next\src\app\[locale]\dashboard\posts\categories\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 79, 0, 0, 0, 0, 11, 90
+"d:\webapps\2026\next\src\app\[locale]\dashboard\posts\create\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 32, 0, 0, 0, 3, 5, 40
+"d:\webapps\2026\next\src\app\[locale]\dashboard\posts\newsletter-members\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 94, 0, 0, 0, 4, 6, 104
+"d:\webapps\2026\next\src\app\[locale]\dashboard\posts\newsletter\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 87, 0, 0, 0, 1, 12, 100
+"d:\webapps\2026\next\src\app\[locale]\dashboard\posts\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 40, 0, 0, 0, 4, 7, 51
+"d:\webapps\2026\next\src\app\[locale]\dashboard\products\attributes\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 11, 0, 0, 0, 0, 2, 13
+"d:\webapps\2026\next\src\app\[locale]\dashboard\products\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 39, 0, 0, 0, 4, 4, 47
+"d:\webapps\2026\next\src\app\[locale]\dashboard\products\reviews\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 29, 0, 0, 0, 0, 3, 32
+"d:\webapps\2026\next\src\app\[locale]\dashboard\products\variants\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 33, 0, 0, 0, 0, 3, 36
+"d:\webapps\2026\next\src\app\[locale]\dashboard\roles\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 84, 0, 0, 0, 5, 9, 98
+"d:\webapps\2026\next\src\app\[locale]\dashboard\services-content\categories\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 17, 0, 0, 0, 1, 4, 22
+"d:\webapps\2026\next\src\app\[locale]\dashboard\services-content\list\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 26, 0, 0, 0, 1, 4, 31
+"d:\webapps\2026\next\src\app\[locale]\dashboard\services-content\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 66, 0, 0, 0, 0, 5, 71
+"d:\webapps\2026\next\src\app\[locale]\dashboard\settings\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 2, 16
+"d:\webapps\2026\next\src\app\[locale]\layout.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 59, 0, 0, 0, 1, 12, 72
+"d:\webapps\2026\next\src\app\[locale]\projects-management\activity\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 24, 0, 0, 0, 0, 5, 29
+"d:\webapps\2026\next\src\app\[locale]\projects-management\branches\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 22, 0, 0, 0, 0, 5, 27
+"d:\webapps\2026\next\src\app\[locale]\projects-management\layout.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 38, 0, 0, 0, 0, 8, 46
+"d:\webapps\2026\next\src\app\[locale]\projects-management\members\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 19, 0, 0, 0, 0, 4, 23
+"d:\webapps\2026\next\src\app\[locale]\projects-management\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 24, 0, 0, 0, 0, 4, 28
+"d:\webapps\2026\next\src\app\[locale]\projects-management\projects\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 27, 0, 0, 0, 1, 6, 34
+"d:\webapps\2026\next\src\app\[locale]\projects-management\tasks\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 32, 0, 0, 0, 0, 5, 37
+"d:\webapps\2026\next\src\app\[locale]\projects-management\teams\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 30, 0, 0, 0, 0, 5, 35
+"d:\webapps\2026\next\src\app\[locale]\store\layout.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 51, 0, 0, 0, 0, 5, 56
+"d:\webapps\2026\next\src\app\[locale]\store\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 67, 0, 0, 0, 5, 6, 78
+"d:\webapps\2026\next\src\app\actions\admin.ts", "TypeScript", 0, 59, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 67
+"d:\webapps\2026\next\src\app\actions\auth.ts", "TypeScript", 0, 146, 0, 0, 0, 0, 0, 0, 0, 0, 5, 51, 202
+"d:\webapps\2026\next\src\app\actions\cms.ts", "TypeScript", 0, 71, 0, 0, 0, 0, 0, 0, 0, 0, 3, 14, 88
+"d:\webapps\2026\next\src\app\actions\external-lists.ts", "TypeScript", 0, 59, 0, 0, 0, 0, 0, 0, 0, 0, 2, 10, 71
+"d:\webapps\2026\next\src\app\actions\homepage-lists.ts", "TypeScript", 0, 87, 0, 0, 0, 0, 0, 0, 0, 0, 3, 14, 104
+"d:\webapps\2026\next\src\app\actions\media.ts", "TypeScript", 0, 135, 0, 0, 0, 0, 0, 0, 0, 0, 10, 27, 172
+"d:\webapps\2026\next\src\app\actions\pms-activity.ts", "TypeScript", 0, 43, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 51
+"d:\webapps\2026\next\src\app\actions\pms-projects.ts", "TypeScript", 0, 149, 0, 0, 0, 0, 0, 0, 0, 0, 6, 26, 181
+"d:\webapps\2026\next\src\app\actions\pms-tasks.ts", "TypeScript", 0, 253, 0, 0, 0, 0, 0, 0, 0, 0, 10, 36, 299
+"d:\webapps\2026\next\src\app\actions\pms-teams.ts", "TypeScript", 0, 109, 0, 0, 0, 0, 0, 0, 0, 0, 3, 24, 136
+"d:\webapps\2026\next\src\app\actions\posts.ts", "TypeScript", 0, 128, 0, 0, 0, 0, 0, 0, 0, 0, 4, 23, 155
+"d:\webapps\2026\next\src\app\actions\services-lists.ts", "TypeScript", 0, 61, 0, 0, 0, 0, 0, 0, 0, 0, 2, 10, 73
+"d:\webapps\2026\next\src\app\actions\store-categories.ts", "TypeScript", 0, 33, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 39
+"d:\webapps\2026\next\src\app\actions\store-marketing.ts", "TypeScript", 0, 84, 0, 0, 0, 0, 0, 0, 0, 0, 3, 14, 101
+"d:\webapps\2026\next\src\app\actions\store-orders.ts", "TypeScript", 0, 81, 0, 0, 0, 0, 0, 0, 0, 0, 3, 13, 97
+"d:\webapps\2026\next\src\app\actions\store-products.ts", "TypeScript", 0, 91, 0, 0, 0, 0, 0, 0, 0, 0, 4, 14, 109
+"d:\webapps\2026\next\src\app\auth\callback\route.ts", "TypeScript", 0, 26, 0, 0, 0, 0, 0, 0, 0, 0, 1, 6, 33
+"d:\webapps\2026\next\src\app\globals.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 77, 0, 0, 0, 14, 91
+"d:\webapps\2026\next\src\components\DynamicSidebar.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 267, 0, 0, 0, 8, 23, 298
+"d:\webapps\2026\next\src\components\LocaleSwitcher.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 36, 0, 0, 0, 1, 5, 42
+"d:\webapps\2026\next\src\components\SidebarIcon.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 410, 0, 0, 0, 0, 3, 413
+"d:\webapps\2026\next\src\components\ThemeProvider.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 17, 0, 0, 0, 0, 4, 21
+"d:\webapps\2026\next\src\components\ThemeSwitcher.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 56, 0, 0, 0, 3, 7, 66
+"d:\webapps\2026\next\src\components\Topbar.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 65, 0, 0, 0, 5, 9, 79
+"d:\webapps\2026\next\src\components\cms\BranchesGrid.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 175, 0, 0, 0, 3, 25, 203
+"d:\webapps\2026\next\src\components\cms\CampaignsGrid.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 190, 0, 0, 0, 3, 23, 216
+"d:\webapps\2026\next\src\components\cms\CategoriesGrid.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 155, 0, 0, 0, 3, 19, 177
+"d:\webapps\2026\next\src\components\cms\ContactInfoForm.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 168, 0, 0, 0, 5, 17, 190
+"d:\webapps\2026\next\src\components\cms\CouponsGrid.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 234, 0, 0, 0, 3, 30, 267
+"d:\webapps\2026\next\src\components\cms\FeaturesGrid.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 170, 0, 0, 0, 3, 24, 197
+"d:\webapps\2026\next\src\components\cms\HeroForm.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 198, 0, 0, 0, 9, 21, 228
+"d:\webapps\2026\next\src\components\cms\OffersGrid.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 203, 0, 0, 0, 3, 23, 229
+"d:\webapps\2026\next\src\components\cms\OrderStatusesGrid.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 160, 0, 0, 0, 3, 24, 187
+"d:\webapps\2026\next\src\components\cms\OrderTrackingGrid.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 82, 0, 0, 0, 5, 14, 101
+"d:\webapps\2026\next\src\components\cms\OrdersListGrid.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 167, 0, 0, 0, 4, 21, 192
+"d:\webapps\2026\next\src\components\cms\PartnersGrid.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 204, 0, 0, 0, 5, 26, 235
+"d:\webapps\2026\next\src\components\cms\ReturnsGrid.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 165, 0, 0, 0, 4, 21, 190
+"d:\webapps\2026\next\src\components\cms\ReviewsGrid.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 123, 0, 0, 0, 7, 18, 148
+"d:\webapps\2026\next\src\components\cms\ServicesGrid.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 217, 0, 0, 0, 5, 29, 251
+"d:\webapps\2026\next\src\components\cms\SocialGrid.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 165, 0, 0, 0, 4, 27, 196
+"d:\webapps\2026\next\src\components\cms\StoreCategoriesGrid.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 199, 0, 0, 0, 11, 23, 233
+"d:\webapps\2026\next\src\components\cms\StoreProductsGrid.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 233, 0, 0, 0, 4, 25, 262
+"d:\webapps\2026\next\src\components\cms\TestimonialsGrid.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 210, 0, 0, 0, 4, 29, 243
+"d:\webapps\2026\next\src\components\cms\VariantsGrid.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 184, 0, 0, 0, 4, 16, 204
+"d:\webapps\2026\next\src\components\media\FoldersTree.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 160, 0, 0, 0, 9, 20, 189
+"d:\webapps\2026\next\src\components\media\MediaGrid.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 339, 0, 0, 0, 12, 28, 379
+"d:\webapps\2026\next\src\components\media\UploadDialog.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 342, 0, 0, 0, 11, 32, 385
+"d:\webapps\2026\next\src\components\pms\ActivityFeed.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 103, 0, 0, 0, 2, 12, 117
+"d:\webapps\2026\next\src\components\pms\BranchesGrid.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 198, 0, 0, 0, 1, 14, 213
+"d:\webapps\2026\next\src\components\pms\MembersGrid.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 103, 0, 0, 0, 6, 11, 120
+"d:\webapps\2026\next\src\components\pms\PmsDashboard.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 181, 0, 0, 0, 5, 14, 200
+"d:\webapps\2026\next\src\components\pms\ProjectsGrid.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 258, 0, 0, 0, 7, 23, 288
+"d:\webapps\2026\next\src\components\pms\TaskDetailDrawer.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 364, 0, 0, 0, 21, 32, 417
+"d:\webapps\2026\next\src\components\pms\TasksKanban.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 320, 0, 0, 0, 17, 27, 364
+"d:\webapps\2026\next\src\components\pms\TeamsGrid.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 242, 0, 0, 0, 8, 21, 271
+"d:\webapps\2026\next\src\components\posts\PostForm.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 186, 0, 0, 0, 12, 23, 221
+"d:\webapps\2026\next\src\components\posts\PostsList.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 113, 0, 0, 0, 7, 14, 134
+"d:\webapps\2026\next\src\components\ui\PlayfulInputs.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 184, 0, 0, 0, 0, 12, 196
+"d:\webapps\2026\next\src\components\ui\PlayfulModal.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 72, 0, 0, 0, 2, 9, 83
+"d:\webapps\2026\next\src\components\ui\RichTextEditor.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 180, 0, 0, 0, 6, 21, 207
+"d:\webapps\2026\next\src\components\ui\Skeletons.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 102, 0, 0, 0, 3, 7, 112
+"d:\webapps\2026\next\src\db\schema\accounts.ts", "TypeScript", 0, 35, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 40
+"d:\webapps\2026\next\src\db\schema\auth.ts", "TypeScript", 0, 81, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 88
+"d:\webapps\2026\next\src\db\schema\content.ts", "TypeScript", 0, 43, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 46
+"d:\webapps\2026\next\src\db\schema\homepage.ts", "TypeScript", 0, 48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 53
+"d:\webapps\2026\next\src\db\schema\index.ts", "TypeScript", 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 11
+"d:\webapps\2026\next\src\db\schema\marketing.ts", "TypeScript", 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 34
+"d:\webapps\2026\next\src\db\schema\media.ts", "TypeScript", 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 28
+"d:\webapps\2026\next\src\db\schema\pages.ts", "TypeScript", 0, 57, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 63
+"d:\webapps\2026\next\src\db\schema\services.ts", "TypeScript", 0, 26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 29
+"d:\webapps\2026\next\src\db\schema\settings.ts", "TypeScript", 0, 33, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 37
+"d:\webapps\2026\next\src\db\schema\storage.ts", "TypeScript", 0, 59, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 67
+"d:\webapps\2026\next\src\db\seed-data\contact_info.json", "JSON", 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 12
+"d:\webapps\2026\next\src\db\seed-data\homepage_hero.json", "JSON", 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 0, 14
+"d:\webapps\2026\next\src\db\seed-data\page_groups.json", "JSON", 0, 0, 0, 0, 0, 65, 0, 0, 0, 0, 0, 0, 65
+"d:\webapps\2026\next\src\db\seed-data\pages.json", "JSON", 0, 0, 0, 0, 0, 626, 0, 0, 0, 0, 0, 0, 626
+"d:\webapps\2026\next\src\db\seed-data\role_page_permissions.json", "JSON", 0, 0, 0, 0, 0, 2082, 0, 0, 0, 0, 0, 0, 2082
+"d:\webapps\2026\next\src\db\seed-data\roles.json", "JSON", 0, 0, 0, 0, 0, 65, 0, 0, 0, 0, 0, 0, 65
+"d:\webapps\2026\next\src\db\seed-data\sections.json", "JSON", 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 20
+"d:\webapps\2026\next\src\db\seed.ts", "TypeScript", 0, 92, 0, 0, 0, 0, 0, 0, 0, 0, 12, 16, 120
+"d:\webapps\2026\next\src\i18n\navigation.ts", "TypeScript", 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 6
+"d:\webapps\2026\next\src\i18n\request.ts", "TypeScript", 0, 35, 0, 0, 0, 0, 0, 0, 0, 0, 9, 13, 57
+"d:\webapps\2026\next\src\i18n\routing.ts", "TypeScript", 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 12
+"d:\webapps\2026\next\src\lib\permissions.ts", "TypeScript", 0, 162, 0, 0, 0, 0, 0, 0, 0, 0, 6, 35, 203
+"d:\webapps\2026\next\src\lib\supabase\client.ts", "TypeScript", 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 11
+"d:\webapps\2026\next\src\lib\supabase\middleware.ts", "TypeScript", 0, 33, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 38
+"d:\webapps\2026\next\src\lib\supabase\server.ts", "TypeScript", 0, 24, 0, 0, 0, 0, 0, 0, 0, 0, 2, 3, 29
+"d:\webapps\2026\next\src\messages\auth.ar.json", "JSON", 0, 0, 0, 0, 0, 89, 0, 0, 0, 0, 0, 0, 89
+"d:\webapps\2026\next\src\messages\auth.en.json", "JSON", 0, 0, 0, 0, 0, 89, 0, 0, 0, 0, 0, 0, 89
+"d:\webapps\2026\next\src\messages\common.ar.json", "JSON", 0, 0, 0, 0, 0, 17, 0, 0, 0, 0, 0, 0, 17
+"d:\webapps\2026\next\src\messages\common.en.json", "JSON", 0, 0, 0, 0, 0, 17, 0, 0, 0, 0, 0, 0, 17
+"d:\webapps\2026\next\src\messages\dashboard.ar.json", "JSON", 0, 0, 0, 0, 0, 19, 0, 0, 0, 0, 0, 0, 19
+"d:\webapps\2026\next\src\messages\dashboard.en.json", "JSON", 0, 0, 0, 0, 0, 19, 0, 0, 0, 0, 0, 0, 19
+"d:\webapps\2026\next\src\messages\projects.ar.json", "JSON", 0, 0, 0, 0, 0, 24, 0, 0, 0, 0, 0, 0, 24
+"d:\webapps\2026\next\src\messages\projects.en.json", "JSON", 0, 0, 0, 0, 0, 24, 0, 0, 0, 0, 0, 0, 24
+"d:\webapps\2026\next\src\messages\public.ar.json", "JSON", 0, 0, 0, 0, 0, 35, 0, 0, 0, 0, 0, 0, 35
+"d:\webapps\2026\next\src\messages\public.en.json", "JSON", 0, 0, 0, 0, 0, 35, 0, 0, 0, 0, 0, 0, 35
+"d:\webapps\2026\next\src\messages\store.ar.json", "JSON", 0, 0, 0, 0, 0, 28, 0, 0, 0, 0, 0, 0, 28
+"d:\webapps\2026\next\src\messages\store.en.json", "JSON", 0, 0, 0, 0, 0, 28, 0, 0, 0, 0, 0, 0, 28
+"d:\webapps\2026\next\src\middleware.ts", "TypeScript", 0, 54, 0, 0, 0, 0, 0, 0, 0, 0, 10, 15, 79
+"d:\webapps\2026\next\store-management.md", "Markdown", 0, 0, 0, 28, 0, 0, 0, 0, 0, 0, 0, 9, 37
+"d:\webapps\2026\next\supabase\fix_rls_recursion.sql", "MS SQL", 0, 0, 0, 0, 38, 0, 0, 0, 0, 0, 10, 8, 56
+"d:\webapps\2026\next\supabase\migrations\20260326170905_store_management.sql", "MS SQL", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"d:\webapps\2026\next\supabase\posts_module.sql", "MS SQL", 0, 0, 0, 0, 84, 0, 0, 0, 0, 0, 10, 9, 103
+"d:\webapps\2026\next\supabase\posts_module_alter.sql", "MS SQL", 0, 0, 0, 0, 48, 0, 0, 0, 0, 0, 9, 8, 65
+"d:\webapps\2026\next\supabase\public_management.sql", "MS SQL", 0, 0, 0, 0, 131, 0, 0, 0, 0, 0, 17, 15, 163
+"d:\webapps\2026\next\supabase\seed_media_folders.sql", "MS SQL", 0, 0, 0, 0, 56, 0, 0, 0, 0, 0, 30, 19, 105
+"d:\webapps\2026\next\supabase\seed_media_pages.sql", "MS SQL", 0, 0, 0, 0, 24, 0, 0, 0, 0, 0, 4, 4, 32
+"d:\webapps\2026\next\supabase\seed_media_pages_fix.sql", "MS SQL", 0, 0, 0, 0, 27, 0, 0, 0, 0, 0, 5, 4, 36
+"d:\webapps\2026\next\translateTernary.js", "JavaScript", 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 7, 32
+"d:\webapps\2026\next\translateUi.js", "JavaScript", 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 12, 86
+"d:\webapps\2026\next\translateUiBtn.js", "JavaScript", 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 7, 26
+"d:\webapps\2026\next\tsconfig.json", "JSON with Comments", 0, 0, 34, 0, 0, 0, 0, 0, 0, 0, 0, 1, 35
+"Total", "-", 353, 2490, 54, 23055, 408, 13505, 11348, 77, 5, 4949, 1153, 10869, 68266

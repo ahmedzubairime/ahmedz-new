@@ -1,8 +1,28 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useState, useTransition, useMemo } from "react";
 import { SidebarIcon } from "@/components/SidebarIcon";
 import { saveStoreCategory, deleteStoreCategory } from "@/app/actions/store-categories";
+import { useForm, Controller } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { PlayfulInput, PlayfulTextarea, PlayfulSelect, PlayfulSwitch, PlayfulButton } from "@/components/ui/PlayfulInputs";
+import { PlayfulModal } from "@/components/ui/PlayfulModal";
+import { toast } from "sonner";
+import { motion, AnimatePresence } from "framer-motion";
+
+const getStoreCategorySchema = (locale: string) => z.object({
+  name_ar: z.string().min(1, locale === "ar" ? "مطلوب" : "Required"),
+  name_en: z.string().min(1, locale === "ar" ? "مطلوب" : "Required"),
+  slug: z.string().min(1, locale === "ar" ? "مطلوب" : "Required").regex(/^[a-z0-9-]+$/, locale === "ar" ? "أحرف إنجليزية صغيرة وأرقام فقط" : "Lowercase, numbers & hyphens only"),
+  description_ar: z.string().optional(),
+  description_en: z.string().optional(),
+  parent_id: z.string().optional(),
+  icon: z.string().optional(),
+  is_active: z.boolean(),
+});
+
+type StoreCategoryFormValues = z.infer<ReturnType<typeof getStoreCategorySchema>>;
 
 type Props = {
     locale: string;
@@ -12,61 +32,68 @@ type Props = {
 export function StoreCategoriesGrid({ locale, categories }: Props) {
     const [isPending, startTransition] = useTransition();
     const [isModalOpen, setModalOpen] = useState(false);
-    const [editing, setEditing] = useState<any>(null);
+    const [editingId, setEditingId] = useState<string | null>(null);
 
-    const [nameAr, setNameAr] = useState("");
-    const [nameEn, setNameEn] = useState("");
-    const [slug, setSlug] = useState("");
-    const [descAr, setDescAr] = useState("");
-    const [descEn, setDescEn] = useState("");
-    const [parentId, setParentId] = useState<string>("");
-    const [icon, setIcon] = useState("folder");
-    const [isActive, setIsActive] = useState(true);
+    const schema = useMemo(() => getStoreCategorySchema(locale), [locale]);
+
+    const { register, handleSubmit, control, reset, setValue, watch, formState: { errors } } = useForm<StoreCategoryFormValues>({
+        resolver: zodResolver(schema) as any,
+        defaultValues: { parent_id: "", icon: "folder", is_active: true }
+    });
+
+    const currentIcon = watch("icon") || "folder";
 
     function openNew() {
-        setEditing(null);
-        setNameAr(""); setNameEn(""); setSlug(""); setDescAr(""); setDescEn("");
-        setParentId(""); setIcon("folder"); setIsActive(true);
+        setEditingId(null);
+        reset({ name_ar: "", name_en: "", slug: "", description_ar: "", description_en: "", parent_id: "", icon: "folder", is_active: true });
         setModalOpen(true);
     }
 
     function openEdit(c: any) {
-        setEditing(c);
-        setNameAr(c.name_ar || ""); setNameEn(c.name_en || ""); setSlug(c.slug || "");
-        setDescAr(c.description_ar || ""); setDescEn(c.description_en || "");
-        setParentId(c.parent_id || ""); setIcon(c.icon || "folder"); setIsActive(c.is_active);
+        setEditingId(c.id);
+        reset({
+            name_ar: c.name_ar || "", name_en: c.name_en || "", slug: c.slug || "",
+            description_ar: c.description_ar || "", description_en: c.description_en || "",
+            parent_id: c.parent_id || "", icon: c.icon || "folder", is_active: c.is_active
+        });
         setModalOpen(true);
     }
 
     function close() { setModalOpen(false); }
 
-    function handleNameEnChange(val: string) {
-        setNameEn(val);
-        if (!editing) setSlug(val.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''));
+    function handleNameEnChange(e: React.ChangeEvent<HTMLInputElement>) {
+        const val = e.target.value;
+        setValue("name_en", val, { shouldValidate: true });
+        if (!editingId) setValue("slug", val.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''), { shouldValidate: true });
     }
 
-    function handleSave(e: React.FormEvent) {
-        e.preventDefault();
+    function onSubmit(data: any) {
         startTransition(async () => {
-            const payload: any = {
-                name_ar: nameAr, name_en: nameEn, slug,
-                description_ar: descAr, description_en: descEn,
-                icon, is_active: isActive,
-                parent_id: parentId || null
+            const payload = {
+                ...data,
+                parent_id: data.parent_id || null
             };
             try {
-                await saveStoreCategory(payload, editing?.id);
+                await saveStoreCategory(payload, editingId || undefined);
                 close();
+                toast.success(locale === "ar" ? "تم الحفظ بنجاح!" : "Saved successfully!", { icon: "📂" });
             } catch (err) {
                 console.error(err);
-                alert(locale === "ar" ? "فشل الحفظ. تأكد من عدم تكرار الرابط (Slug)." : "Save failed. Ensure slug is unique.");
+                toast.error(locale === "ar" ? "فشل الحفظ. تأكد من عدم تكرار الرابط (Slug)." : "Save failed. Ensure slug is unique.");
             }
         });
     }
 
     function handleDelete(id: string) {
         if (!confirm(locale === "ar" ? "هل أنت متأكد من حذف هذا التصنيف؟" : "Delete this category?")) return;
-        startTransition(async () => { await deleteStoreCategory(id); });
+        startTransition(async () => {
+             try {
+                 await deleteStoreCategory(id);
+                 toast.success(locale === "ar" ? "تم الحذف" : "Deleted");
+             } catch(e) {
+                 toast.error("Failed");
+             }
+        });
     }
 
     // Build tree for display  
@@ -76,148 +103,130 @@ export function StoreCategoriesGrid({ locale, categories }: Props) {
     return (
         <div className="space-y-6 max-w-7xl mx-auto">
             {/* Header */}
-            <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-zinc-200 bg-white/50 p-6 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-900/50">
+            <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="flex flex-wrap items-center justify-between gap-4 rounded-3xl border-2 border-white/50 bg-white/40 p-6 backdrop-blur-xl shadow-lg shadow-[var(--brand-primary)]/5 dark:border-zinc-800/50 dark:bg-zinc-900/40">
                 <div>
-                    <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
+                    <h1 className="text-3xl font-black text-zinc-900 dark:text-zinc-50 tracking-tight">
                         {locale === "ar" ? "تصنيفات المتجر" : "Store Categories"}
                     </h1>
-                    <p className="mt-1 text-sm text-zinc-500">
+                    <p className="mt-1 flex items-center gap-2 text-sm font-medium text-zinc-500">
+                        <SidebarIcon name="folder-tree" className="size-4" />
                         {locale === "ar" ? "نظّم منتجاتك في تصنيفات هرمية (رئيسية وفرعية)." : "Organize products with hierarchical categories."}
                     </p>
                 </div>
-                <button onClick={openNew} className="flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-[var(--brand-primary)] px-6 py-3 text-sm font-bold text-white shadow-lg shadow-[var(--brand-primary)]/20 transition-all hover:brightness-110 hover:shadow-xl hover:-translate-y-0.5">
+                <PlayfulButton onClick={openNew} className="!bg-[var(--brand-primary)] hover:!shadow-[var(--brand-primary)]/30">
                     <SidebarIcon name="plus" className="size-5" />
                     {locale === "ar" ? "تصنيف جديد" : "New Category"}
-                </button>
-            </div>
+                </PlayfulButton>
+            </motion.div>
 
             {/* Grid */}
             {categories.length === 0 ? (
-                <div className="flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-zinc-200 bg-zinc-50 py-20 dark:border-zinc-800 dark:bg-zinc-900/50">
-                    <div className="flex size-16 items-center justify-center rounded-full bg-white dark:bg-zinc-800 mb-4 shadow-sm text-zinc-400"><SidebarIcon name="folder-tree" className="size-8" /></div>
-                    <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-50">{locale === "ar" ? "لا توجد تصنيفات بعد" : "No categories yet"}</h3>
-                    <p className="mt-2 text-sm text-zinc-500 mb-6">{locale === "ar" ? "أنشئ أول تصنيف لتنظيم منتجاتك." : "Create your first category to organize products."}</p>
-                </div>
+                <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="flex flex-col items-center justify-center rounded-3xl border-2 border-dashed border-zinc-200 bg-white/20 py-24 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-900/20">
+                    <div className="flex size-20 items-center justify-center rounded-3xl bg-[var(--brand-primary)]/10 text-[var(--brand-primary)] mb-4 animate-bounce shrink-0"><SidebarIcon name="folder-tree" className="size-10" /></div>
+                    <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-50">{locale === "ar" ? "لا توجد تصنيفات بعد" : "No categories yet"}</h3>
+                    <p className="mt-2 text-sm font-medium text-zinc-500">{locale === "ar" ? "أنشئ أول تصنيف لتنظيم منتجاتك." : "Create your first category to organize products."}</p>
+                </motion.div>
             ) : (
                 <div className="space-y-4">
-                    {rootCats.map((cat) => (
-                        <div key={cat.id} className="rounded-2xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900 overflow-hidden">
-                            {/* Root Category */}
-                            <div className="group flex items-center gap-4 p-5 transition-all hover:bg-zinc-50 dark:hover:bg-zinc-800/50">
-                                <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-[var(--brand-primary)]/10 text-[var(--brand-primary)]">
-                                    <SidebarIcon name={cat.icon || "folder"} className="size-5" />
+                    <AnimatePresence>
+                        {rootCats.map((cat, i) => (
+                            <motion.div key={cat.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }} className="rounded-3xl border-2 border-zinc-200/60 bg-white/80 dark:border-zinc-800/80 dark:bg-zinc-900/80 overflow-hidden shadow-xl shadow-zinc-200/20 dark:shadow-none backdrop-blur-md">
+                                {/* Root Category */}
+                                <div className="group flex items-center gap-4 p-5 transition-all hover:bg-zinc-50 dark:hover:bg-zinc-800/50">
+                                    <div className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[var(--brand-primary)]/80 to-[var(--brand-primary)] text-white shadow-lg shadow-[var(--brand-primary)]/30 transition-transform group-hover:scale-105">
+                                        <SidebarIcon name={cat.icon || "folder"} className="size-6" />
+                                    </div>
+                                    <div className="flex-1 min-w-0 pr-16 text-start">
+                                        <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 truncate">{locale === "ar" ? cat.name_ar : cat.name_en}</h3>
+                                        <p className="text-xs font-semibold text-zinc-400 mt-1 truncate bg-zinc-100 dark:bg-zinc-800 w-fit px-2 py-0.5 rounded-md font-mono">/{cat.slug}</p>
+                                    </div>
+                                    <span className="text-xs font-semibold text-zinc-500 flex items-center gap-2">
+                                        <span className="relative flex h-2.5 w-2.5"><span className={`${cat.is_active ? 'animate-ping bg-emerald-400' : ''} absolute inline-flex h-full w-full rounded-full opacity-75`}></span><span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${cat.is_active ? 'bg-emerald-500' : 'bg-rose-500'}`}></span></span>
+                                    </span>
+                                    <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-all translate-x-4 group-hover:translate-x-0 duration-300">
+                                        <button onClick={() => openEdit(cat)} className="flex size-9 cursor-pointer items-center justify-center rounded-xl bg-white text-zinc-600 shadow-sm hover:bg-[var(--brand-primary)]/10 hover:text-[var(--brand-primary)] hover:scale-110 border border-zinc-200 dark:bg-zinc-800 dark:border-zinc-700 dark:text-zinc-300 transition-all"><SidebarIcon name="edit" className="size-4" /></button>
+                                        <button onClick={() => handleDelete(cat.id)} disabled={isPending} className="flex size-9 cursor-pointer items-center justify-center rounded-xl bg-rose-50 text-rose-600 shadow-sm hover:bg-rose-100 hover:scale-110 border border-rose-100 dark:bg-rose-500/10 dark:border-rose-900 transition-all"><SidebarIcon name="trash" className="size-4" /></button>
+                                    </div>
                                 </div>
-                                <div className="flex-1 min-w-0">
-                                    <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100 truncate">{locale === "ar" ? cat.name_ar : cat.name_en}</h3>
-                                    <p className="text-xs text-zinc-400 truncate font-mono">/{cat.slug}</p>
-                                </div>
-                                <span className={`flex size-2.5 rounded-full ${cat.is_active ? 'bg-emerald-500' : 'bg-rose-500'}`} />
-                                <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                                    <button onClick={() => openEdit(cat)} className="flex size-8 cursor-pointer items-center justify-center rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-700 text-zinc-400 transition-colors"><SidebarIcon name="edit" className="size-4" /></button>
-                                    <button onClick={() => handleDelete(cat.id)} disabled={isPending} className="flex size-8 cursor-pointer items-center justify-center rounded-lg hover:bg-rose-50 hover:text-rose-600 dark:hover:bg-rose-500/10 dark:hover:text-rose-400 text-zinc-400 transition-colors"><SidebarIcon name="trash" className="size-4" /></button>
-                                </div>
-                            </div>
-                            {/* Children */}
-                            {childrenOf(cat.id).length > 0 && (
-                                <div className="border-t border-zinc-100 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/80">
-                                    {childrenOf(cat.id).map(child => (
-                                        <div key={child.id} className="group flex items-center gap-4 px-5 py-3 ps-14 transition-all hover:bg-zinc-100 dark:hover:bg-zinc-800/50 border-b border-zinc-100 dark:border-zinc-800/50 last:border-b-0">
-                                            <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-zinc-200/60 text-zinc-500 dark:bg-zinc-700 dark:text-zinc-400">
-                                                <SidebarIcon name={child.icon || "folder"} className="size-4" />
+                                {/* Children */}
+                                {childrenOf(cat.id).length > 0 && (
+                                    <div className="border-t-2 border-zinc-100/50 dark:border-zinc-800/50 bg-zinc-50/50 dark:bg-zinc-900/50 px-4 py-2">
+                                        {childrenOf(cat.id).map(child => (
+                                            <div key={child.id} className="group flex items-center gap-4 px-4 py-3 ml-6 mb-2 rounded-2xl transition-all hover:bg-white dark:hover:bg-zinc-800 border-2 border-transparent hover:border-zinc-200 dark:hover:border-zinc-700 hover:shadow-sm">
+                                                <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-zinc-200/60 text-zinc-500 dark:bg-zinc-700 dark:text-zinc-300">
+                                                    <SidebarIcon name={child.icon || "folder"} className="size-5" />
+                                                </div>
+                                                <div className="flex-1 min-w-0">
+                                                    <span className="text-base font-bold text-zinc-700 dark:text-zinc-200 truncate">{locale === "ar" ? child.name_ar : child.name_en}</span>
+                                                    <p className="text-[10px] font-semibold text-zinc-400 font-mono mt-0.5 truncate">/{child.slug}</p>
+                                                </div>
+                                                <span className={`flex size-2 rounded-full ${child.is_active ? 'bg-emerald-500' : 'bg-rose-500'}`} />
+                                                <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-all translate-x-2 group-hover:translate-x-0 duration-300">
+                                                    <button onClick={() => openEdit(child)} className="flex size-8 cursor-pointer items-center justify-center rounded-lg hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-all"><SidebarIcon name="edit" className="size-4" /></button>
+                                                    <button onClick={() => handleDelete(child.id)} disabled={isPending} className="flex size-8 cursor-pointer items-center justify-center rounded-lg hover:bg-rose-100 dark:hover:bg-rose-500/20 text-rose-400 hover:text-rose-600 transition-all"><SidebarIcon name="trash" className="size-4" /></button>
+                                                </div>
                                             </div>
-                                            <div className="flex-1 min-w-0">
-                                                <span className="text-sm font-medium text-zinc-700 dark:text-zinc-300 truncate">{locale === "ar" ? child.name_ar : child.name_en}</span>
-                                            </div>
-                                            <span className={`flex size-2 rounded-full ${child.is_active ? 'bg-emerald-500' : 'bg-rose-500'}`} />
-                                            <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                                                <button onClick={() => openEdit(child)} className="flex size-7 cursor-pointer items-center justify-center rounded-lg hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-400 transition-colors"><SidebarIcon name="edit" className="size-3.5" /></button>
-                                                <button onClick={() => handleDelete(child.id)} className="flex size-7 cursor-pointer items-center justify-center rounded-lg hover:bg-rose-50 hover:text-rose-600 dark:hover:bg-rose-500/10 text-zinc-400 transition-colors"><SidebarIcon name="trash" className="size-3.5" /></button>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            )}
-                        </div>
-                    ))}
+                                        ))}
+                                    </div>
+                                )}
+                            </motion.div>
+                        ))}
+                    </AnimatePresence>
                 </div>
             )}
 
             {/* Modal */}
-            {isModalOpen && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
-                    <div onClick={close} className="absolute inset-0 bg-black/40 backdrop-blur-sm animate-in fade-in duration-300" />
-                    <div className="relative w-full max-w-2xl max-h-[90vh] bg-white dark:bg-zinc-950 shadow-2xl flex flex-col rounded-2xl animate-in fade-in zoom-in-95 duration-300 overflow-hidden border border-zinc-200 dark:border-zinc-800">
-                        <div className="flex items-center justify-between border-b border-zinc-100 p-6 dark:border-zinc-800">
-                            <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-50">
-                                {editing ? (locale === "ar" ? "تعديل التصنيف" : "Edit Category") : (locale === "ar" ? "تصنيف جديد" : "New Category")}
-                            </h2>
-                            <button onClick={close} className="rounded-full p-2 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-500 transition-colors"><SidebarIcon name="x" className="size-5" /></button>
-                        </div>
-                        <div className="flex-1 overflow-y-auto p-6">
-                            <form id="store-cat-form" onSubmit={handleSave} className="space-y-5">
-                                {/* Parent */}
-                                <div className="space-y-2">
-                                    <label className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">{locale === "ar" ? "التصنيف الأب (اختياري)" : "Parent Category (optional)"}</label>
-                                    <select value={parentId} onChange={(e) => setParentId(e.target.value)} className="w-full rounded-xl border border-zinc-200 bg-transparent px-3 py-2 outline-none focus:border-[var(--brand-primary)] dark:border-zinc-800 dark:text-white">
-                                        <option value="">{locale === "ar" ? "-- تصنيف رئيسي --" : "-- Root Category --"}</option>
-                                        {categories.filter(c => c.id !== editing?.id).map(c => (
-                                            <option key={c.id} value={c.id}>{locale === "ar" ? c.name_ar : c.name_en}</option>
-                                        ))}
-                                    </select>
-                                </div>
-                                {/* Bilingual Names */}
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div className="space-y-2">
-                                        <label className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">{locale === "ar" ? "الاسم (بالإنجليزية)" : "English Name"}</label>
-                                        <input required dir="ltr" value={nameEn} onChange={(e) => handleNameEnChange(e.target.value)} className="w-full rounded-xl border border-zinc-200 bg-transparent px-3 py-2 outline-none focus:border-[var(--brand-primary)] dark:border-zinc-800 dark:text-white" />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <label className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">{locale === "ar" ? "الاسم (بالعربية)" : "Arabic Name"}</label>
-                                        <input required dir="rtl" value={nameAr} onChange={(e) => setNameAr(e.target.value)} className="w-full rounded-xl border border-zinc-200 bg-transparent px-3 py-2 outline-none focus:border-[var(--brand-primary)] dark:border-zinc-800 dark:text-white" />
-                                    </div>
-                                </div>
-                                {/* Slug */}
-                                <div className="space-y-2">
-                                    <label className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">{locale === "ar" ? "الرابط اللطيف (Slug)" : "URL Slug"}</label>
-                                    <input required dir="ltr" value={slug} onChange={(e) => setSlug(e.target.value.toLowerCase().replace(/[^a-z0-9]+/g, '-'))} placeholder="e.g. electronics" className="w-full rounded-xl border border-zinc-200 bg-transparent px-3 py-2 outline-none focus:border-[var(--brand-primary)] dark:border-zinc-800 dark:text-white font-mono text-sm" />
-                                </div>
-                                {/* Bilingual Descriptions */}
-                                <div className="space-y-2">
-                                    <label className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">{locale === "ar" ? "الوصف (بالإنجليزية)" : "English Description"}</label>
-                                    <textarea dir="ltr" rows={2} value={descEn} onChange={(e) => setDescEn(e.target.value)} className="w-full resize-none rounded-xl border border-zinc-200 bg-transparent px-3 py-2 outline-none focus:border-[var(--brand-primary)] dark:border-zinc-800 dark:text-white" />
-                                </div>
-                                <div className="space-y-2">
-                                    <label className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">{locale === "ar" ? "الوصف (بالعربية)" : "Arabic Description"}</label>
-                                    <textarea dir="rtl" rows={2} value={descAr} onChange={(e) => setDescAr(e.target.value)} className="w-full resize-none rounded-xl border border-zinc-200 bg-transparent px-3 py-2 outline-none focus:border-[var(--brand-primary)] dark:border-zinc-800 dark:text-white" />
-                                </div>
-                                {/* Icon + Toggle */}
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div className="space-y-2">
-                                        <label className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">{locale === "ar" ? "الأيقونة" : "Icon"}</label>
-                                        <div className="relative">
-                                            <input dir="ltr" value={icon} onChange={(e) => setIcon(e.target.value)} placeholder="folder" className="w-full rounded-xl border border-zinc-200 bg-transparent pl-10 pr-3 py-2 outline-none focus:border-[var(--brand-primary)] dark:border-zinc-800 dark:text-white" />
-                                            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400"><SidebarIcon name={icon as any} className="size-4" /></div>
-                                        </div>
-                                    </div>
-                                    <div className="flex items-center gap-3 pt-8">
-                                        <div onClick={() => setIsActive(!isActive)} className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full transition-colors ${isActive ? 'bg-[var(--brand-primary)]' : 'bg-zinc-200 dark:bg-zinc-700'}`}>
-                                            <span className={`inline-block size-4 transform rounded-full bg-white transition-transform ${isActive ? 'translate-x-6' : 'translate-x-1'}`} />
-                                        </div>
-                                        <span className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">{locale === "ar" ? "مفعّل" : "Active"}</span>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div className="border-t border-zinc-100 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900/50 flex justify-end gap-3">
-                            <button onClick={close} type="button" className="rounded-xl border border-zinc-200 px-5 py-2 text-sm font-semibold text-zinc-700 hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800 transition-colors">{locale === "ar" ? "إلغاء" : "Cancel"}</button>
-                            <button type="submit" form="store-cat-form" disabled={isPending} className="flex items-center gap-2 rounded-xl bg-[var(--brand-primary)] px-6 py-2 text-sm font-bold text-white shadow-lg transition-all hover:brightness-110 hover:shadow-xl disabled:opacity-50">
-                                {isPending && <SidebarIcon name="loader-2" className="size-4 animate-spin" />}
-                                {editing ? (locale === "ar" ? "حفظ التغييرات" : "Save Changes") : (locale === "ar" ? "إنشاء تصنيف" : "Create Category")}
-                            </button>
-                        </div>
+            <PlayfulModal isOpen={isModalOpen} onClose={close} title={editingId ? (locale === "ar" ? "تعديل التصنيف" : "Edit Category") : (locale === "ar" ? "تصنيف جديد" : "New Category")}
+                footer={
+                    <>
+                        <PlayfulButton variant="secondary" onClick={close}>{locale === "ar" ? "إلغاء" : "Cancel"}</PlayfulButton>
+                        <PlayfulButton onClick={handleSubmit(onSubmit)} disabled={isPending} className="!bg-[var(--brand-primary)] hover:!bg-[var(--brand-primary)] hover:brightness-110">
+                            {isPending && <SidebarIcon name="loader-2" className="size-4 animate-spin" />}
+                            {editingId ? (locale === "ar" ? "حفظ التغييرات" : "Save Changes") : (locale === "ar" ? "إنشاء التصنيف" : "Create Category")}
+                        </PlayfulButton>
+                    </>
+                }
+            >
+                <form id="store-cat-form" onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                    {/* Parent */}
+                    <PlayfulSelect label={locale === "ar" ? "التصنيف الأب (اختياري)" : "Parent Category (optional)"} {...register("parent_id")} error={errors.parent_id?.message as string}
+                        options={[
+                            { value: "", label: locale === "ar" ? "-- تصنيف رئيسي --" : "-- Root Category --" },
+                            ...categories.filter(c => c.id !== editingId).map(c => ({ value: c.id, label: locale === "ar" ? c.name_ar : c.name_en }))
+                        ]} 
+                    />
+
+                    {/* Bilingual Names */}
+                    <div className="grid grid-cols-2 gap-4">
+                        <PlayfulInput label={locale === "ar" ? "الاسم (EN)" : "English Name"} dir="ltr" {...register("name_en")} onChange={handleNameEnChange} error={errors.name_en?.message as string} />
+                        <PlayfulInput label={locale === "ar" ? "الاسم (AR)" : "Arabic Name"} dir="rtl" {...register("name_ar")} error={errors.name_ar?.message as string} />
                     </div>
-                </div>
-            )}
+
+                    {/* Slug */}
+                    <PlayfulInput label={locale === "ar" ? "الرابط اللطيف (Slug)" : "URL Slug"} dir="ltr" placeholder="e.g. electronics" {...register("slug")} error={errors.slug?.message as string} />
+
+                    {/* Bilingual Descriptions */}
+                    <div className="grid grid-cols-2 gap-4 bg-zinc-50/50 dark:bg-zinc-900/30 p-4 rounded-3xl border border-zinc-100 dark:border-zinc-800">
+                        <PlayfulTextarea label={locale === "ar" ? "الوصف (EN)" : "English Description"} dir="ltr" rows={2} {...register("description_en")} error={errors.description_en?.message as string} />
+                        <PlayfulTextarea label={locale === "ar" ? "الوصف (AR)" : "Arabic Description"} dir="rtl" rows={2} {...register("description_ar")} error={errors.description_ar?.message as string} />
+                    </div>
+
+                    {/* Icon + Toggle */}
+                    <div className="grid grid-cols-2 gap-4">
+                        <div className="relative">
+                            <PlayfulInput label={locale === "ar" ? "الأيقونة" : "Icon Name (lucide)"} dir="ltr" placeholder="folder" {...register("icon")} error={errors.icon?.message as string} className="pl-12" />
+                            <div className="absolute left-4 top-[38px] flex size-6 items-center justify-center rounded-md bg-[var(--brand-primary)]/10 text-[var(--brand-primary)] shadow-sm">
+                                <SidebarIcon name={currentIcon as any} className="size-4" />
+                            </div>
+                        </div>
+                        <Controller name="is_active" control={control} render={({ field }) => (
+                            <div className="pt-2 pl-4">
+                                <PlayfulSwitch label={locale === "ar" ? "مفعّل" : "Active"} checked={field.value} onChange={field.onChange} />
+                            </div>
+                        )} />
+                    </div>
+                </form>
+            </PlayfulModal>
         </div>
     );
 }

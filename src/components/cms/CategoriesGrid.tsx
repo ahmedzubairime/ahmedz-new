@@ -3,278 +3,174 @@
 import { useState, useTransition } from "react";
 import { SidebarIcon } from "@/components/SidebarIcon";
 import { saveCategory, deleteCategory } from "@/app/actions/services-lists";
+import { useForm, Controller } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { PlayfulInput, PlayfulTextarea, PlayfulButton } from "@/components/ui/PlayfulInputs";
+import { PlayfulModal } from "@/components/ui/PlayfulModal";
+import { toast } from "sonner";
+import { motion } from "framer-motion";
 
-type Props = {
-    locale: string;
-    categories: any[];
-};
+const getCategorySchema = (locale: string) => z.object({
+  slug: z.string().min(1, locale === "ar" ? "مطلوب" : "Slug is required").regex(/^[a-z0-9-]+$/, locale === "ar" ? "أحرف إنجليزية وأرقام فقط" : "Lowercase letters, numbers, and hyphens only"),
+  name_ar: z.string().min(1, locale === "ar" ? "مطلوب" : "Required"),
+  name_en: z.string().min(1, locale === "ar" ? "مطلوب" : "Required"),
+  description_ar: z.string().optional(),
+  description_en: z.string().optional(),
+});
+
+type CategoryFormValues = z.infer<ReturnType<typeof getCategorySchema>>;
+
+type Props = { locale: string; categories: any[]; };
 
 export function CategoriesGrid({ locale, categories }: Props) {
     const [isPending, startTransition] = useTransition();
-
-    // Drawer State
     const [isDrawerOpen, setDrawerOpen] = useState(false);
-    const [editingCategory, setEditingCategory] = useState<any>(null);
+    const [editingId, setEditingId] = useState<string | null>(null);
 
-    // Form State for Drawer
-    const [slug, setSlug] = useState("");
-    const [nameAr, setNameAr] = useState("");
-    const [nameEn, setNameEn] = useState("");
-    const [descAr, setDescAr] = useState("");
-    const [descEn, setDescEn] = useState("");
+    const schema = getCategorySchema(locale);
+
+    const { register, handleSubmit, reset, setValue, formState: { errors } } = useForm<CategoryFormValues>({
+        resolver: zodResolver(schema),
+        defaultValues: { slug: "", name_ar: "", name_en: "", description_ar: "", description_en: "" }
+    });
 
     function openNew() {
-        setEditingCategory(null);
-        setSlug("");
-        setNameAr("");
-        setNameEn("");
-        setDescAr("");
-        setDescEn("");
+        setEditingId(null);
+        reset({ slug: "", name_ar: "", name_en: "", description_ar: "", description_en: "" });
         setDrawerOpen(true);
     }
 
     function openEdit(c: any) {
-        setEditingCategory(c);
-        setSlug(c.slug || "");
-        setNameAr(c.name_ar || "");
-        setNameEn(c.name_en || "");
-        setDescAr(c.description_ar || "");
-        setDescEn(c.description_en || "");
+        setEditingId(c.id);
+        reset({
+            slug: c.slug || "", name_ar: c.name_ar || "", name_en: c.name_en || "",
+            description_ar: c.description_ar || "", description_en: c.description_en || ""
+        });
         setDrawerOpen(true);
     }
 
-    function closeDrawer() {
-        setDrawerOpen(false);
-    }
+    function closeDrawer() { setDrawerOpen(false); }
 
-    // Auto-generate slug from English Name if empty while typing
-    function handleNameEnChange(val: string) {
-        setNameEn(val);
-        if (!editingCategory) {
-            setSlug(val.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''));
+    function handleNameEnChange(e: React.ChangeEvent<HTMLInputElement>) {
+        const val = e.target.value;
+        setValue("name_en", val, { shouldValidate: true });
+        if (!editingId) {
+            setValue("slug", val.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''), { shouldValidate: true });
         }
     }
 
-    function handleSave(e: React.FormEvent) {
-        e.preventDefault();
+    function onSubmit(data: CategoryFormValues) {
         startTransition(async () => {
-            const payload = {
-                slug,
-                name_ar: nameAr,
-                name_en: nameEn,
-                description_ar: descAr,
-                description_en: descEn
-            };
-
             try {
-                if (editingCategory) {
-                    await saveCategory(payload, editingCategory.id);
-                } else {
-                    await saveCategory(payload);
-                }
+                await saveCategory(data, editingId || undefined);
                 closeDrawer();
+                toast.success(locale === "ar" ? "تم الحفظ بنجاح!" : "Saved successfully!", { icon: "🎉" });
             } catch (err) {
                 console.error(err);
-                alert("Save failed, slug MUST be unique.");
+                toast.error(locale === "ar" ? "فشل الحفظ، الرابط (Slug) يجب أن يكون فريداً" : "Save failed, slug MUST be unique.");
             }
         });
     }
 
     function handleDelete(id: string) {
-        if (!confirm("Are you sure you want to delete this category? (May detach child services)")) return;
+        if (!confirm(locale === "ar" ? "حذف هذا التصنيف؟" : "Delete this category?")) return;
         startTransition(async () => {
-            await deleteCategory(id);
+            try {
+                await deleteCategory(id);
+                toast.success(locale === "ar" ? "تم الحذف" : "Deleted");
+            } catch (err) {
+                toast.error(locale === "ar" ? "فشل الحذف" : "Delete failed");
+            }
         });
     }
 
     return (
         <div className="space-y-6 max-w-7xl mx-auto">
             {/* Header */}
-            <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-zinc-200 bg-white/50 p-6 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-900/50">
+            <motion.div 
+                initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }}
+                className="flex flex-wrap items-center justify-between gap-4 rounded-3xl border-2 border-white/50 bg-white/40 p-6 backdrop-blur-xl shadow-lg shadow-amber-500/5 dark:border-zinc-800/50 dark:bg-zinc-900/40"
+            >
                 <div>
-                    <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
+                    <h1 className="text-3xl font-black text-zinc-900 dark:text-zinc-50 tracking-tight">
                         {locale === "ar" ? "تصنيفات الخدمات" : "Service Categories"}
                     </h1>
-                    <p className="mt-1 text-sm text-zinc-500">
-                        {locale === "ar"
-                            ? "قسّم خدماتك إلى فئات رئيسية ليسهل التصفح."
-                            : "Group your services into super-categories."}
+                    <p className="mt-1 flex items-center gap-2 text-sm font-medium text-zinc-500">
+                        <SidebarIcon name="layout-grid" className="size-4" />
+                        {locale === "ar" ? "قسّم خدماتك إلى فئات رئيسية ليسهل التصفح." : "Group your services into super-categories."}
                     </p>
                 </div>
-                <button
-                    onClick={openNew}
-                    className="flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-amber-500 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-amber-500/20 transition-all hover:bg-amber-600 hover:shadow-xl hover:-translate-y-0.5"
-                >
+                <PlayfulButton onClick={openNew} className="!bg-amber-500 hover:!shadow-amber-500/30">
                     <SidebarIcon name="plus" className="size-5" />
                     {locale === "ar" ? "إضافة تصنيف" : "New Category"}
-                </button>
-            </div>
+                </PlayfulButton>
+            </motion.div>
 
             {/* Grid */}
             {categories.length === 0 ? (
-                <div className="flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-zinc-200 bg-zinc-50 py-20 dark:border-zinc-800 dark:bg-zinc-900/50">
-                    <div className="flex size-16 items-center justify-center rounded-full bg-white dark:bg-zinc-800 mb-4 shadow-sm text-zinc-400">
-                        <SidebarIcon name="folder" className="size-8" />
+                <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="flex flex-col items-center justify-center rounded-3xl border-2 border-dashed border-zinc-200 bg-white/20 py-24 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-900/20">
+                    <div className="flex size-20 items-center justify-center rounded-3xl bg-amber-50 text-amber-400 mb-4 dark:bg-amber-500/10">
+                        <SidebarIcon name="folder" className="size-10" />
                     </div>
-                    <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-50">
-                        {locale === "ar" ? "لا توجد تصنيفات بعد" : "No folders created yet"}
-                    </h3>
-                    <p className="mt-2 text-sm text-zinc-500 mb-6">
-                        {locale === "ar" ? "اضغط على زر الإضافة لتصنيف خدماتك." : "Start organizing services by creating a category."}
-                    </p>
-                </div>
+                    <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-50">{locale === "ar" ? "لا توجد تصنيفات بعد" : "No folders created yet"}</h3>
+                    <p className="mt-2 text-sm font-medium text-zinc-500">{locale === "ar" ? "اضغط على زر الإضافة لتصنيف خدماتك." : "Start organizing services by creating a category."}</p>
+                </motion.div>
             ) : (
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    {categories.map((c) => (
-                        <div key={c.id} className="group flex flex-col gap-4 rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-all hover:border-amber-500/30 hover:shadow-xl hover:shadow-amber-500/5 dark:border-zinc-800 dark:bg-zinc-900">
-
+                    {categories.map((c, i) => (
+                        <motion.div 
+                            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}
+                            key={c.id} 
+                            className="group flex flex-col gap-4 rounded-3xl border-2 border-zinc-200/60 bg-white/80 p-6 shadow-sm transition-all duration-300 hover:border-amber-400 hover:shadow-2xl hover:shadow-amber-500/10 hover:-translate-y-2 backdrop-blur-md dark:border-zinc-800/80 dark:bg-zinc-900/80"
+                        >
                             <div className="flex items-start justify-between">
-                                <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-amber-50 text-amber-500 dark:bg-amber-500/10 transition-colors">
-                                    <SidebarIcon name="folder" className="size-6" />
+                                <div className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-amber-50 text-amber-500 shadow-inner dark:bg-amber-500/10">
+                                    <SidebarIcon name="folder" className="size-7" />
                                 </div>
-
-                                <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                                    <button
-                                        onClick={() => openEdit(c)}
-                                        className="flex size-8 cursor-pointer items-center justify-center rounded-lg hover:bg-zinc-100 hover:text-zinc-700 dark:hover:bg-zinc-800 dark:hover:text-zinc-300 transition-colors text-zinc-400"
-                                    >
-                                        <SidebarIcon name="edit" className="size-4" />
-                                    </button>
-                                    <button
-                                        onClick={() => handleDelete(c.id)}
-                                        disabled={isPending}
-                                        className="flex size-8 cursor-pointer items-center justify-center rounded-lg hover:bg-rose-50 hover:text-rose-600 dark:hover:bg-rose-500/10 dark:hover:text-rose-400 transition-colors text-zinc-400"
-                                    >
-                                        <SidebarIcon name="trash" className="size-4" />
-                                    </button>
+                                <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity translate-x-4 group-hover:translate-x-0 duration-300">
+                                    <button onClick={() => openEdit(c)} className="flex size-9 cursor-pointer items-center justify-center rounded-xl bg-white shadow-sm hover:bg-zinc-50 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-500"><SidebarIcon name="edit" className="size-4" /></button>
+                                    <button onClick={() => handleDelete(c.id)} className="flex size-9 cursor-pointer items-center justify-center rounded-xl bg-rose-50 shadow-sm hover:bg-rose-100 text-rose-500 dark:bg-rose-500/10 dark:hover:bg-rose-500/20"><SidebarIcon name="trash" className="size-4" /></button>
                                 </div>
                             </div>
-
                             <div>
-                                <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 mb-1">
-                                    {locale === "ar" ? c.name_ar : c.name_en}
-                                </h3>
-                                <p className="text-sm text-zinc-500 dark:text-zinc-400 line-clamp-2">
-                                    {locale === "ar" ? c.description_ar : c.description_en}
-                                </p>
+                                <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mb-1 leading-tight">{locale === "ar" ? c.name_ar : c.name_en}</h3>
+                                <p className="text-sm font-medium text-zinc-500 dark:text-zinc-400 line-clamp-2">{locale === "ar" ? c.description_ar : c.description_en}</p>
                             </div>
-
-                            <div className="mt-auto pt-4 flex items-center justify-between border-t border-zinc-100 dark:border-zinc-800/60">
-                                <span className="text-xs font-mono text-zinc-400 bg-zinc-100 dark:bg-zinc-800 px-2 py-1 rounded">/{c.slug}</span>
+                            <div className="mt-auto pt-4 flex items-center justify-between border-t border-zinc-100 dark:border-zinc-800/50">
+                                <span className="text-xs font-bold text-zinc-400 bg-zinc-100 dark:bg-zinc-800 px-3 py-1.5 rounded-lg shadow-inner">/{c.slug}</span>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             )}
 
-            {/* Sliding Drawer Overlay */}
-            {isDrawerOpen && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
-
-                    {/* Backdrop */}
-                    <div
-                        onClick={closeDrawer}
-                        className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity animate-in fade-in duration-300"
-                    />
-
-                    {/* Drawer Panel */}
-                    <div className="relative w-full max-w-2xl max-h-[90vh] bg-white dark:bg-zinc-950 shadow-2xl flex flex-col rounded-2xl animate-in fade-in zoom-in-95 duration-300 overflow-hidden border border-zinc-200 dark:border-zinc-800">
-                        {/* Drawer Header */}
-                        <div className="flex items-center justify-between border-b border-zinc-100 p-6 dark:border-zinc-800">
-                            <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-50">
-                                {editingCategory
-                                    ? (locale === "ar" ? "تعديل التصنيف" : "Edit Folder")
-                                    : (locale === "ar" ? "تصنيف جديد" : "New Folder")}
-                            </h2>
-                            <button onClick={closeDrawer} className="rounded-full p-2 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-500 transition-colors">
-                                <SidebarIcon name="x" className="size-5" />
-                            </button>
-                        </div>
-
-                        {/* Drawer Scrolling Form */}
-                        <div className="flex-1 overflow-y-auto p-6">
-                            <form id="category-form" onSubmit={handleSave} className="space-y-6">
-
-                                <div className="space-y-2">
-                                    <label className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">{locale === "ar" ? "الرابط اللطيف (Slug)" : "URL Slug (Unique identifier)"}</label>
-                                    <input
-                                        required
-                                        dir="ltr"
-                                        value={slug}
-                                        onChange={(e) => setSlug(e.target.value.toLowerCase().replace(/[^a-z0-9]+/g, '-'))}
-                                        placeholder="e.g. consulting-services"
-                                        className="w-full rounded-xl border border-zinc-200 bg-transparent px-3 py-2 outline-none focus:border-amber-500 dark:border-zinc-800 dark:text-white"
-                                    />
-                                </div>
-
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div className="space-y-2">
-                                        <label className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">{locale === "ar" ? "الاسم (بالإنجليزية)" : "English Name"}</label>
-                                        <input
-                                            required
-                                            dir="ltr"
-                                            value={nameEn}
-                                            onChange={(e) => handleNameEnChange(e.target.value)}
-                                            className="w-full rounded-xl border border-zinc-200 bg-transparent px-3 py-2 outline-none focus:border-amber-500 dark:border-zinc-800 dark:text-white"
-                                        />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <label className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">{locale === "ar" ? "الاسم (بالعربية)" : "Arabic Name"}</label>
-                                        <input
-                                            required
-                                            dir="rtl"
-                                            value={nameAr}
-                                            onChange={(e) => setNameAr(e.target.value)}
-                                            className="w-full rounded-xl border border-zinc-200 bg-transparent px-3 py-2 outline-none focus:border-amber-500 dark:border-zinc-800 dark:text-white"
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className="space-y-2">
-                                    <label className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">{locale === "ar" ? "الوصف (بالإنجليزية)" : "English Description"}</label>
-                                    <textarea
-                                        dir="ltr"
-                                        rows={3}
-                                        value={descEn}
-                                        onChange={(e) => setDescEn(e.target.value)}
-                                        className="w-full resize-none rounded-xl border border-zinc-200 bg-transparent px-3 py-2 outline-none focus:border-amber-500 dark:border-zinc-800 dark:text-white"
-                                    />
-                                </div>
-                                <div className="space-y-2">
-                                    <label className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">{locale === "ar" ? "الوصف (بالعربية)" : "Arabic Description"}</label>
-                                    <textarea
-                                        dir="rtl"
-                                        rows={3}
-                                        value={descAr}
-                                        onChange={(e) => setDescAr(e.target.value)}
-                                        className="w-full resize-none rounded-xl border border-zinc-200 bg-transparent px-3 py-2 outline-none focus:border-amber-500 dark:border-zinc-800 dark:text-white"
-                                    />
-                                </div>
-
-                            </form>
-                        </div>
-
-                        {/* Drawer Footer */}
-                        <div className="border-t border-zinc-100 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900/50 flex justify-end gap-3 z-10">
-                            <button
-                                onClick={closeDrawer}
-                                type="button"
-                                className="rounded-xl border border-zinc-200 px-5 py-2 text-sm font-semibold text-zinc-700 hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800 transition-colors"
-                            >{locale === "ar" ? "إلغاء" : "Cancel"}</button>
-                            <button
-                                type="submit"
-                                form="category-form"
-                                disabled={isPending}
-                                className="flex items-center gap-2 rounded-xl bg-amber-500 px-6 py-2 text-sm font-bold text-white shadow-lg transition-all hover:bg-amber-600 hover:shadow-xl disabled:opacity-50"
-                            >
-                                {isPending && <SidebarIcon name="loader-2" className="size-4 animate-spin" />}
-                                {editingCategory ? (locale === "ar" ? "حفظ التغييرات" : "Save Changes") : (locale === "ar" ? "إضافة قسم" : "Create Folder")}
-                            </button>
-                        </div>
+            {/* Modal */}
+            <PlayfulModal isOpen={isDrawerOpen} onClose={closeDrawer} title={editingId ? (locale === "ar" ? "تعديل التصنيف" : "Edit Category") : (locale === "ar" ? "تصنيف جديد" : "New Category")}
+                footer={
+                    <>
+                        <PlayfulButton variant="secondary" onClick={closeDrawer}>{locale === "ar" ? "إلغاء" : "Cancel"}</PlayfulButton>
+                        <PlayfulButton onClick={handleSubmit(onSubmit)} disabled={isPending} className="!bg-amber-500 hover:!bg-amber-600 hover:!shadow-amber-500/30">
+                            {isPending && <SidebarIcon name="loader-2" className="size-4 animate-spin" />}
+                            {editingId ? "Save" : "Create"}
+                        </PlayfulButton>
+                    </>
+                }
+            >
+                <form id="category-form" onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                    <PlayfulInput label={locale === "ar" ? "الرابط اللطيف (Slug)" : "URL Slug"} dir="ltr" placeholder="e.g. consulting-services" {...register("slug")} error={errors.slug?.message} />
+                    
+                    <div className="grid grid-cols-2 gap-4">
+                        <PlayfulInput label={locale === "ar" ? "الاسم (EN)" : "English Name"} dir="ltr" {...register("name_en")} onChange={handleNameEnChange} error={errors.name_en?.message} />
+                        <PlayfulInput label={locale === "ar" ? "الاسم (AR)" : "Arabic Name"} dir="rtl" {...register("name_ar")} error={errors.name_ar?.message} />
                     </div>
 
-                </div>
-            )}
+                    <div className="grid grid-cols-2 gap-4">
+                        <PlayfulTextarea label={locale === "ar" ? "الوصف (EN)" : "English Description"} dir="ltr" rows={3} {...register("description_en")} error={errors.description_en?.message} />
+                        <PlayfulTextarea label={locale === "ar" ? "الوصف (AR)" : "Arabic Description"} dir="rtl" rows={3} {...register("description_ar")} error={errors.description_ar?.message} />
+                    </div>
+                </form>
+            </PlayfulModal>
         </div>
     );
 }
