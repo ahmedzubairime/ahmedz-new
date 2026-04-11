@@ -33,7 +33,6 @@ export default async function ProjectsLayout({
         <div className="flex h-screen overflow-hidden bg-zinc-100 dark:bg-zinc-950">
             <DynamicSidebar
                 section={section}
-                account={account}
                 sectionLabel={sectionLabel}
                 sectionIcon={section.icon || "folder-kanban"}
             />

@@ -5,17 +5,15 @@ import { usePathname } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
 import { SidebarIcon } from "@/components/SidebarIcon";
-import { signOut } from "@/app/actions/auth";
-import type { SidebarSection, UserAccount, PagePermission } from "@/lib/permissions";
+import type { SidebarSection, PagePermission } from "@/lib/permissions";
 
 type Props = {
     section: SidebarSection;
-    account: UserAccount;
     sectionLabel: string;
     sectionIcon: string;
 };
 
-export function DynamicSidebar({ section, account, sectionLabel, sectionIcon }: Props) {
+export function DynamicSidebar({ section, sectionLabel, sectionIcon }: Props) {
     const pathname = usePathname();
     const locale = useLocale();
     const [collapsed, setCollapsed] = useState<Record<string, boolean>>({});
@@ -227,51 +225,6 @@ export function DynamicSidebar({ section, account, sectionLabel, sectionIcon }: 
                     />
                     {!isCollapsed && <span>{locale === "ar" ? "طي القائمة" : "Collapse"}</span>}
                 </button>
-            </div>
-
-            {/* User */}
-            <div className="shrink-0 border-t border-[var(--sidebar-border)] p-2.5">
-                {!isCollapsed ? (
-                    <>
-                        <div className="flex items-center gap-3 rounded-lg px-2.5 py-2">
-                            <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/15 text-[13px] font-bold text-white">
-                                {account.full_name.charAt(0).toUpperCase()}
-                            </div>
-                            <div className="flex-1 truncate">
-                                <p className="truncate text-[13px] font-medium text-white">
-                                    {account.full_name}
-                                </p>
-                                <p className="truncate text-[11px] text-[var(--sidebar-text-muted)]">
-                                    {account.roles.join(", ")}
-                                </p>
-                            </div>
-                        </div>
-                        <form action={signOut}>
-                            <button
-                                type="submit"
-                                className="mt-1 flex w-full cursor-pointer items-center gap-3 rounded-lg px-2.5 py-2 text-[13px] font-medium text-red-400 transition-colors hover:bg-red-500/10"
-                            >
-                                <SidebarIcon name="log-out" className="size-4" />
-                                <span>{locale === "ar" ? "تسجيل الخروج" : "Sign Out"}</span>
-                            </button>
-                        </form>
-                    </>
-                ) : (
-                    <div className="flex flex-col items-center gap-2">
-                        <div className="flex size-8 items-center justify-center rounded-full bg-white/15 text-[13px] font-bold text-white">
-                            {account.full_name.charAt(0).toUpperCase()}
-                        </div>
-                        <form action={signOut}>
-                            <button
-                                type="submit"
-                                title={locale === "ar" ? "تسجيل الخروج" : "Sign Out"}
-                                className="flex cursor-pointer items-center justify-center rounded-lg p-2 text-red-400 hover:bg-red-500/10"
-                            >
-                                <SidebarIcon name="log-out" className="size-4" />
-                            </button>
-                        </form>
-                    </div>
-                )}
             </div>
         </div>
     );
