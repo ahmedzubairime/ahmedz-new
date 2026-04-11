@@ -200,3 +200,23 @@ export async function getUserPagePermissions(pageId: string): Promise<CrudPermis
         can_delete: match?.can_delete ?? false,
     };
 }
+
+/** Build a flat path → localized page name lookup from a sidebar section */
+export function buildPathMap(section: SidebarSection, locale: string): Record<string, string> {
+    const map: Record<string, string> = {};
+
+    function addPage(page: PagePermission) {
+        map[page.page_path] = locale === "ar" ? page.page_name_ar : page.page_name_en;
+        for (const child of page.children) {
+            addPage(child);
+        }
+    }
+
+    for (const group of section.groups) {
+        for (const page of group.pages) {
+            addPage(page);
+        }
+    }
+
+    return map;
+}

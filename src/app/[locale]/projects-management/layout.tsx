@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { getUserSidebar, getUserAccount } from "@/lib/permissions";
+import { getUserSidebar, getUserAccount, buildPathMap } from "@/lib/permissions";
 import { DynamicSidebar } from "@/components/DynamicSidebar";
 import { Topbar } from "@/components/Topbar";
 import { getLocale } from "next-intl/server";
@@ -27,6 +27,7 @@ export default async function ProjectsLayout({
     }
 
     const sectionLabel = locale === "ar" ? section.name_ar : section.name_en;
+    const pathMap = buildPathMap(section, locale);
 
     return (
         <div className="flex h-screen overflow-hidden bg-zinc-100 dark:bg-zinc-950">
@@ -37,9 +38,10 @@ export default async function ProjectsLayout({
                 sectionIcon={section.icon || "folder-kanban"}
             />
             <div className="flex flex-1 flex-col overflow-hidden">
-                <Topbar account={account} sectionLabel={sectionLabel} />
+                <Topbar account={account} sectionLabel={sectionLabel} pathMap={pathMap} />
                 <main className="flex-1 overflow-y-auto p-6 custom-scrollbar">{children}</main>
             </div>
         </div>
     );
 }
+
