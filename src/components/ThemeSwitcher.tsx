@@ -19,7 +19,7 @@ export function ThemeSwitcher() {
     return (
         <button
             onClick={() => setTheme(isDark ? "light" : "dark")}
-            className="flex size-9 items-center justify-center rounded-full text-zinc-600 transition-colors hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-800"
+            className="topbar-action-btn flex size-9 items-center justify-center rounded-xl transition-colors"
             aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
             title={isDark ? "Switch to light mode" : "Switch to dark mode"}
         >

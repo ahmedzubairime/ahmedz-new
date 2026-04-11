@@ -168,12 +168,14 @@ body {
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* Topbar glass effect */
+/* ─── Topbar ─── */
+
+/* Glass background */
 .topbar-glass {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(236, 254, 255, 0.6));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(14, 116, 144, 0.08);
   position: relative;
 }
 
@@ -187,38 +189,107 @@ body {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(14, 116, 144, 0.15) 30%,
-    rgba(14, 116, 144, 0.15) 70%,
+    rgba(14, 116, 144, 0.18) 20%,
+    rgba(6, 182, 212, 0.12) 50%,
+    rgba(14, 116, 144, 0.18) 80%,
     transparent
   );
 }
 
 .dark .topbar-glass {
-  background: rgba(9, 9, 11, 0.75);
-  border-bottom-color: rgba(255, 255, 255, 0.06);
+  background: linear-gradient(135deg, rgba(9, 9, 11, 0.85), rgba(8, 47, 73, 0.2));
+  border-bottom-color: rgba(56, 189, 248, 0.08);
 }
 
 .dark .topbar-glass::after {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(56, 189, 248, 0.1) 30%,
-    rgba(56, 189, 248, 0.1) 70%,
+    rgba(56, 189, 248, 0.12) 20%,
+    rgba(6, 182, 212, 0.08) 50%,
+    rgba(56, 189, 248, 0.12) 80%,
     transparent
   );
 }
 
-/* Topbar avatar with gradient ring */
+/* Breadcrumb root (section link) */
+.topbar-breadcrumb-root {
+  color: var(--brand-primary-900);
+}
+
+.topbar-breadcrumb-root:hover {
+  background: var(--brand-primary-50);
+  color: var(--brand-primary);
+}
+
+.dark .topbar-breadcrumb-root {
+  color: #7dd3fc;
+}
+
+.dark .topbar-breadcrumb-root:hover {
+  background: rgba(56, 189, 248, 0.08);
+  color: #38bdf8;
+}
+
+/* Breadcrumb active (last segment) */
+.topbar-breadcrumb-active {
+  color: var(--brand-primary);
+  font-weight: 600;
+}
+
+.dark .topbar-breadcrumb-active {
+  color: #38bdf8;
+}
+
+/* Breadcrumb intermediate links */
+.topbar-breadcrumb-link {
+  color: #64748b;
+}
+
+.topbar-breadcrumb-link:hover {
+  background: rgba(14, 116, 144, 0.06);
+  color: var(--brand-primary);
+}
+
+.dark .topbar-breadcrumb-link {
+  color: #94a3b8;
+}
+
+.dark .topbar-breadcrumb-link:hover {
+  background: rgba(56, 189, 248, 0.06);
+  color: #7dd3fc;
+}
+
+/* Action icon buttons */
+.topbar-action-btn {
+  color: #64748b;
+}
+
+.topbar-action-btn:hover {
+  background: var(--brand-primary-50);
+  color: var(--brand-primary);
+}
+
+.dark .topbar-action-btn {
+  color: #94a3b8;
+}
+
+.dark .topbar-action-btn:hover {
+  background: rgba(56, 189, 248, 0.08);
+  color: #7dd3fc;
+}
+
+/* Avatar with gradient ring */
 .topbar-avatar {
   background: linear-gradient(135deg, var(--brand-primary), var(--brand-primary-light));
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.8), 0 0 0 3px var(--brand-primary-light);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.8), 0 0 0 3px rgba(6, 182, 212, 0.3);
 }
 
 .dark .topbar-avatar {
   box-shadow: 0 0 0 2px rgba(9, 9, 11, 0.8), 0 0 0 3px rgba(56, 189, 248, 0.3);
 }
 
-/* Profile dropdown animation */
+/* Dropdown entrance animation */
 .profile-dropdown {
   animation: profileDropdownIn 200ms cubic-bezier(0.16, 1, 0.3, 1);
   transform-origin: top right;
