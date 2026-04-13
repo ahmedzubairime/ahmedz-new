@@ -7,6 +7,16 @@ export default async function ServicesContentOverview() {
 
     const modules = [
         {
+            href: `/${locale}/dashboard/services-content/hero`,
+            title_ar: "بطل الخدمات",
+            title_en: "Services Hero",
+            desc_ar: "تخصيص العنوان والنص الفرعي لصفحة الخدمات.",
+            desc_en: "Customize the hero section heading and subtitle.",
+            icon: "sparkles",
+            color: "text-indigo-500",
+            bg: "bg-indigo-500/10"
+        },
+        {
             href: `/${locale}/dashboard/services-content/list`,
             title_ar: "قائمة الخدمات",
             title_en: "Services List",
@@ -21,27 +31,67 @@ export default async function ServicesContentOverview() {
             title_ar: "تصنيفات الخدمات",
             title_en: "Service Categories",
             desc_ar: "تقسيم الخدمات إلى فئات لتسهيل التصفح.",
-            desc_en: "Group services into categories for easier navigation.",
+            desc_en: "Group services into categories for navigation.",
             icon: "folder",
             color: "text-amber-500",
             bg: "bg-amber-500/10"
-        }
+        },
+        {
+            href: `/${locale}/dashboard/services-content/process`,
+            title_ar: "خطوات الخدمة",
+            title_en: "Service Process",
+            desc_ar: "خطوات \"كيف نعمل\" لكل خدمة.",
+            desc_en: "\"How We Work\" steps per service.",
+            icon: "list-ordered",
+            color: "text-sky-500",
+            bg: "bg-sky-500/10"
+        },
+        {
+            href: `/${locale}/dashboard/services-content/pricing`,
+            title_ar: "أسعار الخدمات",
+            title_en: "Service Pricing",
+            desc_ar: "خطط أسعار وباقات لكل خدمة.",
+            desc_en: "Pricing tiers and plans per service.",
+            icon: "credit-card",
+            color: "text-emerald-500",
+            bg: "bg-emerald-500/10"
+        },
+        {
+            href: `/${locale}/dashboard/services-content/cta`,
+            title_ar: "شريط الدعوة للإجراء",
+            title_en: "Services CTA",
+            desc_ar: "شريط الدعوة للإجراء بصفحة الخدمات.",
+            desc_en: "Call-to-action banner on the services page.",
+            icon: "megaphone",
+            color: "text-rose-500",
+            bg: "bg-rose-500/10"
+        },
+        {
+            href: `/${locale}/dashboard/services-content/seo`,
+            title_ar: "سيو الخدمات",
+            title_en: "Services SEO",
+            desc_ar: "تحسين ظهور صفحة الخدمات في محركات البحث.",
+            desc_en: "Search engine optimization for the services page.",
+            icon: "search",
+            color: "text-teal-500",
+            bg: "bg-teal-500/10"
+        },
     ];
 
     return (
         <div className="space-y-6 max-w-7xl mx-auto">
             <div className="flex flex-col gap-1">
                 <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
-                    {locale === "ar" ? "قائمة الخدمات والتصنيفات" : "Services & Capabilities"}
+                    {locale === "ar" ? "إدارة صفحة الخدمات" : "Services Page Management"}
                 </h1>
                 <p className="text-sm text-zinc-500">
                     {locale === "ar"
-                        ? "أدر الخدمات الرئيسية التي تقدمها شركتك."
-                        : "Manage the core offerings and services of the company."}
+                        ? "أدر جميع أقسام ومحتوى صفحة الخدمات من هنا."
+                        : "Manage all sections and content of the services page from here."}
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {modules.map((mod, i) => (
                     <Link
                         key={i}

@@ -70,3 +70,62 @@ export async function deleteService(id: string) {
     if (error) throw new Error(error.message);
     revalidatePath("/dashboard/services-content/list");
 }
+
+// --- SERVICE PROCESS (Per-service steps) ---
+export async function getServiceProcess(serviceId?: string) {
+    const supabase = await createClient();
+    let query = supabase.from("services_process").select("*").order("sort_order", { ascending: true });
+    if (serviceId) query = query.eq("service_id", serviceId);
+    const { data, error } = await query;
+    if (error) throw new Error(error.message);
+    return data;
+}
+
+export async function saveServiceProcess(payload: any, id?: string) {
+    const supabase = await createClient();
+    if (id) {
+        const { error } = await supabase.from("services_process").update(payload).eq("id", id);
+        if (error) throw new Error(error.message);
+    } else {
+        const { error } = await supabase.from("services_process").insert(payload);
+        if (error) throw new Error(error.message);
+    }
+    revalidatePath("/dashboard/services-content/process");
+}
+
+export async function deleteServiceProcess(id: string) {
+    const supabase = await createClient();
+    const { error } = await supabase.from("services_process").delete().eq("id", id);
+    if (error) throw new Error(error.message);
+    revalidatePath("/dashboard/services-content/process");
+}
+
+// --- SERVICE PRICING (Per-service tiers) ---
+export async function getServicePricing(serviceId?: string) {
+    const supabase = await createClient();
+    let query = supabase.from("services_pricing").select("*").order("sort_order", { ascending: true });
+    if (serviceId) query = query.eq("service_id", serviceId);
+    const { data, error } = await query;
+    if (error) throw new Error(error.message);
+    return data;
+}
+
+export async function saveServicePricing(payload: any, id?: string) {
+    const supabase = await createClient();
+    if (id) {
+        const { error } = await supabase.from("services_pricing").update(payload).eq("id", id);
+        if (error) throw new Error(error.message);
+    } else {
+        const { error } = await supabase.from("services_pricing").insert(payload);
+        if (error) throw new Error(error.message);
+    }
+    revalidatePath("/dashboard/services-content/pricing");
+}
+
+export async function deleteServicePricing(id: string) {
+    const supabase = await createClient();
+    const { error } = await supabase.from("services_pricing").delete().eq("id", id);
+    if (error) throw new Error(error.message);
+    revalidatePath("/dashboard/services-content/pricing");
+}
+

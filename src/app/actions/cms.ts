@@ -155,3 +155,79 @@ export async function saveHomepageCta(payload: Partial<HomepageCta>) {
     if (error) throw new Error(error.message);
     revalidatePath("/dashboard/homepage-content/cta");
 }
+
+// ============================================================
+// SERVICES PAGE — Singleton Sections
+// ============================================================
+
+// --- SERVICES HERO (Singleton) ---
+export async function getServicesHero() {
+    const supabase = await createClient();
+    const { data } = await supabase
+        .from("services_hero")
+        .select("*, cover:media!services_hero_image_id_fkey(bucket, storage_path)")
+        .limit(1)
+        .single();
+    return data;
+}
+
+export async function saveServicesHero(payload: any) {
+    const supabase = await createClient();
+    const { data: existing } = await supabase.from("services_hero").select("id").limit(1).single();
+    if (existing) {
+        const { error } = await supabase.from("services_hero").update({ ...payload, updated_at: new Date().toISOString() }).eq("id", existing.id);
+        if (error) throw new Error(error.message);
+    } else {
+        const { error } = await supabase.from("services_hero").insert(payload);
+        if (error) throw new Error(error.message);
+    }
+    revalidatePath("/dashboard/services-content/hero");
+}
+
+// --- SERVICES SEO (Singleton) ---
+export async function getServicesSeo() {
+    const supabase = await createClient();
+    const { data } = await supabase
+        .from("services_seo")
+        .select("*, og_image:media!services_seo_og_image_id_fkey(bucket, storage_path)")
+        .limit(1)
+        .single();
+    return data;
+}
+
+export async function saveServicesSeo(payload: any) {
+    const supabase = await createClient();
+    const { data: existing } = await supabase.from("services_seo").select("id").limit(1).single();
+    if (existing) {
+        const { error } = await supabase.from("services_seo").update({ ...payload, updated_at: new Date().toISOString() }).eq("id", existing.id);
+        if (error) throw new Error(error.message);
+    } else {
+        const { error } = await supabase.from("services_seo").insert(payload);
+        if (error) throw new Error(error.message);
+    }
+    revalidatePath("/dashboard/services-content/seo");
+}
+
+// --- SERVICES CTA (Singleton) ---
+export async function getServicesCta() {
+    const supabase = await createClient();
+    const { data } = await supabase
+        .from("services_cta")
+        .select("*, bg_image:media!services_cta_bg_image_id_fkey(bucket, storage_path)")
+        .limit(1)
+        .single();
+    return data;
+}
+
+export async function saveServicesCta(payload: any) {
+    const supabase = await createClient();
+    const { data: existing } = await supabase.from("services_cta").select("id").limit(1).single();
+    if (existing) {
+        const { error } = await supabase.from("services_cta").update({ ...payload, updated_at: new Date().toISOString() }).eq("id", existing.id);
+        if (error) throw new Error(error.message);
+    } else {
+        const { error } = await supabase.from("services_cta").insert(payload);
+        if (error) throw new Error(error.message);
+    }
+    revalidatePath("/dashboard/services-content/cta");
+}
