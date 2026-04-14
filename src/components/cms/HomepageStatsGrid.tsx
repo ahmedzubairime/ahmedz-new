@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { PlayfulInput, PlayfulSwitch, PlayfulButton } from "@/components/ui/PlayfulInputs";
 import { PlayfulModal } from "@/components/ui/PlayfulModal";
+import { PlayfulIconPicker } from "@/components/ui/PlayfulIconPicker";
 import { toast } from "sonner";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -104,10 +105,9 @@ export function HomepageStatsGrid({ locale, stats }: Props) {
                     <div className="grid grid-cols-3 gap-4">
                         <PlayfulInput label={locale === "ar" ? "القيمة الرقمية" : "Numeric Value"} type="number" dir="ltr" placeholder="500" {...register("numeric_value")} error={errors.numeric_value?.message} />
                         <PlayfulInput label={locale === "ar" ? "اللاحقة" : "Suffix"} dir="ltr" placeholder="+" {...register("suffix")} />
-                        <div className="relative">
-                            <PlayfulInput label={locale === "ar" ? "الأيقونة" : "Icon"} dir="ltr" placeholder="bar-chart-2" {...register("icon_name")} error={errors.icon_name?.message} className="pl-12" />
-                            <div className="absolute left-4 top-[38px] flex size-6 items-center justify-center rounded-md bg-amber-500/10 text-amber-500"><SidebarIcon name={currentIcon as any} className="size-4" /></div>
-                        </div>
+                        <Controller name="icon_name" control={control} render={({ field }) => (
+                            <PlayfulIconPicker label={locale === "ar" ? "الأيقونة" : "Icon"} value={field.value} onChange={field.onChange} error={errors.icon_name?.message} locale={locale} />
+                        )} />
                     </div>
                     <Controller name="is_active" control={control} render={({ field }) => <PlayfulSwitch label={locale === "ar" ? "مرئي" : "Visible"} checked={field.value} onChange={field.onChange} />} />
                 </form>

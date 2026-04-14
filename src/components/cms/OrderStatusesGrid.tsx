@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { PlayfulInput, PlayfulSwitch, PlayfulButton } from "@/components/ui/PlayfulInputs";
 import { PlayfulModal } from "@/components/ui/PlayfulModal";
+import { PlayfulIconPicker } from "@/components/ui/PlayfulIconPicker";
 import { toast } from "sonner";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -150,23 +151,17 @@ export function OrderStatusesGrid({ locale, statuses }: Props) {
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-zinc-50/50 dark:bg-zinc-900/30 p-4 rounded-3xl border border-zinc-100 dark:border-zinc-800">
-                        <div className="space-y-2">
-                            <label className="text-xs font-bold text-zinc-500 uppercase tracking-wider pl-2">{locale === "ar" ? "اللون" : "Color"}</label>
-                            <div className="flex gap-2 items-center bg-white dark:bg-zinc-900 p-2 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm">
-                                <input type="color" {...register("color")} className="size-10 rounded-xl border border-zinc-200 cursor-pointer dark:border-zinc-700 bg-transparent" />
-                                <span className="font-mono text-xs font-bold text-zinc-600 dark:text-zinc-400 uppercase tracking-widest truncate">{currentColor}</span>
+                        <div className="space-y-1">
+                            <label className="text-sm font-semibold text-zinc-700 dark:text-zinc-300 ms-1">{locale === "ar" ? "اللون" : "Color"}</label>
+                            <div className="flex gap-4 items-center bg-white/50 dark:bg-zinc-900/50 px-4 py-[11px] rounded-2xl border-2 border-zinc-200 dark:border-zinc-800 shadow-sm backdrop-blur-md">
+                                <input type="color" {...register("color")} className="size-6 rounded-md border-0 cursor-pointer bg-transparent p-0" />
+                                <span className="font-mono text-[13px] font-bold text-zinc-600 dark:text-zinc-400 uppercase tracking-widest truncate">{currentColor}</span>
                             </div>
                         </div>
 
-                        <div className="space-y-2">
-                            <label className="text-xs font-bold text-zinc-500 uppercase tracking-wider pl-2">{locale === "ar" ? "الأيقونة" : "Icon Name"}</label>
-                            <div className="relative">
-                                <PlayfulInput label="" dir="ltr" {...register("icon")} className="pl-12 !mt-0 h-[58px]" placeholder="e.g. box" />
-                                <div className="absolute left-3 top-[9px] flex size-10 items-center justify-center rounded-xl bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 shadow-inner" style={{ color: currentColor }}>
-                                    <SidebarIcon name={currentIcon as any} className="size-5" />
-                                </div>
-                            </div>
-                        </div>
+                        <Controller name="icon" control={control} render={({ field }) => (
+                            <PlayfulIconPicker label={locale === "ar" ? "الأيقونة" : "Icon Name"} value={field.value || ""} onChange={field.onChange} error={errors.icon?.message as string} locale={locale} />
+                        )} />
 
                         <PlayfulInput label={locale === "ar" ? "الترتيب" : "Sort Order"} type="number" dir="ltr" {...register("sort_order")} error={errors.sort_order?.message as string} />
                     </div>

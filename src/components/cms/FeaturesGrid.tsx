@@ -9,6 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { PlayfulInput, PlayfulTextarea, PlayfulSwitch, PlayfulButton } from "@/components/ui/PlayfulInputs";
 import { PlayfulModal } from "@/components/ui/PlayfulModal";
+import { PlayfulIconPicker } from "@/components/ui/PlayfulIconPicker";
 import { toast } from "sonner";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -184,12 +185,15 @@ export function FeaturesGrid({ locale, features }: Props) {
                     </div>
 
                     <div className="grid grid-cols-2 gap-4">
-                        <div className="relative">
-                            <PlayfulInput label={locale === "ar" ? "اسم الأيقونة (Lucide)" : "Icon Name"} dir="ltr" placeholder="e.g. star" {...register("icon_name")} error={errors.icon_name?.message} className="pl-12" />
-                            <div className="absolute left-4 top-[38px] flex size-6 items-center justify-center rounded-md bg-[var(--brand-primary)]/10 text-[var(--brand-primary)] shadow-sm">
-                                <SidebarIcon name={currentIcon as any} className="size-4" />
-                            </div>
-                        </div>
+                        <Controller name="icon_name" control={control} render={({ field }) => (
+                            <PlayfulIconPicker 
+                                label={locale === "ar" ? "الأيقونة (Lucide)" : "Icon Name"} 
+                                value={field.value} 
+                                onChange={field.onChange} 
+                                error={errors.icon_name?.message} 
+                                locale={locale} 
+                            />
+                        )} />
 
                         <Controller name="is_active" control={control} render={({ field }) => (
                             <div className="pt-2 pl-4">

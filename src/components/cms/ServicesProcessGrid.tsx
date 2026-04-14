@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { PlayfulInput, PlayfulTextarea, PlayfulSelect, PlayfulSwitch, PlayfulButton } from "@/components/ui/PlayfulInputs";
 import { PlayfulModal } from "@/components/ui/PlayfulModal";
+import { PlayfulIconPicker } from "@/components/ui/PlayfulIconPicker";
 import { toast } from "sonner";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -99,9 +100,10 @@ export function ServicesProcessGrid({ locale, steps, services }: Props) {
                     <div className="flex gap-4 p-4 rounded-3xl bg-zinc-50/50 dark:bg-zinc-900/30 border border-zinc-100 dark:border-zinc-800">
                         <PlayfulInput label="Step #" type="number" {...register("step_number")} className="max-w-20 text-center font-black" />
                         <PlayfulInput label="Sort" type="number" {...register("sort_order")} className="max-w-20 text-center font-black" />
-                        <div className="relative flex-1">
-                            <PlayfulInput label="Icon" dir="ltr" {...register("icon_name")} className="pl-10" />
-                            <div className="absolute left-3 top-[38px] flex size-6 items-center justify-center rounded-md bg-sky-500/10 text-sky-500"><SidebarIcon name={currentIcon as any} className="size-4" /></div>
+                        <div className="flex-1 pt-0">
+                            <Controller name="icon_name" control={control} render={({ field }) => (
+                                <PlayfulIconPicker label={locale === "ar" ? "الأيقونة" : "Icon"} value={field.value || ""} onChange={field.onChange} error={errors.icon_name?.message} locale={locale} />
+                            )} />
                         </div>
                         <div className="pt-2"><Controller name="is_active" control={control} render={({ field }) => (<PlayfulSwitch label={locale === "ar" ? "مفعل" : "Active"} checked={field.value} onChange={field.onChange} />)} /></div>
                     </div>

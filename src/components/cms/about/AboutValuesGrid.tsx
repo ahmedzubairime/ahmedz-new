@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { PlayfulInput, PlayfulTextarea, PlayfulSwitch, PlayfulButton } from "@/components/ui/PlayfulInputs";
 import { PlayfulModal } from "@/components/ui/PlayfulModal";
+import { PlayfulIconPicker } from "@/components/ui/PlayfulIconPicker";
 import { toast } from "sonner";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -106,10 +107,9 @@ export function AboutValuesGrid({ locale, values }: Props) {
                         <PlayfulTextarea label={locale === "ar" ? "الوصف (AR)" : "Description (AR)"} dir="rtl" rows={3} {...register("description_ar")} />
                     </div>
                     <div className="grid grid-cols-2 gap-4">
-                        <div className="relative">
-                            <PlayfulInput label={locale === "ar" ? "الأيقونة (Lucide)" : "Icon Name"} dir="ltr" placeholder="heart" {...register("icon_name")} error={errors.icon_name?.message} className="pl-12" />
-                            <div className="absolute left-4 top-[38px] flex size-6 items-center justify-center rounded-md bg-rose-500/10 text-rose-500"><SidebarIcon name={currentIcon as any} className="size-4" /></div>
-                        </div>
+                        <Controller name="icon_name" control={control} render={({ field }) => (
+                            <PlayfulIconPicker label={locale === "ar" ? "الأيقونة (Lucide)" : "Icon Name"} value={field.value} onChange={field.onChange} error={errors.icon_name?.message} locale={locale} />
+                        )} />
                         <Controller name="is_active" control={control} render={({ field }) => <div className="pt-8"><PlayfulSwitch label={locale === "ar" ? "مرئي" : "Visible"} checked={field.value} onChange={field.onChange} /></div>} />
                     </div>
                 </form>
