@@ -1,6 +1,6 @@
+import { accounts } from "./core";
+import { media, mediaFolders } from "./media";
 import { pgTable, uuid, text, timestamp, boolean, integer } from 'drizzle-orm/pg-core';
-import { accounts } from './accounts';
-import { media } from './media';
 
 export const postCategories = pgTable('post_categories', {
   id: uuid('id').primaryKey().defaultRandom(),

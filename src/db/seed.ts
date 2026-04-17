@@ -2,22 +2,14 @@ import { drizzle } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
 import * as fs from 'fs';
 import * as path from 'path';
-import { 
-  roles, 
-  sections, 
-  pageGroups, 
-  pages, 
-  rolePagePermissions,
-  contactInfo,
-  homepageHero
-} from './schema';
+import * as schema from './schema';
 import * as dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
 
-// Load local environment variables (assumes .env.local holds DATABASE_URL)
 dotenv.config({ path: '.env.local' });
 
-// Setup paths to the JSON data
-const dataDir = path.join(process.cwd(), 'src/db/seed-data');
+const _dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url));
+const dataDir = path.join(_dirname, 'seed-data');
 
 function readJsonFile(filename: string) {
   const filePath = path.join(dataDir, filename);
@@ -27,81 +19,54 @@ function readJsonFile(filename: string) {
   return [];
 }
 
+const mapDates = (dataList: any[]) => dataList.map((item: any) => {
+  const nextItem = { ...item };
+  ['created_at', 'updated_at', 'published_at', 'subscribed_at', 'unsubscribed_at', 'sent_at', 'starts_at', 'expires_at'].forEach(key => {
+    if (nextItem[key]) nextItem[key] = new Date(nextItem[key]);
+  });
+  return nextItem;
+});
+
 async function main() {
   const dbUrl = process.env.DATABASE_URL;
-  if (!dbUrl) {
-    throw new Error('DATABASE_URL is not set in your .env.local file');
-  }
+  if (!dbUrl) throw new Error('DATABASE_URL is not set in your .env.local file');
 
   console.log('🌱 Connecting to database...');
-  // Initialize postgres connection
   const client = postgres(dbUrl, { max: 1 });
-  const db = drizzle(client);
+  const db = drizzle(client, { schema });
 
   try {
     console.log('📥 Loading JSON data...');
-    const rolesData = readJsonFile('roles.json');
-    const sectionsData = readJsonFile('sections.json');
-    const pageGroupsData = readJsonFile('page_groups.json');
-    const pagesData = readJsonFile('pages.json');
-    const permissionsData = readJsonFile('role_page_permissions.json');
-    const contactData = readJsonFile('contact_info.json');
-    const heroData = readJsonFile('homepage_hero.json');
+    const dataMaps = [
+      { name: 'Roles', data: readJsonFile('roles.json'), table: schema.roles },
+      { name: 'Sections', data: readJsonFile('sections.json'), table: schema.sections },
+      { name: 'Page Groups', data: readJsonFile('page_groups.json'), table: schema.pageGroups },
+      { name: 'Pages', data: readJsonFile('pages.json'), table: schema.pages },
+      { name: 'Role Page Permissions', data: readJsonFile('role_page_permissions.json'), table: schema.rolePagePermissions },
+      { name: 'Contact Info', data: readJsonFile('contact_info.json'), table: schema.contactInfo },
+      { name: 'Homepage Hero', data: readJsonFile('homepage_hero.json'), table: schema.homepageHero },
+      { name: 'About Hero', data: readJsonFile('about_hero.json'), table: schema.aboutHero },
+      { name: 'About Company', data: readJsonFile('about_company.json'), table: schema.aboutCompany },
+      { name: 'About Mission', data: readJsonFile('about_mission.json'), table: schema.aboutMission },
+      { name: 'About SEO', data: readJsonFile('about_seo.json'), table: schema.aboutSeo },
+      { name: 'Homepage SEO', data: readJsonFile('homepage_seo.json'), table: schema.homepageSeo },
+      { name: 'Homepage CTA', data: readJsonFile('homepage_cta.json'), table: schema.homepageCta }
+    ];
 
-    // 1. Roles
-    if (rolesData.length > 0) {
-      console.log(`Inserting ${rolesData.length} roles...`);
-      await db.insert(roles).values(rolesData).onConflictDoNothing();
+    for (const { name, data, table } of dataMaps) {
+      if (data.length > 0 && table) {
+        console.log(`Inserting ${data.length} records into ${name}...`);
+        await db.insert(table).values(mapDates(data)).onConflictDoNothing();
+      }
     }
 
-    // 2. Sections
-    if (sectionsData.length > 0) {
-      console.log(`Inserting ${sectionsData.length} sections...`);
-      await db.insert(sections).values(sectionsData).onConflictDoNothing();
-    }
-
-    // 3. Page Groups
-    if (pageGroupsData.length > 0) {
-      console.log(`Inserting ${pageGroupsData.length} page groups...`);
-      await db.insert(pageGroups).values(pageGroupsData).onConflictDoNothing();
-    }
-
-    // 4. Pages
-    if (pagesData.length > 0) {
-      // Need to clean up string dates to actual dates if Drizzle strictly demands it.
-      // Postgres-js usually handles ISO strings automatically, but Drizzle prefers JS Date objects for strictness on timestamp fields.
-      const parsedPages = pagesData.map((p: any) => ({
-        ...p,
-        created_at: p.created_at ? new Date(p.created_at) : undefined,
-      }));
-      console.log(`Inserting ${parsedPages.length} pages...`);
-      await db.insert(pages).values(parsedPages).onConflictDoNothing();
-    }
-
-    // 5. Role Page Permissions
-    if (permissionsData.length > 0) {
-      console.log(`Inserting ${permissionsData.length} role_page_permissions...`);
-      await db.insert(rolePagePermissions).values(permissionsData).onConflictDoNothing();
-    }
-
-    // 6. Contact Info
-    if (contactData.length > 0) {
-      const parsedContact = contactData.map((c: any) => ({
-        ...c,
-        updated_at: c.updated_at ? new Date(c.updated_at) : undefined,
-      }));
-      console.log(`Setting up contact_info...`);
-      await db.insert(contactInfo).values(parsedContact).onConflictDoNothing();
-    }
-
-    // 7. Homepage Hero
-    if (heroData.length > 0) {
-      const parsedHero = heroData.map((h: any) => ({
-        ...h,
-        updated_at: h.updated_at ? new Date(h.updated_at) : undefined,
-      }));
-      console.log(`Setting up homepage_hero...`);
-      await db.insert(homepageHero).values(parsedHero).onConflictDoNothing();
+    const buckets = readJsonFile('buckets.json');
+    if (buckets.length > 0) {
+      console.log(`Inserting ${buckets.length} storage buckets...`);
+      for (const bucket of buckets) {
+        // Raw postgres query for buckets 
+        await client`INSERT INTO storage.buckets (id, name, public) VALUES (${bucket.id}, ${bucket.name}, ${bucket.public}) ON CONFLICT DO NOTHING`;
+      }
     }
 
     console.log('✅ Seeding completed perfectly!');

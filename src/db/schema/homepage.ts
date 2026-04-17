@@ -1,5 +1,5 @@
+import { media, mediaFolders } from "./media";
 import { pgTable, uuid, text, timestamp, integer, boolean } from 'drizzle-orm/pg-core';
-import { media } from './media';
 
 export const homepageHero = pgTable('homepage_hero', {
   id: integer('id').primaryKey().default(1),

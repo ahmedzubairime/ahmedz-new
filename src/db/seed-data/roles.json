@@ -3,63 +3,63 @@
     "id": "super-admin",
     "name_ar": "مدير النظام",
     "name_en": "Super Admin",
-    "is_system": true,
-    "created_at": "2026-03-17T03:14:52.689104+00:00",
     "description_ar": "صلاحيات كاملة على جميع أقسام النظام",
-    "description_en": "Full access to all system sections"
+    "description_en": "Full access to all system sections",
+    "is_system": true,
+    "created_at": "2026-03-17T03:14:52.689Z"
   },
   {
     "id": "admin",
     "name_ar": "مدير",
     "name_en": "Admin",
-    "is_system": true,
-    "created_at": "2026-03-17T03:14:52.689104+00:00",
     "description_ar": "صلاحيات إدارة لوحة التحكم وإدارة المشاريع",
-    "description_en": "Dashboard and project management access"
+    "description_en": "Dashboard and project management access",
+    "is_system": true,
+    "created_at": "2026-03-17T03:14:52.689Z"
   },
   {
     "id": "branch-manager",
     "name_ar": "مدير فرع",
     "name_en": "Branch Manager",
-    "is_system": false,
-    "created_at": "2026-03-17T03:14:52.689104+00:00",
     "description_ar": "إدارة فرع محدد والمشاريع التابعة له",
-    "description_en": "Manage specific branch and its projects"
+    "description_en": "Manage specific branch and its projects",
+    "is_system": false,
+    "created_at": "2026-03-17T03:14:52.689Z"
   },
   {
     "id": "team-leader",
     "name_ar": "قائد فريق",
     "name_en": "Team Leader",
-    "is_system": false,
-    "created_at": "2026-03-17T03:14:52.689104+00:00",
     "description_ar": "إدارة فريق محدد والمهام التابعة له",
-    "description_en": "Manage specific team and its tasks"
+    "description_en": "Manage specific team and its tasks",
+    "is_system": false,
+    "created_at": "2026-03-17T03:14:52.689Z"
   },
   {
     "id": "team-member",
     "name_ar": "عضو فريق",
     "name_en": "Team Member",
-    "is_system": false,
-    "created_at": "2026-03-17T03:14:52.689104+00:00",
     "description_ar": "عرض وتحديث المهام المخصصة",
-    "description_en": "View and update assigned tasks"
+    "description_en": "View and update assigned tasks",
+    "is_system": false,
+    "created_at": "2026-03-17T03:14:52.689Z"
   },
   {
     "id": "content-editor",
     "name_ar": "محرر محتوى",
     "name_en": "Content Editor",
-    "is_system": false,
-    "created_at": "2026-03-17T03:14:52.689104+00:00",
     "description_ar": "إدارة المحتوى في لوحة التحكم",
-    "description_en": "Manage content in dashboard"
+    "description_en": "Manage content in dashboard",
+    "is_system": false,
+    "created_at": "2026-03-17T03:14:52.689Z"
   },
   {
     "id": "viewer",
     "name_ar": "مشاهد",
     "name_en": "Viewer",
-    "is_system": false,
-    "created_at": "2026-03-17T03:14:52.689104+00:00",
     "description_ar": "عرض فقط بدون تعديل",
-    "description_en": "Read-only access"
+    "description_en": "Read-only access",
+    "is_system": false,
+    "created_at": "2026-03-17T03:14:52.689Z"
   }
 ]

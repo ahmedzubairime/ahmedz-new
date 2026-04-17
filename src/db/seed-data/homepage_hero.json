@@ -1,14 +1,19 @@
 [
   {
     "id": 1,
-    "image_id": null,
     "title_ar": "",
     "title_en": "",
-    "updated_at": "2026-03-22T00:47:12.347317+00:00",
     "subtitle_ar": null,
     "subtitle_en": null,
-    "cta_primary_link": null,
     "cta_primary_text_ar": null,
-    "cta_primary_text_en": null
+    "cta_primary_text_en": null,
+    "cta_primary_link": null,
+    "image_id": null,
+    "updated_at": "2026-03-22T00:47:12.347Z",
+    "cta_secondary_text_ar": null,
+    "cta_secondary_text_en": null,
+    "cta_secondary_link": null,
+    "badge_text_ar": null,
+    "badge_text_en": null
   }
 ]

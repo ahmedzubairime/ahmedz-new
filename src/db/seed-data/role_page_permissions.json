@@ -1,2082 +1,2914 @@
 [
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.roles",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.permissions",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.posts",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.pages",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.products",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.orders",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.categories",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.general-settings",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "pms.all-projects",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "pms.tasks",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "pms.members",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "pms.branches",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.accounts",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.roles",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.permissions",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.posts",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.pages",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.products",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.orders",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.categories",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.general-settings",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "pms.all-projects",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "pms.tasks",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "pms.members",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "pms.branches",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.accounts",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.roles",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.permissions",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.posts",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.media",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.pages",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.products",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.orders",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.categories",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.general-settings",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
-  },
-  {
-    "page_id": "pms.all-projects",
-    "role_id": "branch-manager",
     "can_read": true,
-    "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
+    "page_id": "pms.all-projects",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "branch-manager",
     "page_id": "pms.tasks",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "branch-manager",
     "page_id": "pms.members",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "branch-manager",
     "page_id": "pms.branches",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
-    "page_id": "pms.all-projects",
     "role_id": "team-leader",
-    "can_read": true,
+    "page_id": "pms.all-projects",
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "team-leader",
     "page_id": "pms.tasks",
-    "role_id": "team-leader",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "team-leader",
     "page_id": "pms.members",
-    "role_id": "team-leader",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": false
   },
   {
+    "role_id": "team-leader",
     "page_id": "pms.branches",
-    "role_id": "team-leader",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
-    "page_id": "pms.all-projects",
     "role_id": "team-member",
-    "can_read": true,
-    "can_create": false,
-    "can_delete": false,
-    "can_update": false
-  },
-  {
-    "page_id": "pms.tasks",
-    "role_id": "team-member",
-    "can_read": true,
-    "can_create": false,
-    "can_delete": false,
-    "can_update": true
-  },
-  {
-    "page_id": "pms.members",
-    "role_id": "team-member",
-    "can_read": true,
-    "can_create": false,
-    "can_delete": false,
-    "can_update": false
-  },
-  {
-    "page_id": "dashboard.accounts",
-    "role_id": "content-editor",
-    "can_read": true,
-    "can_create": false,
-    "can_delete": false,
-    "can_update": false
-  },
-  {
-    "page_id": "dashboard.posts",
-    "role_id": "content-editor",
-    "can_read": true,
-    "can_create": true,
-    "can_delete": true,
-    "can_update": true
-  },
-  {
-    "page_id": "dashboard.pages",
-    "role_id": "content-editor",
-    "can_read": true,
-    "can_create": true,
-    "can_delete": true,
-    "can_update": true
-  },
-  {
-    "page_id": "dashboard.products",
-    "role_id": "content-editor",
-    "can_read": true,
-    "can_create": true,
-    "can_delete": true,
-    "can_update": true
-  },
-  {
-    "page_id": "dashboard.orders",
-    "role_id": "content-editor",
-    "can_read": true,
-    "can_create": false,
-    "can_delete": false,
-    "can_update": true
-  },
-  {
-    "page_id": "dashboard.categories",
-    "role_id": "content-editor",
-    "can_read": true,
-    "can_create": true,
-    "can_delete": true,
-    "can_update": true
-  },
-  {
-    "page_id": "dashboard.roles",
-    "role_id": "viewer",
-    "can_read": true,
-    "can_create": false,
-    "can_delete": false,
-    "can_update": false
-  },
-  {
-    "page_id": "dashboard.permissions",
-    "role_id": "viewer",
-    "can_read": true,
-    "can_create": false,
-    "can_delete": false,
-    "can_update": false
-  },
-  {
-    "page_id": "dashboard.posts",
-    "role_id": "viewer",
-    "can_read": true,
-    "can_create": false,
-    "can_delete": false,
-    "can_update": false
-  },
-  {
-    "page_id": "dashboard.media",
-    "role_id": "viewer",
-    "can_read": true,
-    "can_create": false,
-    "can_delete": false,
-    "can_update": false
-  },
-  {
-    "page_id": "dashboard.pages",
-    "role_id": "viewer",
-    "can_read": true,
-    "can_create": false,
-    "can_delete": false,
-    "can_update": false
-  },
-  {
-    "page_id": "dashboard.products",
-    "role_id": "viewer",
-    "can_read": true,
-    "can_create": false,
-    "can_delete": false,
-    "can_update": false
-  },
-  {
-    "page_id": "dashboard.orders",
-    "role_id": "viewer",
-    "can_read": true,
-    "can_create": false,
-    "can_delete": false,
-    "can_update": false
-  },
-  {
-    "page_id": "dashboard.categories",
-    "role_id": "viewer",
-    "can_read": true,
-    "can_create": false,
-    "can_delete": false,
-    "can_update": false
-  },
-  {
     "page_id": "pms.all-projects",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "team-member",
     "page_id": "pms.tasks",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": true,
+    "can_delete": false
   },
   {
+    "role_id": "team-member",
     "page_id": "pms.members",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "content-editor",
+    "page_id": "dashboard.accounts",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "content-editor",
+    "page_id": "dashboard.posts",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "content-editor",
+    "page_id": "dashboard.pages",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "content-editor",
+    "page_id": "dashboard.products",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "content-editor",
+    "page_id": "dashboard.orders",
+    "can_create": false,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": false
+  },
+  {
+    "role_id": "content-editor",
+    "page_id": "dashboard.categories",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "viewer",
+    "page_id": "dashboard.roles",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "viewer",
+    "page_id": "dashboard.permissions",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "viewer",
+    "page_id": "dashboard.posts",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "viewer",
+    "page_id": "dashboard.media",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "viewer",
+    "page_id": "dashboard.pages",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "viewer",
+    "page_id": "dashboard.products",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "viewer",
+    "page_id": "dashboard.orders",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "viewer",
+    "page_id": "dashboard.categories",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "viewer",
+    "page_id": "pms.all-projects",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "viewer",
+    "page_id": "pms.tasks",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "viewer",
+    "page_id": "pms.members",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "viewer",
     "page_id": "pms.branches",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.homepage-content",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.homepage-content",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.about-content",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.about-content",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.services-content",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.services-content",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.contact-settings",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.contact-settings",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.offers-coupons",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.offers-coupons",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
-    "page_id": "dashboard.payments",
     "role_id": "super-admin",
-    "can_read": true,
-    "can_create": true,
-    "can_delete": true,
-    "can_update": true
-  },
-  {
     "page_id": "dashboard.payments",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
-    "page_id": "dashboard.logs",
+    "role_id": "admin",
+    "page_id": "dashboard.payments",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
     "role_id": "super-admin",
-    "can_read": true,
-    "can_create": true,
-    "can_delete": true,
-    "can_update": true
-  },
-  {
     "page_id": "dashboard.logs",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
+    "page_id": "dashboard.logs",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "branch-manager",
     "page_id": "dashboard.homepage-content",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.about-content",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.services-content",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.contact-settings",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.offers-coupons",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.payments",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.logs",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.homepage-content",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.about-content",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.services-content",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.contact-settings",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.offers-coupons",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
-  },
-  {
-    "page_id": "dashboard.payments",
-    "role_id": "content-editor",
     "can_read": true,
-    "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "content-editor",
+    "page_id": "dashboard.payments",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "viewer",
     "page_id": "dashboard.homepage-content",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.about-content",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.services-content",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.contact-settings",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.offers-coupons",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.payments",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
-    "page_id": "dashboard.logs",
     "role_id": "viewer",
-    "can_read": true,
+    "page_id": "dashboard.logs",
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
-    "page_id": "dashboard.logs",
     "role_id": "content-editor",
-    "can_read": true,
+    "page_id": "dashboard.logs",
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.post-categories",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.post-categories",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.newsletter",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.newsletter",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.newsletter-members",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.newsletter-members",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
-    "page_id": "dashboard.product-attributes",
     "role_id": "super-admin",
-    "can_read": true,
-    "can_create": true,
-    "can_delete": true,
-    "can_update": true
-  },
-  {
     "page_id": "dashboard.product-attributes",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
-    "page_id": "dashboard.product-variants",
+    "role_id": "admin",
+    "page_id": "dashboard.product-attributes",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
     "role_id": "super-admin",
-    "can_read": true,
-    "can_create": true,
-    "can_delete": true,
-    "can_update": true
-  },
-  {
     "page_id": "dashboard.product-variants",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
+    "page_id": "dashboard.product-variants",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "viewer",
+    "page_id": "dashboard.accounts",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "super-admin",
+    "page_id": "dashboard.accounts",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "viewer",
     "page_id": "dashboard.general-settings",
-    "role_id": "viewer",
-    "can_read": false,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
-  },
-  {
-    "page_id": "dashboard.accounts",
-    "role_id": "super-admin",
     "can_read": true,
-    "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_update": false,
+    "can_delete": false
   },
   {
-    "page_id": "dashboard.accounts",
-    "role_id": "viewer",
-    "can_read": false,
-    "can_create": false,
-    "can_delete": false,
-    "can_update": false
-  },
-  {
+    "role_id": "super-admin",
     "page_id": "dashboard.product-reviews",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.product-reviews",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.order-tracking",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.order-tracking",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.order-returns",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.order-returns",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.order-statuses",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.order-statuses",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.offers",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.offers",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.coupons",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.coupons",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.campaigns",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.campaigns",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.transactions",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.transactions",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.payment-methods",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.payment-methods",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.invoices",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.invoices",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.hero-section",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.hero-section",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.features",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.features",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.testimonials",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.testimonials",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.partners",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.partners",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.company-info",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.company-info",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.team-members",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.team-members",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.mission-vision",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.mission-vision",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.services-list",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.services-list",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.service-categories",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.service-categories",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.contact-info",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.contact-info",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
-    "page_id": "dashboard.branches-locations",
     "role_id": "super-admin",
-    "can_read": true,
-    "can_create": true,
-    "can_delete": true,
-    "can_update": true
-  },
-  {
     "page_id": "dashboard.branches-locations",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
-    "page_id": "dashboard.social-media",
+    "role_id": "admin",
+    "page_id": "dashboard.branches-locations",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
     "role_id": "super-admin",
-    "can_read": true,
-    "can_create": true,
-    "can_delete": true,
-    "can_update": true
-  },
-  {
     "page_id": "dashboard.social-media",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
+    "page_id": "dashboard.social-media",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "branch-manager",
     "page_id": "dashboard.post-categories",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.newsletter",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.newsletter-members",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.media-images",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.media-videos",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.media-documents",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.media-folders",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.product-attributes",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.product-variants",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.product-reviews",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.order-tracking",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.order-returns",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.order-statuses",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.offers",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.coupons",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.campaigns",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.transactions",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.payment-methods",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.invoices",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.hero-section",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.features",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.testimonials",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.partners",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.company-info",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.team-members",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.mission-vision",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.services-list",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.service-categories",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.contact-info",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.branches-locations",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "branch-manager",
     "page_id": "dashboard.social-media",
-    "role_id": "branch-manager",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.post-categories",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.newsletter",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.newsletter-members",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.product-attributes",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.product-variants",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.product-reviews",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.order-tracking",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.order-returns",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.order-statuses",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.offers",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.coupons",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.campaigns",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.transactions",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.payment-methods",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.invoices",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.hero-section",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.features",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.testimonials",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.partners",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.company-info",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.team-members",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.mission-vision",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.services-list",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.service-categories",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.contact-info",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.branches-locations",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.social-media",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.post-categories",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.newsletter",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.newsletter-members",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.media-images",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.media-videos",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.media-documents",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.media-folders",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.product-attributes",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.product-variants",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.product-reviews",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.order-tracking",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.order-returns",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.order-statuses",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.offers",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.coupons",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.campaigns",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.transactions",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.payment-methods",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.invoices",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.hero-section",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.features",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.testimonials",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.partners",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.company-info",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.team-members",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.mission-vision",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.services-list",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.service-categories",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.contact-info",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.branches-locations",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "viewer",
     "page_id": "dashboard.social-media",
-    "role_id": "viewer",
-    "can_read": true,
     "can_create": false,
-    "can_delete": false,
-    "can_update": false
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.media",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.media",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.media",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "super-admin",
     "page_id": "dashboard.media-images",
-    "role_id": "super-admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.media-images",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "content-editor",
     "page_id": "dashboard.media-images",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
-    "page_id": "dashboard.media-videos",
     "role_id": "super-admin",
-    "can_read": true,
-    "can_create": true,
-    "can_delete": true,
-    "can_update": true
-  },
-  {
     "page_id": "dashboard.media-videos",
-    "role_id": "admin",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
+    "role_id": "admin",
     "page_id": "dashboard.media-videos",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
-    "page_id": "dashboard.media-documents",
+    "role_id": "content-editor",
+    "page_id": "dashboard.media-videos",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
     "role_id": "super-admin",
-    "can_read": true,
+    "page_id": "dashboard.media-documents",
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
-    "page_id": "dashboard.media-documents",
     "role_id": "admin",
-    "can_read": true,
-    "can_create": true,
-    "can_delete": true,
-    "can_update": true
-  },
-  {
     "page_id": "dashboard.media-documents",
-    "role_id": "content-editor",
-    "can_read": true,
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
-    "page_id": "dashboard.media-folders",
+    "role_id": "content-editor",
+    "page_id": "dashboard.media-documents",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
     "role_id": "super-admin",
-    "can_read": true,
+    "page_id": "dashboard.media-folders",
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
-    "page_id": "dashboard.media-folders",
     "role_id": "admin",
-    "can_read": true,
+    "page_id": "dashboard.media-folders",
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
   },
   {
-    "page_id": "dashboard.media-folders",
     "role_id": "content-editor",
-    "can_read": true,
+    "page_id": "dashboard.media-folders",
     "can_create": true,
-    "can_delete": true,
-    "can_update": true
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "super-admin",
+    "page_id": "pms.teams",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "super-admin",
+    "page_id": "pms.activity",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "admin",
+    "page_id": "pms.teams",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "admin",
+    "page_id": "pms.activity",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "branch-manager",
+    "page_id": "pms.teams",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "branch-manager",
+    "page_id": "pms.activity",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "team-leader",
+    "page_id": "pms.teams",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "team-leader",
+    "page_id": "pms.activity",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "team-member",
+    "page_id": "pms.teams",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "team-member",
+    "page_id": "pms.activity",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "super-admin",
+    "page_id": "dashboard.about-values",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "admin",
+    "page_id": "dashboard.about-values",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "content-editor",
+    "page_id": "dashboard.about-values",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "branch-manager",
+    "page_id": "dashboard.about-values",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "viewer",
+    "page_id": "dashboard.about-values",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "super-admin",
+    "page_id": "dashboard.about-timeline",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "admin",
+    "page_id": "dashboard.about-timeline",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "content-editor",
+    "page_id": "dashboard.about-timeline",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "branch-manager",
+    "page_id": "dashboard.about-timeline",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "viewer",
+    "page_id": "dashboard.about-timeline",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "super-admin",
+    "page_id": "dashboard.about-stats",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "admin",
+    "page_id": "dashboard.about-stats",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "content-editor",
+    "page_id": "dashboard.about-stats",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "branch-manager",
+    "page_id": "dashboard.about-stats",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "viewer",
+    "page_id": "dashboard.about-stats",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "super-admin",
+    "page_id": "dashboard.about-certificates",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "admin",
+    "page_id": "dashboard.about-certificates",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "content-editor",
+    "page_id": "dashboard.about-certificates",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "branch-manager",
+    "page_id": "dashboard.about-certificates",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "viewer",
+    "page_id": "dashboard.about-certificates",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "super-admin",
+    "page_id": "dashboard.about-seo",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "admin",
+    "page_id": "dashboard.about-seo",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "content-editor",
+    "page_id": "dashboard.about-seo",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "branch-manager",
+    "page_id": "dashboard.about-seo",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "viewer",
+    "page_id": "dashboard.about-seo",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "super-admin",
+    "page_id": "dashboard.homepage-stats",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "super-admin",
+    "page_id": "dashboard.homepage-cta",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "super-admin",
+    "page_id": "dashboard.homepage-faq",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "super-admin",
+    "page_id": "dashboard.homepage-seo",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "admin",
+    "page_id": "dashboard.homepage-stats",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "admin",
+    "page_id": "dashboard.homepage-cta",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "admin",
+    "page_id": "dashboard.homepage-faq",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "admin",
+    "page_id": "dashboard.homepage-seo",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "content-editor",
+    "page_id": "dashboard.homepage-stats",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "content-editor",
+    "page_id": "dashboard.homepage-cta",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "content-editor",
+    "page_id": "dashboard.homepage-faq",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "content-editor",
+    "page_id": "dashboard.homepage-seo",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "team-leader",
+    "page_id": "dashboard.homepage-stats",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "team-leader",
+    "page_id": "dashboard.homepage-cta",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "team-leader",
+    "page_id": "dashboard.homepage-faq",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "team-leader",
+    "page_id": "dashboard.homepage-seo",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "branch-manager",
+    "page_id": "dashboard.homepage-stats",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "branch-manager",
+    "page_id": "dashboard.homepage-cta",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "branch-manager",
+    "page_id": "dashboard.homepage-faq",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "branch-manager",
+    "page_id": "dashboard.homepage-seo",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "team-member",
+    "page_id": "dashboard.homepage-stats",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "team-member",
+    "page_id": "dashboard.homepage-cta",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "team-member",
+    "page_id": "dashboard.homepage-faq",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "team-member",
+    "page_id": "dashboard.homepage-seo",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "viewer",
+    "page_id": "dashboard.homepage-stats",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "viewer",
+    "page_id": "dashboard.homepage-cta",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "viewer",
+    "page_id": "dashboard.homepage-faq",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "viewer",
+    "page_id": "dashboard.homepage-seo",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "team-leader",
+    "page_id": "dashboard.services-content",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "team-member",
+    "page_id": "dashboard.services-content",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "team-leader",
+    "page_id": "dashboard.services-list",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "team-member",
+    "page_id": "dashboard.services-list",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "team-leader",
+    "page_id": "dashboard.service-categories",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "team-member",
+    "page_id": "dashboard.service-categories",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "super-admin",
+    "page_id": "dashboard.services-hero",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "admin",
+    "page_id": "dashboard.services-hero",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "content-editor",
+    "page_id": "dashboard.services-hero",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "branch-manager",
+    "page_id": "dashboard.services-hero",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "team-leader",
+    "page_id": "dashboard.services-hero",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "team-member",
+    "page_id": "dashboard.services-hero",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "viewer",
+    "page_id": "dashboard.services-hero",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "super-admin",
+    "page_id": "dashboard.services-seo",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "admin",
+    "page_id": "dashboard.services-seo",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "content-editor",
+    "page_id": "dashboard.services-seo",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "branch-manager",
+    "page_id": "dashboard.services-seo",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "team-leader",
+    "page_id": "dashboard.services-seo",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "team-member",
+    "page_id": "dashboard.services-seo",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "viewer",
+    "page_id": "dashboard.services-seo",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "super-admin",
+    "page_id": "dashboard.services-cta",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "admin",
+    "page_id": "dashboard.services-cta",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "content-editor",
+    "page_id": "dashboard.services-cta",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "branch-manager",
+    "page_id": "dashboard.services-cta",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "team-leader",
+    "page_id": "dashboard.services-cta",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "team-member",
+    "page_id": "dashboard.services-cta",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "viewer",
+    "page_id": "dashboard.services-cta",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "super-admin",
+    "page_id": "dashboard.services-process",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "admin",
+    "page_id": "dashboard.services-process",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "content-editor",
+    "page_id": "dashboard.services-process",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "branch-manager",
+    "page_id": "dashboard.services-process",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "team-leader",
+    "page_id": "dashboard.services-process",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "team-member",
+    "page_id": "dashboard.services-process",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "viewer",
+    "page_id": "dashboard.services-process",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "super-admin",
+    "page_id": "dashboard.services-pricing",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "admin",
+    "page_id": "dashboard.services-pricing",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "content-editor",
+    "page_id": "dashboard.services-pricing",
+    "can_create": true,
+    "can_read": true,
+    "can_update": true,
+    "can_delete": true
+  },
+  {
+    "role_id": "branch-manager",
+    "page_id": "dashboard.services-pricing",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "team-leader",
+    "page_id": "dashboard.services-pricing",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "team-member",
+    "page_id": "dashboard.services-pricing",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
+  },
+  {
+    "role_id": "viewer",
+    "page_id": "dashboard.services-pricing",
+    "can_create": false,
+    "can_read": true,
+    "can_update": false,
+    "can_delete": false
   }
 ]

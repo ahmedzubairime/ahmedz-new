@@ -1,12 +1,12 @@
 [
   {
     "id": 1,
-    "address_ar": null,
-    "address_en": null,
-    "updated_at": "2026-03-22T00:47:12.347317+00:00",
     "email_primary": null,
     "email_support": null,
     "phone_primary": null,
-    "phone_secondary": null
+    "phone_secondary": null,
+    "address_ar": null,
+    "address_en": null,
+    "updated_at": "2026-03-22T00:47:12.347Z"
   }
 ]

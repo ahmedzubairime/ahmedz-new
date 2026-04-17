@@ -1,65 +1,65 @@
 [
   {
     "id": "dashboard.users-management",
-    "icon": "users",
+    "section_id": "dashboard",
     "name_ar": "إدارة المستخدمين والصلاحيات",
     "name_en": "Users & Roles",
-    "created_at": "2026-03-17T03:14:52.689104+00:00",
-    "section_id": "dashboard",
-    "sort_order": 1
+    "icon": "users",
+    "sort_order": 1,
+    "created_at": "2026-03-17T03:14:52.689Z"
   },
   {
     "id": "dashboard.content-management",
-    "icon": "file-text",
+    "section_id": "dashboard",
     "name_ar": "إدارة المحتوى",
     "name_en": "Content Management",
-    "created_at": "2026-03-17T03:14:52.689104+00:00",
-    "section_id": "dashboard",
-    "sort_order": 2
+    "icon": "file-text",
+    "sort_order": 2,
+    "created_at": "2026-03-17T03:14:52.689Z"
   },
   {
     "id": "dashboard.store-management",
-    "icon": "shopping-bag",
+    "section_id": "dashboard",
     "name_ar": "إدارة المتجر",
     "name_en": "Store Management",
-    "created_at": "2026-03-17T03:14:52.689104+00:00",
-    "section_id": "dashboard",
-    "sort_order": 3
+    "icon": "shopping-bag",
+    "sort_order": 3,
+    "created_at": "2026-03-17T03:14:52.689Z"
   },
   {
     "id": "pms.projects",
-    "icon": "kanban",
+    "section_id": "pms",
     "name_ar": "المشاريع",
     "name_en": "Projects",
-    "created_at": "2026-03-17T03:14:52.689104+00:00",
-    "section_id": "pms",
-    "sort_order": 1
+    "icon": "kanban",
+    "sort_order": 1,
+    "created_at": "2026-03-17T03:14:52.689Z"
   },
   {
     "id": "pms.team",
-    "icon": "users",
+    "section_id": "pms",
     "name_ar": "إدارة الفريق",
     "name_en": "Team Management",
-    "created_at": "2026-03-17T03:14:52.689104+00:00",
-    "section_id": "pms",
-    "sort_order": 2
+    "icon": "users",
+    "sort_order": 2,
+    "created_at": "2026-03-17T03:14:52.689Z"
   },
   {
     "id": "dashboard.settings",
-    "icon": "settings",
+    "section_id": "dashboard",
     "name_ar": "الإعدادات",
     "name_en": "Settings",
-    "created_at": "2026-03-17T03:14:52.689104+00:00",
-    "section_id": "dashboard",
-    "sort_order": 5
+    "icon": "settings",
+    "sort_order": 5,
+    "created_at": "2026-03-17T03:14:52.689Z"
   },
   {
     "id": "dashboard.public-management",
-    "icon": "globe",
+    "section_id": "dashboard",
     "name_ar": "إدارة الموقع العام",
     "name_en": "Public Management",
-    "created_at": "2026-03-17T19:10:22.699394+00:00",
-    "section_id": "dashboard",
-    "sort_order": 4
+    "icon": "globe",
+    "sort_order": 4,
+    "created_at": "2026-03-17T19:10:22.699Z"
   }
 ]
