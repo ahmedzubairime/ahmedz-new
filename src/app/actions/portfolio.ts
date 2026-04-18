@@ -277,3 +277,9 @@ export async function deleteContactMessage(id: string) {
     revalidatePath("/dashboard/inbox/messages");
 }
 
+export async function saveContactMessage(payload: { name: string; email: string; subject: string; message: string; }) {
+    const supabase = await createClient();
+    const snakePayload = toSnake(payload);
+    const { error } = await supabase.from('contact_messages').insert(snakePayload);
+    if (error) throw new Error(error.message);
+}

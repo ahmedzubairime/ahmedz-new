@@ -1,9 +1,13 @@
 {
     "nav": {
         "home": "Home",
+        "about": "About",
+        "resume": "Resume",
+        "portfolio": "Portfolio",
+        "blog": "Blog",
+        "gallery": "Gallery",
+        "contact": "Contact",
         "dashboard": "Dashboard",
-        "projects": "Projects",
-        "store": "Store",
         "login": "Sign In"
     },
     "hero": {
