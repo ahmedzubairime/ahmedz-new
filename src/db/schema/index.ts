@@ -7,3 +7,4 @@ export * from "./store";
 export * from "./pms";
 export * from "./auth";
 export * from "./relations";
+export * from "./portfolio";

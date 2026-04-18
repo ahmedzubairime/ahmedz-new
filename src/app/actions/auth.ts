@@ -190,7 +190,7 @@ export async function setupAccount(formData: FormData): Promise<AuthResult> {
         p_user_id: user.id,
         p_full_name: fullName,
         p_phone: phone || null,
-        p_default_role: "viewer",
+        p_default_role: "",
     });
 
     if (error) {

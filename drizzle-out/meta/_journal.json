@@ -8,6 +8,13 @@
       "when": 1776445646589,
       "tag": "0000_gigantic_sunspot",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1776462035663,
+      "tag": "0001_tiresome_hellfire_club",
+      "breakpoints": true
     }
   ]
 }
