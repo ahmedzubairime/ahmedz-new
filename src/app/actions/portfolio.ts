@@ -276,3 +276,4 @@ export async function deleteContactMessage(id: string) {
     if (error) throw new Error(error.message);
     revalidatePath("/dashboard/inbox/messages");
 }
+
