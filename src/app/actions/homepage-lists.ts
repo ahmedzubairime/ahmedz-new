@@ -190,3 +190,29 @@ export async function getLatestProjects(limit = 3) {
     if (error) throw new Error(error.message);
     return data ?? [];
 }
+
+// --- HOMEPAGE SKILLS ---
+export async function getHomepageSkills() {
+    const supabase = await createClient();
+    const { data, error } = await supabase
+        .from("cms_skills")
+        .select("*")
+        .eq("is_active", true)
+        .order("proficiency_level", { ascending: false })
+        .order("sort_order", { ascending: false });
+    if (error) throw new Error(error.message);
+    return data ?? [];
+}
+
+// --- HOMEPAGE CERTIFICATES ---
+export async function getHomepageCertificates() {
+    const supabase = await createClient();
+    const { data, error } = await supabase
+        .from("about_certificates")
+        .select("*")
+        .eq("is_active", true)
+        .order("year", { ascending: false })
+        .order("sort_order", { ascending: false });
+    if (error) throw new Error(error.message);
+    return data ?? [];
+}

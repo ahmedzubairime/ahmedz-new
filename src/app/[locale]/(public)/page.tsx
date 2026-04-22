@@ -1,5 +1,5 @@
 import { getLocale } from "next-intl/server";
-import { getTestimonials, getHomepageStats, getLatestPosts, getLatestProjects } from "@/app/actions/homepage-lists";
+import { getTestimonials, getHomepageStats, getLatestPosts, getLatestProjects, getHomepageSkills, getHomepageCertificates } from "@/app/actions/homepage-lists";
 import { getHomepageHero, getHomepageCta } from "@/app/actions/cms";
 import HomeClient from "./HomeClient";
 import { Metadata } from "next";
@@ -16,13 +16,15 @@ export default async function HomePage() {
     const locale = await getLocale();
     const isAr = locale === "ar";
 
-    const [hero, testimonials, stats, latestPosts, latestProjects, cta] = await Promise.all([
+    const [hero, testimonials, stats, latestPosts, latestProjects, cta, skills, certificates] = await Promise.all([
         getHomepageHero(),
         getTestimonials(),
         getHomepageStats(),
         getLatestPosts(3),
         getLatestProjects(3),
         getHomepageCta(),
+        getHomepageSkills(),
+        getHomepageCertificates(),
     ]);
 
     return (
@@ -34,6 +36,8 @@ export default async function HomePage() {
             latestPosts={latestPosts}
             latestProjects={latestProjects}
             cta={cta}
+            skills={skills}
+            certificates={certificates}
         />
     );
 }
