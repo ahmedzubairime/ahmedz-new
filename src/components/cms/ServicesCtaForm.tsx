@@ -34,7 +34,7 @@ export function ServicesCtaForm({ locale, initialData }: Props) {
     const [isMediaDirty, setIsMediaDirty] = useState(false);
 
     const { register, handleSubmit, reset, formState: { isDirty } } = useForm<FormValues>({
-        resolver: zodResolver(schema),
+        resolver: zodResolver(schema) as any,
         defaultValues: {
             title_ar: initialData?.title_ar || "", title_en: initialData?.title_en || "",
             subtitle_ar: initialData?.subtitle_ar || "", subtitle_en: initialData?.subtitle_en || "",

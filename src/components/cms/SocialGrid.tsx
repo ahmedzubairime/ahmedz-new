@@ -42,7 +42,7 @@ export function SocialGrid({ locale, links }: Props) {
     const schema = useMemo(() => getSocialSchema(locale), [locale]);
 
     const { register, handleSubmit, control, reset, watch, formState: { errors } } = useForm<SocialFormValues>({
-        resolver: zodResolver(schema),
+        resolver: zodResolver(schema) as any,
         defaultValues: { platform: PLATFORMS[0].value, is_active: true }
     });
 

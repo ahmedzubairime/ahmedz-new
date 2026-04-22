@@ -35,7 +35,7 @@ export function AboutSeoForm({ locale, initialData }: Props) {
     const [showUpload, setShowUpload] = useState(false);
 
     const { register, handleSubmit, reset, formState: { errors, isDirty } } = useForm<FormValues>({
-        resolver: zodResolver(schema),
+        resolver: zodResolver(schema) as any,
         defaultValues: {
             meta_title_ar: initialData?.meta_title_ar || "",
             meta_title_en: initialData?.meta_title_en || "",

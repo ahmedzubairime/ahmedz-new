@@ -37,7 +37,7 @@ export function FeaturesGrid({ locale, features }: Props) {
     const schema = useMemo(() => getFeatureSchema(locale), [locale]);
 
     const { register, handleSubmit, control, reset, watch, formState: { errors } } = useForm<FeatureFormValues>({
-        resolver: zodResolver(schema),
+        resolver: zodResolver(schema) as any,
         defaultValues: { icon_name: "star", is_active: true }
     });
 

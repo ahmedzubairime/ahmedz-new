@@ -47,7 +47,7 @@ export function ExperiencesGrid({ locale, experiences }: Props) {
 
     const schema = useMemo(() => getSchema(locale), [locale]);
     const { register, handleSubmit, control, reset, formState: { errors }, watch } = useForm<FormValues>({
-        resolver: zodResolver(schema),
+        resolver: zodResolver(schema) as any,
         defaultValues: { isActive: true, isCurrent: false, sortOrder: 0 },
     });
 

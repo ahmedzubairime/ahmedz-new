@@ -31,7 +31,7 @@ export function SkillsGrid({ locale, skills }: Props) {
 
     const schema = useMemo(() => getSchema(locale), [locale]);
     const { register, handleSubmit, control, reset, formState: { errors } } = useForm<FormValues>({
-        resolver: zodResolver(schema),
+        resolver: zodResolver(schema) as any,
         defaultValues: { isActive: true, category: 'skill', proficiencyLevel: 100, sortOrder: 0, iconName: '' },
     });
 

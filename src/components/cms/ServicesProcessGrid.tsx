@@ -28,7 +28,7 @@ export function ServicesProcessGrid({ locale, steps, services }: Props) {
     const [filterServiceId, setFilterServiceId] = useState("");
     const schema = useMemo(() => getSchema(locale), [locale]);
     const { register, handleSubmit, control, reset, watch, formState: { errors } } = useForm<FormValues>({
-        resolver: zodResolver(schema), defaultValues: { is_active: true, sort_order: 0, step_number: 1, icon_name: "check" }
+        resolver: zodResolver(schema) as any, defaultValues: { is_active: true, sort_order: 0, step_number: 1, icon_name: "check" }
     });
     const currentIcon = watch("icon_name") || "check";
     const svcOpts = useMemo(() => services.map(s => ({ value: s.id, label: locale === "ar" ? s.title_ar : s.title_en })), [services, locale]);

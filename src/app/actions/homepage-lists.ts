@@ -163,3 +163,30 @@ export async function deleteHomepageFaq(id: string) {
     if (error) throw new Error(error.message);
     revalidatePath("/dashboard/homepage-content/faq");
 }
+
+// --- LATEST POSTS (for homepage) ---
+export async function getLatestPosts(limit = 3) {
+    const supabase = await createClient();
+    const { data, error } = await supabase
+        .from("posts")
+        .select("id, title_ar, title_en, slug, excerpt_ar, excerpt_en, published_at, cover_image_id, cover:media!posts_cover_image_id_fkey(bucket, storage_path)")
+        .eq("status", "published")
+        .order("published_at", { ascending: false })
+        .limit(limit);
+    if (error) throw new Error(error.message);
+    return data ?? [];
+}
+
+// --- LATEST PROJECTS (for homepage) ---
+export async function getLatestProjects(limit = 3) {
+    const supabase = await createClient();
+    const { data, error } = await supabase
+        .from("portfolio_projects")
+        .select("id, title_ar, title_en, slug, client_ar, client_en, description_ar, description_en, cover_image_id, cover_image:media!portfolio_projects_cover_image_id_fkey(bucket, storage_path)")
+        .eq("is_active", true)
+        .order("sort_order", { ascending: false })
+        .order("created_at", { ascending: false })
+        .limit(limit);
+    if (error) throw new Error(error.message);
+    return data ?? [];
+}

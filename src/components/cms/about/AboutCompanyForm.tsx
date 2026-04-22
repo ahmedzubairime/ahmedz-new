@@ -49,7 +49,7 @@ export function AboutCompanyForm({ locale, heroData, companyData }: Props) {
     const [activeUpload, setActiveUpload] = useState<"hero" | "cover" | null>(null);
 
     const { register, handleSubmit, reset, formState: { errors, isDirty } } = useForm<FormValues>({
-        resolver: zodResolver(schema),
+        resolver: zodResolver(schema) as any,
         defaultValues: {
             hero_title_ar: heroData?.title_ar || "",
             hero_title_en: heroData?.title_en || "",

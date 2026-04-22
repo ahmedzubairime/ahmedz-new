@@ -30,7 +30,7 @@ export function HomepageFaqGrid({ locale, faqs }: Props) {
     const [expandedId, setExpandedId] = useState<string | null>(null);
     const schema = useMemo(() => getSchema(locale), [locale]);
     const { register, handleSubmit, control, reset, formState: { errors } } = useForm<FormValues>({
-        resolver: zodResolver(schema),
+        resolver: zodResolver(schema) as any,
         defaultValues: { is_active: true, sort_order: 0 },
     });
 

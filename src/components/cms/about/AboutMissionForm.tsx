@@ -34,7 +34,7 @@ export function AboutMissionForm({ locale, initialData }: Props) {
     const [isPending, startTransition] = useTransition();
 
     const { register, handleSubmit, reset, watch, formState: { errors, isDirty } } = useForm<FormValues>({
-        resolver: zodResolver(schema),
+        resolver: zodResolver(schema) as any,
         defaultValues: {
             mission_ar: initialData?.mission_ar || "",
             mission_en: initialData?.mission_en || "",

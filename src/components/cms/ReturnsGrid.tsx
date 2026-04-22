@@ -34,7 +34,7 @@ export function ReturnsGrid({ locale, returns }: Props) {
     const schema = useMemo(() => getRefundSchema(locale), [locale]);
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm<RefundValues>({
-        resolver: zodResolver(schema),
+        resolver: zodResolver(schema) as any,
     });
 
     function handleSimpleUpdate(id: string, status: string) {

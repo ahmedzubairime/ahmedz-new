@@ -38,7 +38,7 @@ export function CaseStudiesGrid({ locale, caseStudies, projects }: Props) {
 
     const schema = useMemo(() => getSchema(locale), [locale]);
     const { register, handleSubmit, control, reset, formState: { errors } } = useForm<FormValues>({
-        resolver: zodResolver(schema),
+        resolver: zodResolver(schema) as any,
         defaultValues: { isActive: true, sortOrder: 0, projectId: projects[0]?.id || "" },
     });
 

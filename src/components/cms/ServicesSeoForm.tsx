@@ -31,7 +31,7 @@ export function ServicesSeoForm({ locale, initialData }: Props) {
     const [isMediaDirty, setIsMediaDirty] = useState(false);
 
     const { register, handleSubmit, reset, formState: { isDirty } } = useForm<FormValues>({
-        resolver: zodResolver(schema),
+        resolver: zodResolver(schema) as any,
         defaultValues: {
             meta_title_ar: initialData?.meta_title_ar || "",
             meta_title_en: initialData?.meta_title_en || "",

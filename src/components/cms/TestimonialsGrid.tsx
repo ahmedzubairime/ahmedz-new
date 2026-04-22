@@ -36,7 +36,7 @@ export function TestimonialsGrid({ locale, testimonials }: Props) {
     const schema = useMemo(() => getTestimonialSchema(locale), [locale]);
 
     const { register, handleSubmit, control, reset, formState: { errors } } = useForm<TestimonialFormValues>({
-        resolver: zodResolver(schema),
+        resolver: zodResolver(schema) as any,
         defaultValues: { is_active: true, sort_order: 0, rating: 5 }
     });
 

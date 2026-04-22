@@ -31,7 +31,7 @@ export function CategoriesGrid({ locale, categories }: Props) {
     const schema = getCategorySchema(locale);
 
     const { register, handleSubmit, reset, setValue, formState: { errors } } = useForm<CategoryFormValues>({
-        resolver: zodResolver(schema),
+        resolver: zodResolver(schema) as any,
         defaultValues: { slug: "", name_ar: "", name_en: "", description_ar: "", description_en: "" }
     });
 

@@ -34,7 +34,7 @@ export function OrderStatusesGrid({ locale, statuses }: Props) {
     const schema = useMemo(() => getStatusSchema(locale), [locale]);
 
     const { register, handleSubmit, control, reset, watch, formState: { errors } } = useForm<StatusFormValues>({
-        resolver: zodResolver(schema),
+        resolver: zodResolver(schema) as any,
         defaultValues: { color: "#3b82f6", icon: "circle", is_default: false, is_final: false, sort_order: 0 }
     });
 

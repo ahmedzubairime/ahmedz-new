@@ -49,7 +49,7 @@ export function HeroForm({ locale, initialData }: Props) {
     const schema = useMemo(() => getHeroSchema(locale), [locale]);
 
     const { register, handleSubmit, reset, formState: { errors, isDirty } } = useForm<HeroFormValues>({
-        resolver: zodResolver(schema),
+        resolver: zodResolver(schema) as any,
         defaultValues: {
             title_ar: initialData?.title_ar || "",
             title_en: initialData?.title_en || "",

@@ -34,7 +34,7 @@ export function ContactInfoForm({ locale, initialData }: Props) {
     const schema = useMemo(() => getContactSchema(locale), [locale]);
 
     const { register, handleSubmit, reset, formState: { errors, isDirty } } = useForm<ContactFormValues>({
-        resolver: zodResolver(schema),
+        resolver: zodResolver(schema) as any,
         defaultValues: {
             email_primary: initialData?.email_primary || "",
             email_support: initialData?.email_support || "",

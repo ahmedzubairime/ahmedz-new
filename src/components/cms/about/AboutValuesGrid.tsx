@@ -30,7 +30,7 @@ export function AboutValuesGrid({ locale, values }: Props) {
     const [editingId, setEditingId] = useState<string | null>(null);
     const schema = useMemo(() => getSchema(locale), [locale]);
     const { register, handleSubmit, control, reset, watch, formState: { errors } } = useForm<FormValues>({
-        resolver: zodResolver(schema),
+        resolver: zodResolver(schema) as any,
         defaultValues: { icon_name: "heart", is_active: true },
     });
     const currentIcon = watch("icon_name") || "heart";

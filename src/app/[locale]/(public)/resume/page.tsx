@@ -1,249 +1,104 @@
 import { getLocale } from "next-intl/server";
+import { Metadata } from "next";
 import { getExperiences, getSkills } from "@/app/actions/portfolio";
-import { Link } from "@/i18n/navigation";
+import { AnimatedSection } from "@/components/public/AnimatedSection";
+import { Download, Building, Star, MapPin, Calendar } from "lucide-react";
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+    const { locale } = await params;
+    const isAr = locale === "ar";
+    return {
+        title: isAr ? "السيرة المهنية" : "Resume",
+    };
+}
 
 export default async function ResumePage() {
     const locale = await getLocale();
     const isAr = locale === "ar";
-    const experiences = await getExperiences();
-    const skills = await getSkills();
-
-    const hardSkills = skills.filter((s: any) => s.category === "hard_skill");
-    const softSkills = skills.filter((s: any) => s.category === "soft_skill");
+    const [experiences, skills] = await Promise.all([getExperiences(), getSkills()]);
 
     return (
-        <>
-            <PageHero isAr={isAr} />
-            <ExperienceTimeline experiences={experiences} isAr={isAr} />
-            <SkillsDashboard hardSkills={hardSkills} softSkills={softSkills} isAr={isAr} />
-            <LanguagesSection isAr={isAr} />
-            <ServicesSection isAr={isAr} />
-            <DownloadCTA isAr={isAr} />
-        </>
-    );
-}
-
-function PageHero({ isAr }: { isAr: boolean }) {
-    return (
-        <section className="bg-[#0b1326] py-20">
-            <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                <span className="font-['Inter'] text-xs font-bold uppercase tracking-widest text-[#e9c176]">
-                    {isAr ? "السيرة المهنية" : "Professional Resume"}
-                </span>
-                <h1 className="mt-3 font-['Manrope'] text-5xl font-extrabold tracking-tight text-[#dae2fd]" style={{ letterSpacing: "-0.02em" }}>
-                    {isAr ? "الخبرات والمهارات" : "Experience & Expertise"}
-                </h1>
-                <p className="mt-4 max-w-2xl font-['Inter'] text-lg text-[#8f9097]">
-                    {isAr ? "نظرة شاملة على خلفيتي المهنية ومهاراتي وخدماتي." : "A comprehensive overview of my professional background, skills, and services."}
-                </p>
-            </div>
-        </section>
-    );
-}
-
-function ExperienceTimeline({ experiences, isAr }: { experiences: any[]; isAr: boolean }) {
-    return (
-        <section className="bg-[#131b2e] py-24">
-            <div className="mx-auto max-w-4xl px-6 lg:px-8">
-                <div className="mb-16">
-                    <span className="font-['Inter'] text-xs font-bold uppercase tracking-widest text-[#e9c176]">
-                        {isAr ? "الخبرات المهنية" : "Professional Experience"}
-                    </span>
-                    <h2 className="mt-3 font-['Manrope'] text-3xl font-extrabold tracking-tight text-[#dae2fd]">
-                        {isAr ? "المسار الوظيفي" : "Career Path"}
-                    </h2>
+        <div className="bg-slate-50 dark:bg-[#0b1326] transition-colors py-20 pb-32 min-h-screen">
+            <AnimatedSection className="mx-auto max-w-5xl px-6 lg:px-8" animation="fade-up">
+                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16">
+                    <div>
+                        <span className="font-['Inter'] text-xs font-bold uppercase tracking-widest text-[#d4af37] dark:text-[#e9c176]">
+                            {isAr ? "الخبرات والمؤهلات" : "Experience & Qualifications"}
+                        </span>
+                        <h1 className="mt-3 font-['Manrope'] text-5xl font-extrabold tracking-tight text-slate-900 dark:text-[#dae2fd]">
+                            {isAr ? "المسار المهني" : "Professional Journey"}
+                        </h1>
+                    </div>
+                    <a
+                        href="/resume.pdf"
+                        download
+                        className="inline-flex items-center gap-2 rounded bg-white dark:bg-[#131b2e] border border-[#d4af37]/30 dark:border-[#e9c176]/30 px-6 py-3 font-['Inter'] text-sm font-bold text-[#d4af37] dark:text-[#e9c176] shadow-sm hover:shadow transition-all hover:bg-slate-50 dark:hover:bg-[#171f33] hover:border-[#d4af37] dark:hover:border-[#e9c176]"
+                    >
+                        <Download size={18} />
+                        {isAr ? "تحميل السيرة الذاتية (PDF)" : "Download Full CV (PDF)"}
+                    </a>
                 </div>
 
-                <div className="relative">
-                    <div className="absolute start-8 top-0 h-full w-px bg-gradient-to-b from-[#e9c176]/50 via-[#45474c]/30 to-transparent" />
-
-                    <div className="space-y-10">
-                        {experiences.map((exp: any, i: number) => (
-                            <div key={exp.id || i} className="relative flex gap-8">
-                                <div className="z-10 flex size-16 shrink-0 items-center justify-center rounded-lg bg-[#222a3d] font-['Manrope'] text-xs font-extrabold text-[#e9c176]">
-                                    {exp.startDate ? new Date(exp.startDate).getFullYear() : "—"}
-                                </div>
-                                <div className="flex-1 rounded-xl bg-[#0b1326] p-8">
-                                    <div className="flex flex-wrap items-center gap-3">
-                                        <span className="font-['Inter'] text-xs font-bold text-[#e9c176]">
-                                            {isAr ? exp.companyAr : exp.companyEn}
-                                        </span>
-                                        {exp.isCurrent && (
-                                            <span className="rounded bg-[#e9c176]/10 px-2 py-0.5 font-['Inter'] text-[10px] font-bold text-[#e9c176]">
-                                                {isAr ? "الحالي" : "Current"}
-                                            </span>
-                                        )}
-                                        <span className="rounded bg-[#222a3d] px-2 py-0.5 font-['Inter'] text-[10px] text-[#8f9097]">
-                                            {isAr ? exp.sectorAr : exp.sectorEn}
-                                        </span>
-                                    </div>
-                                    <h3 className="mt-2 font-['Manrope'] text-xl font-extrabold text-[#dae2fd]">
-                                        {isAr ? exp.roleAr : exp.roleEn}
+                <div className="grid gap-16 lg:grid-cols-2">
+                    {/* Experience section */}
+                    <AnimatedSection animation="stagger" delay={0.2}>
+                        <div className="flex items-center gap-3 mb-8">
+                            <Building className="text-[#d4af37] dark:text-[#e9c176]" size={28} />
+                            <h2 className="font-['Manrope'] text-2xl font-bold text-slate-800 dark:text-[#dae2fd]">
+                                {isAr ? "الخبرات العملية" : "Work Experience"}
+                            </h2>
+                        </div>
+                        <div className="space-y-8 border-l border-slate-200 dark:border-[#222a3d] pl-6 md:pl-8 ml-3">
+                            {experiences?.map((exp: any) => (
+                                <div key={exp.id} className="relative group">
+                                    <div className="absolute -left-[45px] md:-left-[53px] top-1 size-5 rounded-full border-4 border-slate-50 dark:border-[#0b1326] bg-[#d4af37] dark:bg-[#e9c176] transition-transform group-hover:scale-125" />
+                                    <h3 className="font-['Manrope'] text-lg font-bold text-slate-900 dark:text-[#dae2fd]">
+                                        {isAr ? exp.titleAr : exp.titleEn}
                                     </h3>
-                                    <p className="mt-3 font-['Inter'] text-sm leading-relaxed text-[#8f9097]">
-                                        {isAr ? exp.descriptionAr : exp.descriptionEn}
+                                    <p className="mt-1 font-['Inter'] text-sm font-medium text-slate-600 dark:text-[#c5c6cd]">
+                                        {isAr ? exp.companyAr : exp.companyEn}
                                     </p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
-}
-
-function SkillsDashboard({ hardSkills, softSkills, isAr }: { hardSkills: any[]; softSkills: any[]; isAr: boolean }) {
-    return (
-        <section className="bg-[#0b1326] py-24">
-            <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="mb-16">
-                    <span className="font-['Inter'] text-xs font-bold uppercase tracking-widest text-[#e9c176]">
-                        {isAr ? "المهارات" : "Skills"}
-                    </span>
-                    <h2 className="mt-3 font-['Manrope'] text-3xl font-extrabold tracking-tight text-[#dae2fd]">
-                        {isAr ? "لوحة الكفاءات" : "Competency Dashboard"}
-                    </h2>
-                </div>
-
-                <div className="grid gap-12 lg:grid-cols-2">
-                    {/* Hard Skills */}
-                    <div>
-                        <h3 className="mb-6 font-['Manrope'] text-lg font-extrabold text-[#dae2fd]">
-                            {isAr ? "المهارات التقنية" : "Hard Skills"}
-                        </h3>
-                        <div className="space-y-6">
-                            {hardSkills.map((skill: any) => (
-                                <div key={skill.id}>
-                                    <div className="mb-2 flex items-center justify-between">
-                                        <span className="font-['Inter'] text-sm font-medium text-[#c5c6cd]">
-                                            {isAr ? skill.nameAr : skill.nameEn}
-                                        </span>
-                                        <span className="font-['Manrope'] text-sm font-bold text-[#e9c176]">
-                                            {skill.proficiencyLevel}%
-                                        </span>
+                                    <div className="mt-3 flex flex-wrap items-center gap-4 font-['Inter'] text-xs text-slate-500 dark:text-[#45474c]">
+                                        <div className="flex items-center gap-1.5">
+                                            <Calendar size={14} />
+                                            <span>
+                                                {exp.startDate ? new Date(exp.startDate).getFullYear() : ""} - 
+                                                {exp.isCurrent ? (isAr ? " الحاضر" : " Present") : (exp.endDate ? ` ${new Date(exp.endDate).getFullYear()}` : "")}
+                                            </span>
+                                        </div>
+                                        <div className="flex items-center gap-1.5">
+                                            <MapPin size={14} />
+                                            <span>{isAr ? exp.locationAr : exp.locationEn}</span>
+                                        </div>
                                     </div>
-                                    <div className="h-2 overflow-hidden rounded-full bg-[#222a3d]">
-                                        <div
-                                            className="h-full rounded-full bg-gradient-to-r from-[#e9c176] to-[#C5A059]"
-                                            style={{ width: `${skill.proficiencyLevel}%` }}
-                                        />
-                                    </div>
+                                    {exp.descriptionEn && exp.descriptionAr && (
+                                        <p className="mt-4 font-['Inter'] text-sm text-slate-600 dark:text-[#8f9097] leading-relaxed">
+                                            {isAr ? exp.descriptionAr : exp.descriptionEn}
+                                        </p>
+                                    )}
                                 </div>
                             ))}
                         </div>
-                    </div>
+                    </AnimatedSection>
 
-                    {/* Soft Skills */}
-                    <div>
-                        <h3 className="mb-6 font-['Manrope'] text-lg font-extrabold text-[#dae2fd]">
-                            {isAr ? "المهارات الشخصية" : "Soft Skills"}
-                        </h3>
-                        <div className="space-y-6">
-                            {softSkills.map((skill: any) => (
-                                <div key={skill.id}>
-                                    <div className="mb-2 flex items-center justify-between">
-                                        <span className="font-['Inter'] text-sm font-medium text-[#c5c6cd]">
-                                            {isAr ? skill.nameAr : skill.nameEn}
-                                        </span>
-                                        <span className="font-['Manrope'] text-sm font-bold text-[#e9c176]">
-                                            {skill.proficiencyLevel}%
-                                        </span>
-                                    </div>
-                                    <div className="h-2 overflow-hidden rounded-full bg-[#222a3d]">
-                                        <div
-                                            className="h-full rounded-full bg-gradient-to-r from-[#e9c176] to-[#C5A059]"
-                                            style={{ width: `${skill.proficiencyLevel}%` }}
-                                        />
-                                    </div>
+                    {/* Skills section */}
+                    <AnimatedSection animation="stagger" delay={0.4}>
+                        <div className="flex items-center gap-3 mb-8 lg:mt-0 mt-8">
+                            <Star className="text-[#d4af37] dark:text-[#e9c176]" size={28} />
+                            <h2 className="font-['Manrope'] text-2xl font-bold text-slate-800 dark:text-[#dae2fd]">
+                                {isAr ? "المهارات والكفاءات" : "Core Competencies & Skills"}
+                            </h2>
+                        </div>
+                        <div className="flex flex-wrap gap-3">
+                            {skills?.map((skill: any) => (
+                                <div key={skill.id} className="relative rounded bg-white dark:bg-[#131b2e] shadow-sm dark:shadow-none border border-slate-200 dark:border-[#222a3d] px-4 py-2 font-['Inter'] text-sm text-slate-700 dark:text-[#dae2fd] transition-all hover:-translate-y-1 hover:shadow-md hover:border-[#d4af37] dark:hover:border-[#e9c176]">
+                                    {isAr ? skill.nameAr : skill.nameEn}
                                 </div>
                             ))}
                         </div>
-                    </div>
+                    </AnimatedSection>
                 </div>
-            </div>
-        </section>
-    );
-}
-
-function LanguagesSection({ isAr }: { isAr: boolean }) {
-    const languages = [
-        { name: isAr ? "العربية" : "Arabic", level: isAr ? "اللغة الأم" : "Native", percent: 100 },
-        { name: isAr ? "الإنجليزية" : "English", level: isAr ? "طلاقة" : "Fluent", percent: 90 },
-        { name: isAr ? "الفرنسية" : "French", level: isAr ? "أساسي" : "Basic", percent: 30 },
-    ];
-
-    return (
-        <section className="bg-[#131b2e] py-24">
-            <div className="mx-auto max-w-4xl px-6 lg:px-8">
-                <div className="mb-12">
-                    <span className="font-['Inter'] text-xs font-bold uppercase tracking-widest text-[#e9c176]">
-                        {isAr ? "اللغات" : "Languages"}
-                    </span>
-                </div>
-                <div className="grid gap-6 sm:grid-cols-3">
-                    {languages.map((lang) => (
-                        <div key={lang.name} className="rounded-xl bg-[#0b1326] p-8 text-center">
-                            <h3 className="font-['Manrope'] text-xl font-extrabold text-[#dae2fd]">{lang.name}</h3>
-                            <p className="mt-1 font-['Inter'] text-sm text-[#e9c176]">{lang.level}</p>
-                            <div className="mx-auto mt-4 h-2 w-full overflow-hidden rounded-full bg-[#222a3d]">
-                                <div className="h-full rounded-full bg-gradient-to-r from-[#e9c176] to-[#C5A059]" style={{ width: `${lang.percent}%` }} />
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
-}
-
-function ServicesSection({ isAr }: { isAr: boolean }) {
-    const services = [
-        { icon: "folder_managed", title: isAr ? "إدارة المشاريع" : "Project Management", desc: isAr ? "تخطيط وتنفيذ ومراقبة المشاريع المعقدة." : "Planning, executing, and monitoring complex projects." },
-        { icon: "handshake", title: isAr ? "تطوير الشراكات" : "Partnership Development", desc: isAr ? "بناء علاقات استراتيجية مع أصحاب المصلحة." : "Building strategic relationships with stakeholders." },
-        { icon: "groups", title: isAr ? "إدارة الموارد البشرية" : "HR Management", desc: isAr ? "توظيف وتدريب وتطوير الكفاءات." : "Recruiting, training, and developing talent." },
-        { icon: "account_balance", title: isAr ? "إدارة الموارد" : "Resource Management", desc: isAr ? "تخصيص الموارد بكفاءة لتحقيق الأهداف." : "Efficiently allocating resources to achieve goals." },
-    ];
-
-    return (
-        <section className="bg-[#0b1326] py-24">
-            <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="mb-16">
-                    <span className="font-['Inter'] text-xs font-bold uppercase tracking-widest text-[#e9c176]">
-                        {isAr ? "الخدمات" : "Services Offered"}
-                    </span>
-                    <h2 className="mt-3 font-['Manrope'] text-3xl font-extrabold tracking-tight text-[#dae2fd]">
-                        {isAr ? "ما أقدمه" : "What I Offer"}
-                    </h2>
-                </div>
-                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                    {services.map((s) => (
-                        <div key={s.title} className="rounded-xl bg-[#131b2e] p-8 transition-all hover:bg-[#171f33]">
-                            <div className="flex size-12 items-center justify-center rounded-lg bg-[#222a3d]">
-                                <span className="material-symbols-outlined text-xl text-[#e9c176]">{s.icon}</span>
-                            </div>
-                            <h3 className="mt-4 font-['Manrope'] text-lg font-extrabold text-[#dae2fd]">{s.title}</h3>
-                            <p className="mt-2 font-['Inter'] text-sm leading-relaxed text-[#8f9097]">{s.desc}</p>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
-}
-
-function DownloadCTA({ isAr }: { isAr: boolean }) {
-    return (
-        <section className="bg-[#131b2e] py-16">
-            <div className="mx-auto max-w-3xl px-6 text-center lg:px-8">
-                <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-3 rounded bg-gradient-to-r from-[#e9c176] to-[#C5A059] px-10 py-4 font-['Inter'] text-sm font-bold text-[#0b1326] transition-all hover:shadow-xl hover:shadow-[#e9c176]/20"
-                >
-                    <span className="material-symbols-outlined text-lg">download</span>
-                    {isAr ? "تحميل السيرة الذاتية الكاملة" : "Download Full CV"}
-                </Link>
-            </div>
-        </section>
+            </AnimatedSection>
+        </div>
     );
 }

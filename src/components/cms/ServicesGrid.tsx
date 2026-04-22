@@ -34,7 +34,7 @@ export function ServicesGrid({ locale, services, categories }: Props) {
     const schema = useMemo(() => getServiceSchema(locale), [locale]);
 
     const { register, handleSubmit, control, reset, setValue, watch, formState: { errors } } = useForm<ServiceFormValues>({
-        resolver: zodResolver(schema),
+        resolver: zodResolver(schema) as any,
         defaultValues: { is_active: true }
     });
 

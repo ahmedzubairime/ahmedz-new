@@ -37,7 +37,7 @@ export function VariantsGrid({ locale, variants, products }: Props) {
     const schema = useMemo(() => getVariantSchema(locale), [locale]);
 
     const { register, handleSubmit, control, reset, formState: { errors } } = useForm<any>({
-        resolver: zodResolver(schema),
+        resolver: zodResolver(schema) as any,
         defaultValues: { is_active: true, attributes: [{ key: "", en: "", ar: "" }], price: 0, stock_quantity: 0, sale_price: "" }
     });
 

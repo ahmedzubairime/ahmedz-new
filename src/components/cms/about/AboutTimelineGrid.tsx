@@ -29,7 +29,7 @@ export function AboutTimelineGrid({ locale, milestones }: Props) {
     const [editingId, setEditingId] = useState<string | null>(null);
     const schema = useMemo(() => getSchema(locale), [locale]);
     const { register, handleSubmit, control, reset, formState: { errors } } = useForm<FormValues>({
-        resolver: zodResolver(schema),
+        resolver: zodResolver(schema) as any,
         defaultValues: { is_active: true },
     });
 

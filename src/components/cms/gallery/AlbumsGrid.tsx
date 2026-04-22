@@ -21,7 +21,7 @@ const getSchema = (locale: string) => z.object({
     isActive: z.boolean(),
 });
 
-type FormValues = z.infer<ReturnType<typeof getSchema>>;
+type FormValues = { titleAr: string; titleEn: string; descriptionAr?: string; descriptionEn?: string; sortOrder: number; isActive: boolean };
 type Props = { locale: string; albums: any[] };
 
 function buildMediaUrl(m: any) {
@@ -38,8 +38,9 @@ export function AlbumsGrid({ locale, albums }: Props) {
     const [showUpload, setShowUpload] = useState(false);
 
     const schema = useMemo(() => getSchema(locale), [locale]);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const { register, handleSubmit, control, reset, formState: { errors } } = useForm<FormValues>({
-        resolver: zodResolver(schema),
+        resolver: zodResolver(schema) as any,
         defaultValues: { isActive: true, sortOrder: 0 },
     });
 

@@ -34,7 +34,7 @@ export function PartnersGrid({ locale, partners }: Props) {
     const schema = useMemo(() => getPartnerSchema(locale), [locale]);
 
     const { register, handleSubmit, control, reset, formState: { errors } } = useForm<PartnerFormValues>({
-        resolver: zodResolver(schema),
+        resolver: zodResolver(schema) as any,
         defaultValues: { is_active: true }
     });
 

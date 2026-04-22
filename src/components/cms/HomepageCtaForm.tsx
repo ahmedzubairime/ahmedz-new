@@ -38,7 +38,7 @@ export function HomepageCtaForm({ locale, initialData }: Props) {
     const [showUpload, setShowUpload] = useState(false);
 
     const { register, handleSubmit, reset, formState: { errors, isDirty } } = useForm<FormValues>({
-        resolver: zodResolver(schema),
+        resolver: zodResolver(schema) as any,
         defaultValues: {
             title_ar: initialData?.title_ar || "",
             title_en: initialData?.title_en || "",

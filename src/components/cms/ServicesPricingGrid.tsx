@@ -28,7 +28,7 @@ export function ServicesPricingGrid({ locale, plans, services }: Props) {
     const [filterServiceId, setFilterServiceId] = useState("");
     const schema = useMemo(() => getSchema(locale), [locale]);
     const { register, handleSubmit, control, reset, formState: { errors } } = useForm<FormValues>({
-        resolver: zodResolver(schema), defaultValues: { is_active: true, is_popular: false, sort_order: 0, currency: "SAR", billing_period: "monthly" }
+        resolver: zodResolver(schema) as any, defaultValues: { is_active: true, is_popular: false, sort_order: 0, currency: "SAR", billing_period: "monthly" }
     });
     const svcOpts = useMemo(() => services.map(s => ({ value: s.id, label: locale === "ar" ? s.title_ar : s.title_en })), [services, locale]);
     const filterOpts = [{ value: "", label: locale === "ar" ? "-- الكل --" : "-- All --" }, ...svcOpts];
