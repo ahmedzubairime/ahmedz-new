@@ -27,7 +27,7 @@ export function PublicHeader() {
                 <Link
                     href="/"
                     onClick={() => setIsOpen(false)}
-                    className="font-['Manrope'] px-2 py-1 text-xl font-extrabold tracking-tight text-[#dae2fd]"
+                    className=" px-2 py-1 text-xl font-extrabold tracking-tight text-[#dae2fd]"
                 >
                     Ahmed Al-Zubairi
                 </Link>
@@ -40,9 +40,8 @@ export function PublicHeader() {
                             <Link
                                 key={link.href}
                                 href={link.href as any}
-                                className={`rounded px-3 py-2 font-['Inter'] text-sm font-medium transition-colors ${
-                                    isActive ? "text-[#e9c176] bg-[#131b2e]/50" : "text-[#c5c6cd] hover:text-[#e9c176]"
-                                }`}
+                                className={`rounded px-3 py-2  text-sm font-medium transition-colors ${isActive ? "text-[#e9c176] bg-[#131b2e]/50" : "text-[#c5c6cd] hover:text-[#e9c176]"
+                                    }`}
                             >
                                 {link.label}
                             </Link>
@@ -55,7 +54,7 @@ export function PublicHeader() {
                     <LocaleSwitcher />
                     <Link
                         href="/contact"
-                        className="hidden rounded bg-gradient-to-r from-[#e9c176] to-[#C5A059] px-5 py-2.5 font-['Inter'] text-sm font-bold text-[#0b1326] transition-all hover:shadow-lg hover:shadow-[#e9c176]/20 lg:inline-flex"
+                        className="hidden rounded bg-gradient-to-r from-[#e9c176] to-[#C5A059] px-5 py-2.5  text-sm font-bold text-[#0b1326] transition-all hover:shadow-lg hover:shadow-[#e9c176]/20 lg:inline-flex"
                     >
                         {t("contact")}
                     </Link>
@@ -81,9 +80,8 @@ export function PublicHeader() {
                                     key={link.href}
                                     href={link.href as any}
                                     onClick={() => setIsOpen(false)}
-                                    className={`font-['Inter'] text-base font-medium transition-colors ${
-                                        isActive ? "text-[#e9c176]" : "text-[#dae2fd]"
-                                    }`}
+                                    className={` text-base font-medium transition-colors ${isActive ? "text-[#e9c176]" : "text-[#dae2fd]"
+                                        }`}
                                 >
                                     {link.label}
                                 </Link>
@@ -93,7 +91,7 @@ export function PublicHeader() {
                         <Link
                             href="/contact"
                             onClick={() => setIsOpen(false)}
-                            className="text-center rounded bg-gradient-to-r from-[#e9c176] to-[#C5A059] px-5 py-3 font-['Inter'] text-base font-bold text-[#0b1326]"
+                            className="text-center rounded bg-gradient-to-r from-[#e9c176] to-[#C5A059] px-5 py-3  text-base font-bold text-[#0b1326]"
                         >
                             {t("contact")}
                         </Link>

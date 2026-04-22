@@ -72,19 +72,19 @@ export default function AboutClient({
                 <div className="absolute top-60 -left-20 h-[350px] w-[350px] rounded-full bg-[#d4af37]/10 dark:bg-[#312e81]/20 blur-[100px] pointer-events-none transition-colors" />
 
                 <AnimatedSection className="relative mx-auto max-w-4xl px-6 lg:px-8" animation="fade-up">
-                    <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 dark:border-[#45474c] bg-white dark:bg-[#131b2e] px-4 py-1.5 font-['Inter'] text-xs font-semibold uppercase tracking-widest text-[#d4af37] dark:text-[#e9c176] shadow-sm dark:shadow-none">
+                    <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 dark:border-[#45474c] bg-white dark:bg-[#131b2e] px-4 py-1.5  text-xs font-semibold uppercase tracking-widest text-[#d4af37] dark:text-[#e9c176] shadow-sm dark:shadow-none">
                         {isAr ? "السيرة الذاتية" : "Biography"}
                     </span>
 
                     <h1
-                        className="mt-8 font-['Manrope'] text-4xl font-extrabold tracking-tight text-slate-900 dark:text-[#dae2fd] sm:text-5xl lg:text-6xl"
+                        className="mt-8  text-4xl font-extrabold tracking-tight text-slate-900 dark:text-[#dae2fd] sm:text-5xl lg:text-6xl"
                         style={{ letterSpacing: "-0.02em" }}
                     >
                         {heroTitle || (isAr ? "أحمد الزبيري" : "Ahmed Al-Zubairi")}
                     </h1>
 
                     {heroSubtitle && (
-                        <p className="mt-4 font-['Inter'] text-lg font-medium text-[#d4af37] dark:text-[#e9c176]">
+                        <p className="mt-4  text-lg font-medium text-[#d4af37] dark:text-[#e9c176]">
                             {heroSubtitle}
                         </p>
                     )}
@@ -94,7 +94,7 @@ export default function AboutClient({
                             {storyParagraphs.map((p: string, i: number) => (
                                 <p
                                     key={i}
-                                    className="font-['Inter'] text-base leading-[1.85] text-slate-600 dark:text-[#8f9097] sm:text-lg"
+                                    className=" text-base leading-[1.85] text-slate-600 dark:text-[#8f9097] sm:text-lg"
                                 >
                                     {p}
                                 </p>
@@ -111,10 +111,10 @@ export default function AboutClient({
                 <section className="bg-white dark:bg-[#131b2e] transition-colors py-24 border-y border-slate-200 dark:border-[#222a3d]">
                     <div className="mx-auto max-w-5xl px-6 lg:px-8">
                         <AnimatedSection className="mb-14" animation="fade-up">
-                            <span className="font-['Inter'] text-xs font-bold uppercase tracking-widest text-[#d4af37] dark:text-[#e9c176]">
+                            <span className=" text-xs font-bold uppercase tracking-widest text-[#d4af37] dark:text-[#e9c176]">
                                 {isAr ? "المسار المهني" : "Career Path"}
                             </span>
-                            <h2 className="mt-3 font-['Manrope'] text-3xl font-extrabold text-slate-900 dark:text-[#dae2fd] sm:text-4xl">
+                            <h2 className="mt-3  text-3xl font-extrabold text-slate-900 dark:text-[#dae2fd] sm:text-4xl">
                                 {isAr ? "الخبرات المهنية" : "Professional Experience"}
                             </h2>
                         </AnimatedSection>
@@ -138,18 +138,17 @@ export default function AboutClient({
                                                 ? "الحاضر"
                                                 : "Present"
                                             : exp.endDate
-                                            ? new Date(exp.endDate).getFullYear()
-                                            : "";
+                                                ? new Date(exp.endDate).getFullYear()
+                                                : "";
 
                                         return (
                                             <div key={exp.id} className="relative ps-12 group">
                                                 {/* Timeline dot */}
                                                 <div
-                                                    className={`absolute start-0 top-1 flex size-[34px] items-center justify-center rounded-full border-4 border-slate-50 dark:border-[#131b2e] transition-transform group-hover:scale-110 ${
-                                                        exp.isCurrent
-                                                            ? "bg-[#d4af37] dark:bg-[#e9c176]"
-                                                            : "bg-slate-200 dark:bg-[#222a3d]"
-                                                    }`}
+                                                    className={`absolute start-0 top-1 flex size-[34px] items-center justify-center rounded-full border-4 border-slate-50 dark:border-[#131b2e] transition-transform group-hover:scale-110 ${exp.isCurrent
+                                                        ? "bg-[#d4af37] dark:bg-[#e9c176]"
+                                                        : "bg-slate-200 dark:bg-[#222a3d]"
+                                                        }`}
                                                 >
                                                     <Building2
                                                         size={14}
@@ -164,21 +163,21 @@ export default function AboutClient({
                                                 <div className="rounded-2xl bg-slate-50 dark:bg-[#0b1326] border border-slate-100 dark:border-[#171f33] p-6 sm:p-8 transition-all hover:border-slate-200 dark:hover:border-[#45474c] hover:shadow-md dark:hover:shadow-none hover:-translate-y-0.5">
                                                     <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-4">
                                                         <div>
-                                                            <h3 className="font-['Manrope'] text-lg font-bold text-slate-900 dark:text-[#dae2fd]">
+                                                            <h3 className=" text-lg font-bold text-slate-900 dark:text-[#dae2fd]">
                                                                 {role}
                                                             </h3>
-                                                            <p className="mt-1 font-['Inter'] text-sm font-semibold text-[#d4af37] dark:text-[#e9c176]">
+                                                            <p className="mt-1  text-sm font-semibold text-[#d4af37] dark:text-[#e9c176]">
                                                                 {company}
                                                             </p>
                                                         </div>
 
                                                         <div className="flex items-center gap-3 flex-shrink-0">
                                                             {exp.isCurrent && (
-                                                                <span className="rounded-full bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800/40 px-3 py-0.5 font-['Inter'] text-[11px] font-bold text-emerald-700 dark:text-emerald-400">
+                                                                <span className="rounded-full bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800/40 px-3 py-0.5  text-[11px] font-bold text-emerald-700 dark:text-emerald-400">
                                                                     {isAr ? "حالي" : "Current"}
                                                                 </span>
                                                             )}
-                                                            <span className="inline-flex items-center gap-1.5 font-['Inter'] text-xs text-slate-500 dark:text-[#5a5b63]">
+                                                            <span className="inline-flex items-center gap-1.5  text-xs text-slate-500 dark:text-[#5a5b63]">
                                                                 <Calendar size={13} />
                                                                 {startYear} — {endLabel}
                                                             </span>
@@ -186,14 +185,14 @@ export default function AboutClient({
                                                     </div>
 
                                                     {sector && (
-                                                        <span className="inline-flex items-center gap-1.5 rounded-full bg-[#d4af37]/8 dark:bg-[#e9c176]/8 px-3 py-1 font-['Inter'] text-[11px] font-semibold text-[#d4af37] dark:text-[#e9c176] mb-4">
+                                                        <span className="inline-flex items-center gap-1.5 rounded-full bg-[#d4af37]/8 dark:bg-[#e9c176]/8 px-3 py-1  text-[11px] font-semibold text-[#d4af37] dark:text-[#e9c176] mb-4">
                                                             <Globe size={11} />
                                                             {sector}
                                                         </span>
                                                     )}
 
                                                     {desc && (
-                                                        <p className="font-['Inter'] text-sm leading-relaxed text-slate-600 dark:text-[#8f9097]">
+                                                        <p className=" text-sm leading-relaxed text-slate-600 dark:text-[#8f9097]">
                                                             {desc}
                                                         </p>
                                                     )}
@@ -215,10 +214,10 @@ export default function AboutClient({
                 <section className="bg-slate-50 dark:bg-[#0b1326] transition-colors py-24">
                     <div className="mx-auto max-w-5xl px-6 lg:px-8">
                         <AnimatedSection className="mb-14" animation="fade-up">
-                            <span className="font-['Inter'] text-xs font-bold uppercase tracking-widest text-[#d4af37] dark:text-[#e9c176]">
+                            <span className=" text-xs font-bold uppercase tracking-widest text-[#d4af37] dark:text-[#e9c176]">
                                 {isAr ? "التطوير المهني" : "Professional Development"}
                             </span>
-                            <h2 className="mt-3 font-['Manrope'] text-3xl font-extrabold text-slate-900 dark:text-[#dae2fd] sm:text-4xl">
+                            <h2 className="mt-3  text-3xl font-extrabold text-slate-900 dark:text-[#dae2fd] sm:text-4xl">
                                 {isAr ? "الشهادات والمؤهلات" : "Certificates & Qualifications"}
                             </h2>
                         </AnimatedSection>
@@ -245,16 +244,16 @@ export default function AboutClient({
                                                     />
                                                 </div>
                                                 <div className="flex-1 min-w-0">
-                                                    <h3 className="font-['Manrope'] text-base font-bold text-slate-900 dark:text-[#dae2fd] leading-snug">
+                                                    <h3 className=" text-base font-bold text-slate-900 dark:text-[#dae2fd] leading-snug">
                                                         {title}
                                                     </h3>
                                                     {issuer && (
-                                                        <p className="mt-1.5 font-['Inter'] text-sm text-slate-500 dark:text-[#8f9097]">
+                                                        <p className="mt-1.5  text-sm text-slate-500 dark:text-[#8f9097]">
                                                             {issuer}
                                                         </p>
                                                     )}
                                                     {cert.year && (
-                                                        <span className="mt-3 inline-flex items-center gap-1.5 font-['Inter'] text-xs text-slate-400 dark:text-[#5a5b63]">
+                                                        <span className="mt-3 inline-flex items-center gap-1.5  text-xs text-slate-400 dark:text-[#5a5b63]">
                                                             <Calendar size={12} />
                                                             {cert.year}
                                                         </span>
@@ -276,10 +275,10 @@ export default function AboutClient({
             <section className="bg-white dark:bg-[#131b2e] transition-colors py-24 border-t border-slate-200 dark:border-[#222a3d]">
                 <div className="mx-auto max-w-5xl px-6 lg:px-8">
                     <AnimatedSection className="mb-14" animation="fade-up">
-                        <span className="font-['Inter'] text-xs font-bold uppercase tracking-widest text-[#d4af37] dark:text-[#e9c176]">
+                        <span className=" text-xs font-bold uppercase tracking-widest text-[#d4af37] dark:text-[#e9c176]">
                             {isAr ? "الكفاءات والقدرات" : "Competencies & Abilities"}
                         </span>
-                        <h2 className="mt-3 font-['Manrope'] text-3xl font-extrabold text-slate-900 dark:text-[#dae2fd] sm:text-4xl">
+                        <h2 className="mt-3  text-3xl font-extrabold text-slate-900 dark:text-[#dae2fd] sm:text-4xl">
                             {isAr ? "المهارات واللغات" : "Skills & Languages"}
                         </h2>
                     </AnimatedSection>
@@ -291,7 +290,7 @@ export default function AboutClient({
                                 <div>
                                     <div className="flex items-center gap-2.5 mb-6">
                                         <Star size={20} className="text-[#d4af37] dark:text-[#e9c176]" />
-                                        <h3 className="font-['Manrope'] text-lg font-bold text-slate-900 dark:text-[#dae2fd]">
+                                        <h3 className=" text-lg font-bold text-slate-900 dark:text-[#dae2fd]">
                                             {isAr ? "المهارات المهنية" : "Professional Skills"}
                                         </h3>
                                     </div>
@@ -309,11 +308,11 @@ export default function AboutClient({
                                                                     <Star size={14} />
                                                                 )}
                                                             </span>
-                                                            <span className="font-['Inter'] text-sm font-medium text-slate-800 dark:text-[#dae2fd]">
+                                                            <span className=" text-sm font-medium text-slate-800 dark:text-[#dae2fd]">
                                                                 {label}
                                                             </span>
                                                         </div>
-                                                        <span className="font-['Inter'] text-xs font-semibold text-slate-400 dark:text-[#5a5b63]">
+                                                        <span className=" text-xs font-semibold text-slate-400 dark:text-[#5a5b63]">
                                                             {level}%
                                                         </span>
                                                     </div>
@@ -335,7 +334,7 @@ export default function AboutClient({
                                 <div>
                                     <div className="flex items-center gap-2.5 mb-6">
                                         <Languages size={20} className="text-[#d4af37] dark:text-[#e9c176]" />
-                                        <h3 className="font-['Manrope'] text-lg font-bold text-slate-900 dark:text-[#dae2fd]">
+                                        <h3 className=" text-lg font-bold text-slate-900 dark:text-[#dae2fd]">
                                             {isAr ? "اللغات" : "Languages"}
                                         </h3>
                                     </div>
@@ -349,24 +348,24 @@ export default function AboutClient({
                                                         ? "اللغة الأم / طلاقة"
                                                         : "Native / Fluent"
                                                     : level >= 80
-                                                    ? isAr
-                                                        ? "متقدم"
-                                                        : "Advanced"
-                                                    : level >= 60
-                                                    ? isAr
-                                                        ? "متوسط"
-                                                        : "Intermediate"
-                                                    : isAr
-                                                    ? "مبتدئ"
-                                                    : "Beginner";
+                                                        ? isAr
+                                                            ? "متقدم"
+                                                            : "Advanced"
+                                                        : level >= 60
+                                                            ? isAr
+                                                                ? "متوسط"
+                                                                : "Intermediate"
+                                                            : isAr
+                                                                ? "مبتدئ"
+                                                                : "Beginner";
 
                                             return (
                                                 <div key={lang.id} className="group">
                                                     <div className="flex items-center justify-between mb-2.5">
-                                                        <span className="font-['Manrope'] text-base font-bold text-slate-900 dark:text-[#dae2fd]">
+                                                        <span className=" text-base font-bold text-slate-900 dark:text-[#dae2fd]">
                                                             {label}
                                                         </span>
-                                                        <span className="rounded-full bg-slate-100 dark:bg-[#0b1326] px-3 py-0.5 font-['Inter'] text-[11px] font-semibold text-slate-600 dark:text-[#c5c6cd]">
+                                                        <span className="rounded-full bg-slate-100 dark:bg-[#0b1326] px-3 py-0.5  text-[11px] font-semibold text-slate-600 dark:text-[#c5c6cd]">
                                                             {levelLabel}
                                                         </span>
                                                     </div>

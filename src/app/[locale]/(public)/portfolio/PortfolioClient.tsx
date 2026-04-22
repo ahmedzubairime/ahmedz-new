@@ -62,16 +62,16 @@ export default function PortfolioClient({
                 <div className="absolute top-60 -start-20 h-[350px] w-[350px] rounded-full bg-[#d4af37]/10 dark:bg-[#312e81]/20 blur-[100px] pointer-events-none" />
 
                 <AnimatedSection className="relative mx-auto max-w-5xl px-6 lg:px-8" animation="fade-up">
-                    <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 dark:border-[#45474c] bg-white dark:bg-[#131b2e] px-4 py-1.5 font-['Inter'] text-xs font-semibold uppercase tracking-widest text-[#d4af37] dark:text-[#e9c176] shadow-sm dark:shadow-none">
+                    <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 dark:border-[#45474c] bg-white dark:bg-[#131b2e] px-4 py-1.5  text-xs font-semibold uppercase tracking-widest text-[#d4af37] dark:text-[#e9c176] shadow-sm dark:shadow-none">
                         {isAr ? "الأعمال والمشاريع" : "Portfolio"}
                     </span>
                     <h1
-                        className="mt-8 font-['Manrope'] text-4xl font-extrabold tracking-tight text-slate-900 dark:text-[#dae2fd] sm:text-5xl lg:text-6xl"
+                        className="mt-8  text-4xl font-extrabold tracking-tight text-slate-900 dark:text-[#dae2fd] sm:text-5xl lg:text-6xl"
                         style={{ letterSpacing: "-0.02em" }}
                     >
                         {isAr ? "مشاريع غيّرت حياة الآلاف" : "Projects That Changed Thousands of Lives"}
                     </h1>
-                    <p className="mt-6 max-w-3xl font-['Inter'] text-lg leading-relaxed text-slate-600 dark:text-[#8f9097]">
+                    <p className="mt-6 max-w-3xl  text-lg leading-relaxed text-slate-600 dark:text-[#8f9097]">
                         {isAr
                             ? "على مدى أكثر من 15 عاماً، أدرت مشاريع تنموية وإنسانية مع منظمات الأمم المتحدة — من حماية الفتيات وتمكينهن، إلى مناهضة الممارسات الضارة، وبناء صمود المجتمعات."
                             : "Over 15+ years, I managed developmental and humanitarian projects with UN organizations — from protecting and empowering girls, to combating harmful practices, and building community resilience."}
@@ -118,13 +118,13 @@ export default function PortfolioClient({
                 <section className="bg-white dark:bg-[#131b2e] transition-colors py-24 border-y border-slate-200 dark:border-[#222a3d]">
                     <div className="mx-auto max-w-6xl px-6 lg:px-8">
                         <AnimatedSection className="mb-14" animation="fade-up">
-                            <span className="font-['Inter'] text-xs font-bold uppercase tracking-widest text-[#d4af37] dark:text-[#e9c176]">
+                            <span className=" text-xs font-bold uppercase tracking-widest text-[#d4af37] dark:text-[#e9c176]">
                                 {isAr ? "مسيرة العطاء" : "A Journey of Impact"}
                             </span>
-                            <h2 className="mt-3 font-['Manrope'] text-3xl font-extrabold text-slate-900 dark:text-[#dae2fd] sm:text-4xl">
+                            <h2 className="mt-3  text-3xl font-extrabold text-slate-900 dark:text-[#dae2fd] sm:text-4xl">
                                 {isAr ? "مشاريع سابقة" : "Previous Projects"}
                             </h2>
-                            <p className="mt-4 max-w-2xl font-['Inter'] text-base text-slate-600 dark:text-[#8f9097]">
+                            <p className="mt-4 max-w-2xl  text-base text-slate-600 dark:text-[#8f9097]">
                                 {isAr
                                     ? "محطات مهنية شكّلت الأساس لخبرتي في العمل التنموي والإنساني."
                                     : "Career milestones that formed the foundation of my expertise in development and humanitarian work."}
@@ -149,24 +149,24 @@ export default function PortfolioClient({
                                             {/* Top: client pill + year */}
                                             <div className="flex items-center justify-between mb-5">
                                                 {client && (
-                                                    <span className="inline-flex items-center gap-1.5 rounded-full bg-[#d4af37]/8 dark:bg-[#e9c176]/8 px-3 py-1 font-['Inter'] text-[11px] font-semibold text-[#d4af37] dark:text-[#e9c176]">
+                                                    <span className="inline-flex items-center gap-1.5 rounded-full bg-[#d4af37]/8 dark:bg-[#e9c176]/8 px-3 py-1  text-[11px] font-semibold text-[#d4af37] dark:text-[#e9c176]">
                                                         <Building2 size={11} />
                                                         {client}
                                                     </span>
                                                 )}
                                                 {year && (
-                                                    <span className="font-['Inter'] text-xs text-slate-400 dark:text-[#5a5b63]">
+                                                    <span className=" text-xs text-slate-400 dark:text-[#5a5b63]">
                                                         {year}
                                                     </span>
                                                 )}
                                             </div>
 
-                                            <h3 className="font-['Manrope'] text-lg font-bold text-slate-900 dark:text-[#dae2fd] leading-snug mb-3">
+                                            <h3 className=" text-lg font-bold text-slate-900 dark:text-[#dae2fd] leading-snug mb-3">
                                                 {title}
                                             </h3>
 
                                             {desc && (
-                                                <p className="font-['Inter'] text-sm leading-relaxed text-slate-600 dark:text-[#8f9097] line-clamp-4">
+                                                <p className=" text-sm leading-relaxed text-slate-600 dark:text-[#8f9097] line-clamp-4">
                                                     {desc}
                                                 </p>
                                             )}
@@ -189,13 +189,13 @@ export default function PortfolioClient({
                 <section className="bg-slate-50 dark:bg-[#0b1326] transition-colors py-24">
                     <div className="mx-auto max-w-6xl px-6 lg:px-8">
                         <AnimatedSection className="mb-14" animation="fade-up">
-                            <span className="font-['Inter'] text-xs font-bold uppercase tracking-widest text-[#d4af37] dark:text-[#e9c176]">
+                            <span className=" text-xs font-bold uppercase tracking-widest text-[#d4af37] dark:text-[#e9c176]">
                                 {isAr ? "تحليل معمّق" : "In-Depth Analysis"}
                             </span>
-                            <h2 className="mt-3 font-['Manrope'] text-3xl font-extrabold text-slate-900 dark:text-[#dae2fd] sm:text-4xl">
+                            <h2 className="mt-3  text-3xl font-extrabold text-slate-900 dark:text-[#dae2fd] sm:text-4xl">
                                 {isAr ? "دراسات حالة" : "Case Studies"}
                             </h2>
-                            <p className="mt-4 max-w-2xl font-['Inter'] text-base text-slate-600 dark:text-[#8f9097]">
+                            <p className="mt-4 max-w-2xl  text-base text-slate-600 dark:text-[#8f9097]">
                                 {isAr
                                     ? "نظرة معمّقة على التحديات والحلول والأثر الذي حققته مشاريعنا الرئيسية."
                                     : "A deeper look at the challenges, solutions, and impact of our key projects."}
@@ -221,12 +221,12 @@ export default function PortfolioClient({
                                             {/* Header */}
                                             <div className="p-6 sm:p-8 pb-0">
                                                 {projectTitle && (
-                                                    <span className="inline-flex items-center gap-1.5 rounded-full bg-[#d4af37]/8 dark:bg-[#e9c176]/8 px-3 py-1 font-['Inter'] text-[11px] font-semibold text-[#d4af37] dark:text-[#e9c176] mb-4">
+                                                    <span className="inline-flex items-center gap-1.5 rounded-full bg-[#d4af37]/8 dark:bg-[#e9c176]/8 px-3 py-1  text-[11px] font-semibold text-[#d4af37] dark:text-[#e9c176] mb-4">
                                                         <Globe size={11} />
                                                         {projectTitle}
                                                     </span>
                                                 )}
-                                                <h3 className="font-['Manrope'] text-xl font-bold text-slate-900 dark:text-[#dae2fd] leading-snug">
+                                                <h3 className=" text-xl font-bold text-slate-900 dark:text-[#dae2fd] leading-snug">
                                                     {title}
                                                 </h3>
                                             </div>
@@ -243,10 +243,10 @@ export default function PortfolioClient({
                                                             />
                                                         </div>
                                                         <div>
-                                                            <p className="font-['Inter'] text-xs font-bold uppercase tracking-wider text-rose-500 dark:text-rose-400 mb-1">
+                                                            <p className=" text-xs font-bold uppercase tracking-wider text-rose-500 dark:text-rose-400 mb-1">
                                                                 {isAr ? "التحدي" : "Challenge"}
                                                             </p>
-                                                            <p className="font-['Inter'] text-sm text-slate-600 dark:text-[#8f9097] leading-relaxed">
+                                                            <p className=" text-sm text-slate-600 dark:text-[#8f9097] leading-relaxed">
                                                                 {challenge}
                                                             </p>
                                                         </div>
@@ -263,10 +263,10 @@ export default function PortfolioClient({
                                                             />
                                                         </div>
                                                         <div>
-                                                            <p className="font-['Inter'] text-xs font-bold uppercase tracking-wider text-sky-500 dark:text-sky-400 mb-1">
+                                                            <p className=" text-xs font-bold uppercase tracking-wider text-sky-500 dark:text-sky-400 mb-1">
                                                                 {isAr ? "الحل" : "Solution"}
                                                             </p>
-                                                            <p className="font-['Inter'] text-sm text-slate-600 dark:text-[#8f9097] leading-relaxed">
+                                                            <p className=" text-sm text-slate-600 dark:text-[#8f9097] leading-relaxed">
                                                                 {solution}
                                                             </p>
                                                         </div>
@@ -283,10 +283,10 @@ export default function PortfolioClient({
                                                             />
                                                         </div>
                                                         <div>
-                                                            <p className="font-['Inter'] text-xs font-bold uppercase tracking-wider text-emerald-500 dark:text-emerald-400 mb-1">
+                                                            <p className=" text-xs font-bold uppercase tracking-wider text-emerald-500 dark:text-emerald-400 mb-1">
                                                                 {isAr ? "الأثر" : "Impact"}
                                                             </p>
-                                                            <p className="font-['Inter'] text-sm text-slate-600 dark:text-[#8f9097] leading-relaxed">
+                                                            <p className=" text-sm text-slate-600 dark:text-[#8f9097] leading-relaxed">
                                                                 {impact}
                                                             </p>
                                                         </div>
@@ -349,19 +349,19 @@ function FeaturedProjectSection({
                         <div>
                             <div className="flex flex-wrap items-center gap-3 mb-2">
                                 {client && (
-                                    <span className="inline-flex items-center gap-1.5 rounded-full bg-[#d4af37]/8 dark:bg-[#e9c176]/8 px-3 py-1 font-['Inter'] text-[11px] font-semibold text-[#d4af37] dark:text-[#e9c176]">
+                                    <span className="inline-flex items-center gap-1.5 rounded-full bg-[#d4af37]/8 dark:bg-[#e9c176]/8 px-3 py-1  text-[11px] font-semibold text-[#d4af37] dark:text-[#e9c176]">
                                         <Building2 size={11} />
                                         {client}
                                     </span>
                                 )}
                                 {year && (
-                                    <span className="inline-flex items-center gap-1.5 font-['Inter'] text-xs text-slate-400 dark:text-[#5a5b63]">
+                                    <span className="inline-flex items-center gap-1.5  text-xs text-slate-400 dark:text-[#5a5b63]">
                                         <Calendar size={12} />
                                         {year}
                                     </span>
                                 )}
                             </div>
-                            <h2 className="font-['Manrope'] text-2xl font-extrabold text-slate-900 dark:text-[#dae2fd] sm:text-3xl leading-snug">
+                            <h2 className=" text-2xl font-extrabold text-slate-900 dark:text-[#dae2fd] sm:text-3xl leading-snug">
                                 {title}
                             </h2>
                         </div>
@@ -369,7 +369,7 @@ function FeaturedProjectSection({
 
                     {/* Overview */}
                     {description && (
-                        <p className="mb-8 font-['Inter'] text-base font-medium text-slate-700 dark:text-[#c5c6cd] leading-relaxed border-s-2 border-[#d4af37]/40 dark:border-[#e9c176]/30 ps-5">
+                        <p className="mb-8  text-base font-medium text-slate-700 dark:text-[#c5c6cd] leading-relaxed border-s-2 border-[#d4af37]/40 dark:border-[#e9c176]/30 ps-5">
                             {description}
                         </p>
                     )}
@@ -383,7 +383,7 @@ function FeaturedProjectSection({
                             {contentParagraphs.map((p, i) => (
                                 <p
                                     key={i}
-                                    className="font-['Inter'] text-sm leading-[1.9] text-slate-600 dark:text-[#8f9097] sm:text-base"
+                                    className=" text-sm leading-[1.9] text-slate-600 dark:text-[#8f9097] sm:text-base"
                                 >
                                     {p}
                                 </p>
@@ -394,7 +394,7 @@ function FeaturedProjectSection({
                         {results.length > 0 && (
                             <div className="lg:col-span-2">
                                 <div className="rounded-2xl bg-slate-50 dark:bg-[#0b1326] border border-slate-100 dark:border-[#171f33] p-6 sm:p-8 sticky top-28">
-                                    <h3 className="flex items-center gap-2 font-['Manrope'] text-sm font-bold uppercase tracking-wider text-[#d4af37] dark:text-[#e9c176] mb-5">
+                                    <h3 className="flex items-center gap-2  text-sm font-bold uppercase tracking-wider text-[#d4af37] dark:text-[#e9c176] mb-5">
                                         <TrendingUp size={16} />
                                         {isAr ? "النتائج الرئيسية" : "Key Results"}
                                     </h3>
@@ -402,7 +402,7 @@ function FeaturedProjectSection({
                                         {results.map((item, i) => (
                                             <li
                                                 key={i}
-                                                className="flex items-start gap-2.5 font-['Inter'] text-sm text-slate-700 dark:text-[#c5c6cd]"
+                                                className="flex items-start gap-2.5  text-sm text-slate-700 dark:text-[#c5c6cd]"
                                             >
                                                 <CheckCircle2
                                                     size={16}

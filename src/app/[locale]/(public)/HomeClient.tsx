@@ -202,31 +202,31 @@ export default function HomeClient({
 
                 <AnimatedSection className="relative mx-auto max-w-7xl px-6 lg:px-8 text-center" animation="fade-up">
                     {heroBadge && (
-                        <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 dark:border-[#45474c] bg-white dark:bg-[#131b2e] px-4 py-1.5 font-['Inter'] text-xs font-semibold uppercase tracking-widest text-[#d4af37] dark:text-[#e9c176] shadow-sm dark:shadow-none">
+                        <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 dark:border-[#45474c] bg-white dark:bg-[#131b2e] px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#d4af37] dark:text-[#e9c176] shadow-sm dark:shadow-none">
                             {heroBadge}
                         </span>
                     )}
                     <h1
-                        className="mt-8 font-['Manrope'] text-4xl font-extrabold tracking-tight text-slate-900 dark:text-[#dae2fd] sm:text-6xl lg:text-7xl"
+                        className="mt-8 text-4xl font-extrabold tracking-tight text-slate-900 dark:text-[#dae2fd] sm:text-6xl lg:text-7xl"
                         style={{ letterSpacing: "-0.02em" }}
                     >
                         {heroTitle || "Ahmed Al-Zubairi"}
                     </h1>
                     {heroSubtitle && (
-                        <p className="mx-auto mt-6 max-w-3xl font-['Inter'] text-lg leading-relaxed text-slate-600 dark:text-[#8f9097] sm:text-xl">
+                        <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-slate-600 dark:text-[#8f9097] sm:text-xl">
                             {heroSubtitle}
                         </p>
                     )}
                     <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
                         <Link
                             href={heroCta1Link as any}
-                            className="w-full sm:w-auto rounded-lg bg-gradient-to-r from-[#d4af37] to-[#997a15] dark:from-[#e9c176] dark:to-[#C5A059] px-8 py-4 font-['Inter'] text-sm font-bold text-white dark:text-[#0b1326] transition-all hover:shadow-lg dark:hover:shadow-[#e9c176]/20 hover:-translate-y-0.5 active:translate-y-0"
+                            className="w-full sm:w-auto rounded-lg bg-gradient-to-r from-[#d4af37] to-[#997a15] dark:from-[#e9c176] dark:to-[#C5A059] px-8 py-4 text-sm font-bold text-white dark:text-[#0b1326] transition-all hover:shadow-lg dark:hover:shadow-[#e9c176]/20 hover:-translate-y-0.5 active:translate-y-0"
                         >
                             {heroCta1Text || (isAr ? "شاهد الأعمال" : "View Portfolio")}
                         </Link>
                         <Link
                             href={heroCta2Link as any}
-                            className="w-full sm:w-auto rounded-lg bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-[#222a3d] px-8 py-4 font-['Inter'] text-sm font-bold text-slate-900 dark:text-[#dae2fd] shadow-sm dark:shadow-none transition-all hover:bg-slate-50 dark:hover:bg-[#171f33] hover:border-slate-300 dark:hover:border-[#45474c]"
+                            className="w-full sm:w-auto rounded-lg bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-[#222a3d] px-8 py-4 text-sm font-bold text-slate-900 dark:text-[#dae2fd] shadow-sm dark:shadow-none transition-all hover:bg-slate-50 dark:hover:bg-[#171f33] hover:border-slate-300 dark:hover:border-[#45474c]"
                         >
                             {heroCta2Text || (isAr ? "تواصل معي" : "Get in Touch")}
                         </Link>
@@ -244,10 +244,10 @@ export default function HomeClient({
                                     <div className="mx-auto mb-3 flex size-11 items-center justify-center rounded-xl bg-slate-50 dark:bg-[#0b1326] text-[#d4af37] dark:text-[#e9c176] group-hover:scale-110 transition-transform">
                                         {ICON_MAP[s.icon_name] || <Star size={22} />}
                                     </div>
-                                    <div className="font-['Manrope'] text-3xl font-extrabold text-slate-900 dark:text-[#dae2fd]">
+                                    <div className="text-3xl font-extrabold text-slate-900 dark:text-[#dae2fd]">
                                         <CountUp target={s.numeric_value} suffix={s.suffix || ""} />
                                     </div>
-                                    <p className="mt-1 font-['Inter'] text-xs font-medium text-slate-500 dark:text-[#8f9097]">
+                                    <p className="mt-1 text-xs font-medium text-slate-500 dark:text-[#8f9097]">
                                         {isAr ? s.label_ar : s.label_en}
                                     </p>
                                 </div>
@@ -263,13 +263,13 @@ export default function HomeClient({
             <section className="bg-white dark:bg-[#131b2e] transition-colors py-24 border-y border-slate-200 dark:border-[#222a3d]">
                 <div className="mx-auto max-w-6xl px-6 lg:px-8">
                     <AnimatedSection className="text-center mb-16" animation="fade-up">
-                        <span className="font-['Inter'] text-xs font-bold uppercase tracking-widest text-[#d4af37] dark:text-[#e9c176]">
+                        <span className="text-xs font-bold uppercase tracking-widest text-[#d4af37] dark:text-[#e9c176]">
                             {isAr ? "مجالات التخصص" : "Areas of Expertise"}
                         </span>
-                        <h2 className="mt-3 font-['Manrope'] text-3xl font-extrabold text-slate-900 dark:text-[#dae2fd] sm:text-4xl">
+                        <h2 className="mt-3 text-3xl font-extrabold text-slate-900 dark:text-[#dae2fd] sm:text-4xl">
                             {isAr ? "الخبرات" : "Expertise"}
                         </h2>
-                        <p className="mx-auto mt-4 max-w-2xl font-['Inter'] text-base text-slate-500 dark:text-[#8f9097]">
+                        <p className="mx-auto mt-4 max-w-2xl text-base text-slate-500 dark:text-[#8f9097]">
                             {isAr
                                 ? "أكثر من 15 عاماً من الخبرة المتراكمة في إدارة المشاريع الدولية والعمل الإنساني."
                                 : "Over 15 years of accumulated experience in international project management and humanitarian work."}
@@ -286,10 +286,10 @@ export default function HomeClient({
                                     <div className="flex size-12 items-center justify-center rounded-xl bg-[#d4af37]/10 dark:bg-[#e9c176]/10 text-[#d4af37] dark:text-[#e9c176] mb-5 group-hover:scale-110 transition-transform">
                                         {item.icon}
                                     </div>
-                                    <h3 className="font-['Manrope'] text-base font-bold text-slate-900 dark:text-[#dae2fd] mb-2">
+                                    <h3 className="text-base font-bold text-slate-900 dark:text-[#dae2fd] mb-2">
                                         {isAr ? item.titleAr : item.titleEn}
                                     </h3>
-                                    <p className="font-['Inter'] text-sm leading-relaxed text-slate-500 dark:text-[#8f9097]">
+                                    <p className="text-sm leading-relaxed text-slate-500 dark:text-[#8f9097]">
                                         {isAr ? item.descAr : item.descEn}
                                     </p>
                                 </div>
@@ -305,13 +305,13 @@ export default function HomeClient({
             <section className="bg-slate-50 dark:bg-[#0b1326] transition-colors py-24">
                 <div className="mx-auto max-w-6xl px-6 lg:px-8">
                     <AnimatedSection className="text-center mb-16" animation="fade-up">
-                        <span className="font-['Inter'] text-xs font-bold uppercase tracking-widest text-[#d4af37] dark:text-[#e9c176]">
+                        <span className="text-xs font-bold uppercase tracking-widest text-[#d4af37] dark:text-[#e9c176]">
                             {isAr ? "ما أقدمه" : "What I Offer"}
                         </span>
-                        <h2 className="mt-3 font-['Manrope'] text-3xl font-extrabold text-slate-900 dark:text-[#dae2fd] sm:text-4xl">
+                        <h2 className="mt-3 text-3xl font-extrabold text-slate-900 dark:text-[#dae2fd] sm:text-4xl">
                             {isAr ? "الخدمات" : "Services"}
                         </h2>
-                        <p className="mx-auto mt-4 max-w-2xl font-['Inter'] text-base text-slate-500 dark:text-[#8f9097]">
+                        <p className="mx-auto mt-4 max-w-2xl text-base text-slate-500 dark:text-[#8f9097]">
                             {isAr
                                 ? "خدمات استشارية متخصصة مبنية على خبرة ميدانية حقيقية مع المنظمات الدولية."
                                 : "Specialized consulting services built on real field experience with international organizations."}
@@ -326,7 +326,7 @@ export default function HomeClient({
                                     className="group relative overflow-hidden rounded-2xl bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-[#222a3d] p-8 transition-all hover:border-slate-300 dark:hover:border-[#45474c] hover:shadow-lg dark:hover:shadow-none hover:-translate-y-1"
                                 >
                                     {/* Numbered tag */}
-                                    <span className="absolute top-6 end-6 font-['Manrope'] text-5xl font-black text-slate-100 dark:text-[#1e293b]/50 select-none">
+                                    <span className="absolute top-6 end-6 text-5xl font-black text-slate-100 dark:text-[#1e293b]/50 select-none">
                                         {String(idx + 1).padStart(2, "0")}
                                     </span>
 
@@ -334,10 +334,10 @@ export default function HomeClient({
                                         <div className="flex size-12 items-center justify-center rounded-xl bg-[#d4af37]/10 dark:bg-[#e9c176]/10 text-[#d4af37] dark:text-[#e9c176] mb-5 group-hover:scale-110 transition-transform">
                                             {item.icon}
                                         </div>
-                                        <h3 className="font-['Manrope'] text-lg font-bold text-slate-900 dark:text-[#dae2fd] mb-3">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-[#dae2fd] mb-3">
                                             {isAr ? item.titleAr : item.titleEn}
                                         </h3>
-                                        <p className="font-['Inter'] text-sm leading-relaxed text-slate-500 dark:text-[#8f9097]">
+                                        <p className="text-sm leading-relaxed text-slate-500 dark:text-[#8f9097]">
                                             {isAr ? item.descAr : item.descEn}
                                         </p>
                                     </div>
@@ -349,7 +349,7 @@ export default function HomeClient({
                     <AnimatedSection className="mt-10 text-center" animation="fade-up" delay={0.3}>
                         <Link
                             href="/contact"
-                            className="inline-flex items-center gap-2 rounded-lg bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-[#222a3d] px-8 py-3.5 font-['Inter'] text-sm font-bold text-slate-900 dark:text-[#dae2fd] shadow-sm dark:shadow-none transition-all hover:bg-slate-50 dark:hover:bg-[#171f33] hover:border-slate-300 dark:hover:border-[#45474c] hover:-translate-y-0.5"
+                            className="inline-flex items-center gap-2 rounded-lg bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-[#222a3d] px-8 py-3.5 text-sm font-bold text-slate-900 dark:text-[#dae2fd] shadow-sm dark:shadow-none transition-all hover:bg-slate-50 dark:hover:bg-[#171f33] hover:border-slate-300 dark:hover:border-[#45474c] hover:-translate-y-0.5"
                         >
                             {isAr ? "اطلب استشارة" : "Request a Consultation"}
                             <ArrowIcon size={16} />
@@ -365,10 +365,10 @@ export default function HomeClient({
                 <section className="bg-white dark:bg-[#131b2e] transition-colors py-24 border-y border-slate-200 dark:border-[#222a3d]">
                     <div className="mx-auto max-w-6xl px-6 lg:px-8">
                         <AnimatedSection className="text-center mb-16" animation="fade-up">
-                            <span className="font-['Inter'] text-xs font-bold uppercase tracking-widest text-[#d4af37] dark:text-[#e9c176]">
+                            <span className="text-xs font-bold uppercase tracking-widest text-[#d4af37] dark:text-[#e9c176]">
                                 {isAr ? "الكفاءات الأساسية" : "Core Competencies"}
                             </span>
-                            <h2 className="mt-3 font-['Manrope'] text-3xl font-extrabold text-slate-900 dark:text-[#dae2fd] sm:text-4xl">
+                            <h2 className="mt-3 text-3xl font-extrabold text-slate-900 dark:text-[#dae2fd] sm:text-4xl">
                                 {isAr ? "المهارات" : "Skills"}
                             </h2>
                         </AnimatedSection>
@@ -388,11 +388,11 @@ export default function HomeClient({
                                                 <div className="flex size-10 items-center justify-center rounded-lg bg-[#d4af37]/10 dark:bg-[#e9c176]/10 text-[#d4af37] dark:text-[#e9c176]">
                                                     <Target size={18} />
                                                 </div>
-                                                <span className="font-['Manrope'] text-2xl font-extrabold text-[#d4af37] dark:text-[#e9c176]">
+                                                <span className="text-2xl font-extrabold text-[#d4af37] dark:text-[#e9c176]">
                                                     {level}%
                                                 </span>
                                             </div>
-                                            <h3 className="font-['Manrope'] text-sm font-bold text-slate-900 dark:text-[#dae2fd] mb-3">
+                                            <h3 className="text-sm font-bold text-slate-900 dark:text-[#dae2fd] mb-3">
                                                 {name}
                                             </h3>
                                             <div className="h-2 rounded-full bg-slate-200 dark:bg-[#222a3d] overflow-hidden">
@@ -410,7 +410,7 @@ export default function HomeClient({
                         <AnimatedSection className="mt-10 text-center" animation="fade-up" delay={0.3}>
                             <Link
                                 href="/about"
-                                className="inline-flex items-center gap-1.5 font-['Inter'] text-sm font-medium text-[#d4af37] dark:text-[#e9c176] hover:underline underline-offset-4"
+                                className="inline-flex items-center gap-1.5 text-sm font-medium text-[#d4af37] dark:text-[#e9c176] hover:underline underline-offset-4"
                             >
                                 {isAr ? "عرض جميع المهارات" : "View All Skills"}
                                 <ChevIcon size={16} />
@@ -427,10 +427,10 @@ export default function HomeClient({
                 <section className="bg-slate-50 dark:bg-[#0b1326] transition-colors py-24">
                     <div className="mx-auto max-w-6xl px-6 lg:px-8">
                         <AnimatedSection className="text-center mb-16" animation="fade-up">
-                            <span className="font-['Inter'] text-xs font-bold uppercase tracking-widest text-[#d4af37] dark:text-[#e9c176]">
+                            <span className="text-xs font-bold uppercase tracking-widest text-[#d4af37] dark:text-[#e9c176]">
                                 {isAr ? "التطوير المهني" : "Professional Development"}
                             </span>
-                            <h2 className="mt-3 font-['Manrope'] text-3xl font-extrabold text-slate-900 dark:text-[#dae2fd] sm:text-4xl">
+                            <h2 className="mt-3 text-3xl font-extrabold text-slate-900 dark:text-[#dae2fd] sm:text-4xl">
                                 {isAr ? "الشهادات" : "Certificates"}
                             </h2>
                         </AnimatedSection>
@@ -444,7 +444,7 @@ export default function HomeClient({
                                             <div className="flex size-9 items-center justify-center rounded-lg bg-[#d4af37]/10 dark:bg-[#e9c176]/10">
                                                 <Award size={18} className="text-[#d4af37] dark:text-[#e9c176]" />
                                             </div>
-                                            <h3 className="font-['Manrope'] text-base font-bold text-slate-900 dark:text-[#dae2fd]">
+                                            <h3 className="text-base font-bold text-slate-900 dark:text-[#dae2fd]">
                                                 {isAr ? "الشهادات المهنية" : "Professional Certificates"}
                                             </h3>
                                         </div>
@@ -454,15 +454,15 @@ export default function HomeClient({
                                                     key={cert.id}
                                                     className="rounded-xl bg-white dark:bg-[#131b2e] border border-slate-100 dark:border-[#171f33] p-4 transition-all hover:border-slate-200 dark:hover:border-[#45474c]"
                                                 >
-                                                    <p className="font-['Manrope'] text-sm font-bold text-slate-900 dark:text-[#dae2fd]">
+                                                    <p className="text-sm font-bold text-slate-900 dark:text-[#dae2fd]">
                                                         {isAr ? cert.title_ar : cert.title_en}
                                                     </p>
                                                     <div className="flex items-center justify-between mt-2">
-                                                        <span className="font-['Inter'] text-xs text-slate-500 dark:text-[#8f9097]">
+                                                        <span className="text-xs text-slate-500 dark:text-[#8f9097]">
                                                             {isAr ? cert.issuer_ar : cert.issuer_en}
                                                         </span>
                                                         {cert.year && (
-                                                            <span className="font-['Inter'] text-xs text-slate-400 dark:text-[#5a5b63]">
+                                                            <span className="text-xs text-slate-400 dark:text-[#5a5b63]">
                                                                 {cert.year}
                                                             </span>
                                                         )}
@@ -480,7 +480,7 @@ export default function HomeClient({
                                             <div className="flex size-9 items-center justify-center rounded-lg bg-sky-50 dark:bg-sky-900/15">
                                                 <BookOpen size={18} className="text-sky-500 dark:text-sky-400" />
                                             </div>
-                                            <h3 className="font-['Manrope'] text-base font-bold text-slate-900 dark:text-[#dae2fd]">
+                                            <h3 className="text-base font-bold text-slate-900 dark:text-[#dae2fd]">
                                                 {isAr ? "الدورات التدريبية" : "Training Courses"}
                                             </h3>
                                         </div>
@@ -490,15 +490,15 @@ export default function HomeClient({
                                                     key={cert.id}
                                                     className="rounded-xl bg-white dark:bg-[#131b2e] border border-slate-100 dark:border-[#171f33] p-4 transition-all hover:border-slate-200 dark:hover:border-[#45474c]"
                                                 >
-                                                    <p className="font-['Manrope'] text-sm font-bold text-slate-900 dark:text-[#dae2fd]">
+                                                    <p className="text-sm font-bold text-slate-900 dark:text-[#dae2fd]">
                                                         {isAr ? cert.title_ar : cert.title_en}
                                                     </p>
                                                     <div className="flex items-center justify-between mt-2">
-                                                        <span className="font-['Inter'] text-xs text-slate-500 dark:text-[#8f9097]">
+                                                        <span className="text-xs text-slate-500 dark:text-[#8f9097]">
                                                             {isAr ? cert.issuer_ar : cert.issuer_en}
                                                         </span>
                                                         {cert.year && (
-                                                            <span className="font-['Inter'] text-xs text-slate-400 dark:text-[#5a5b63]">
+                                                            <span className="text-xs text-slate-400 dark:text-[#5a5b63]">
                                                                 {cert.year}
                                                             </span>
                                                         )}
@@ -516,7 +516,7 @@ export default function HomeClient({
                                             <div className="flex size-9 items-center justify-center rounded-lg bg-amber-50 dark:bg-amber-900/15">
                                                 <Trophy size={18} className="text-amber-500 dark:text-amber-400" />
                                             </div>
-                                            <h3 className="font-['Manrope'] text-base font-bold text-slate-900 dark:text-[#dae2fd]">
+                                            <h3 className="text-base font-bold text-slate-900 dark:text-[#dae2fd]">
                                                 {isAr ? "الجوائز والتكريمات" : "Awards & Recognitions"}
                                             </h3>
                                         </div>
@@ -526,15 +526,15 @@ export default function HomeClient({
                                                     key={cert.id}
                                                     className="rounded-xl bg-white dark:bg-[#131b2e] border border-slate-100 dark:border-[#171f33] p-4 transition-all hover:border-slate-200 dark:hover:border-[#45474c]"
                                                 >
-                                                    <p className="font-['Manrope'] text-sm font-bold text-slate-900 dark:text-[#dae2fd]">
+                                                    <p className="text-sm font-bold text-slate-900 dark:text-[#dae2fd]">
                                                         {isAr ? cert.title_ar : cert.title_en}
                                                     </p>
                                                     <div className="flex items-center justify-between mt-2">
-                                                        <span className="font-['Inter'] text-xs text-slate-500 dark:text-[#8f9097]">
+                                                        <span className="text-xs text-slate-500 dark:text-[#8f9097]">
                                                             {isAr ? cert.issuer_ar : cert.issuer_en}
                                                         </span>
                                                         {cert.year && (
-                                                            <span className="font-['Inter'] text-xs text-slate-400 dark:text-[#5a5b63]">
+                                                            <span className="text-xs text-slate-400 dark:text-[#5a5b63]">
                                                                 {cert.year}
                                                             </span>
                                                         )}
@@ -556,13 +556,13 @@ export default function HomeClient({
             <section className="bg-white dark:bg-[#131b2e] transition-colors py-24 border-y border-slate-200 dark:border-[#222a3d]">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <AnimatedSection className="text-center mb-16" animation="fade-up">
-                        <span className="font-['Inter'] text-xs font-bold uppercase tracking-widest text-[#d4af37] dark:text-[#e9c176]">
+                        <span className="text-xs font-bold uppercase tracking-widest text-[#d4af37] dark:text-[#e9c176]">
                             {isAr ? "آخر المستجدات" : "Latest Updates"}
                         </span>
-                        <h2 className="mt-3 font-['Manrope'] text-3xl font-extrabold text-slate-900 dark:text-[#dae2fd] sm:text-4xl">
+                        <h2 className="mt-3 text-3xl font-extrabold text-slate-900 dark:text-[#dae2fd] sm:text-4xl">
                             {isAr ? "أحدث الأخبار والمشاريع" : "Latest News & Projects"}
                         </h2>
-                        <p className="mx-auto mt-4 max-w-2xl font-['Inter'] text-base text-slate-500 dark:text-[#8f9097]">
+                        <p className="mx-auto mt-4 max-w-2xl text-base text-slate-500 dark:text-[#8f9097]">
                             {isAr
                                 ? "تابع آخر المقالات والمشاريع التي أعمل عليها في مجال إدارة المشاريع الدولية."
                                 : "Stay up to date with my latest articles and projects in international project management."}
@@ -572,13 +572,13 @@ export default function HomeClient({
                     {latestPosts && latestPosts.length > 0 && (
                         <AnimatedSection className="mb-16" animation="stagger" delay={0.15}>
                             <div className="flex items-center justify-between mb-8">
-                                <h3 className="font-['Manrope'] text-xl font-bold text-slate-900 dark:text-[#dae2fd] flex items-center gap-2">
+                                <h3 className="text-xl font-bold text-slate-900 dark:text-[#dae2fd] flex items-center gap-2">
                                     <Clock size={20} className="text-[#d4af37] dark:text-[#e9c176]" />
                                     {isAr ? "أحدث المقالات" : "Latest Articles"}
                                 </h3>
                                 <Link
                                     href="/blog"
-                                    className="group inline-flex items-center gap-1.5 font-['Inter'] text-sm font-medium text-[#d4af37] dark:text-[#e9c176] hover:underline underline-offset-4"
+                                    className="group inline-flex items-center gap-1.5 text-sm font-medium text-[#d4af37] dark:text-[#e9c176] hover:underline underline-offset-4"
                                 >
                                     {isAr ? "عرض الكل" : "View All"}
                                     <ChevIcon size={16} className="transition-transform group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5" />
@@ -590,10 +590,10 @@ export default function HomeClient({
                                     const excerpt = isAr ? post.excerpt_ar : post.excerpt_en;
                                     const date = post.published_at
                                         ? new Date(post.published_at).toLocaleDateString(isAr ? "ar-SA" : "en-US", {
-                                              year: "numeric",
-                                              month: "short",
-                                              day: "numeric",
-                                          })
+                                            year: "numeric",
+                                            month: "short",
+                                            day: "numeric",
+                                        })
                                         : "";
 
                                     return (
@@ -604,19 +604,19 @@ export default function HomeClient({
                                         >
                                             <div className="flex items-center gap-2 mb-4">
                                                 <Calendar size={14} className="text-slate-400 dark:text-[#45474c]" />
-                                                <time className="font-['Inter'] text-xs text-slate-400 dark:text-[#5a5b63]">
+                                                <time className="text-xs text-slate-400 dark:text-[#5a5b63]">
                                                     {date}
                                                 </time>
                                             </div>
-                                            <h4 className="font-['Manrope'] text-lg font-bold text-slate-900 dark:text-[#dae2fd] group-hover:text-[#d4af37] dark:group-hover:text-[#e9c176] transition-colors line-clamp-2">
+                                            <h4 className="text-lg font-bold text-slate-900 dark:text-[#dae2fd] group-hover:text-[#d4af37] dark:group-hover:text-[#e9c176] transition-colors line-clamp-2">
                                                 {title}
                                             </h4>
                                             {excerpt && (
-                                                <p className="mt-3 font-['Inter'] text-sm leading-relaxed text-slate-500 dark:text-[#8f9097] line-clamp-3">
+                                                <p className="mt-3 text-sm leading-relaxed text-slate-500 dark:text-[#8f9097] line-clamp-3">
                                                     {excerpt}
                                                 </p>
                                             )}
-                                            <span className="mt-4 inline-flex items-center gap-1 font-['Inter'] text-xs font-semibold text-[#d4af37] dark:text-[#e9c176]">
+                                            <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-[#d4af37] dark:text-[#e9c176]">
                                                 {isAr ? "اقرأ المزيد" : "Read More"}
                                                 <ChevIcon size={14} />
                                             </span>
@@ -630,13 +630,13 @@ export default function HomeClient({
                     {latestProjects && latestProjects.length > 0 && (
                         <AnimatedSection animation="stagger" delay={0.2}>
                             <div className="flex items-center justify-between mb-8">
-                                <h3 className="font-['Manrope'] text-xl font-bold text-slate-900 dark:text-[#dae2fd] flex items-center gap-2">
+                                <h3 className="text-xl font-bold text-slate-900 dark:text-[#dae2fd] flex items-center gap-2">
                                     <Briefcase size={20} className="text-[#d4af37] dark:text-[#e9c176]" />
                                     {isAr ? "مشاريع مميزة" : "Featured Projects"}
                                 </h3>
                                 <Link
                                     href="/portfolio"
-                                    className="group inline-flex items-center gap-1.5 font-['Inter'] text-sm font-medium text-[#d4af37] dark:text-[#e9c176] hover:underline underline-offset-4"
+                                    className="group inline-flex items-center gap-1.5 text-sm font-medium text-[#d4af37] dark:text-[#e9c176] hover:underline underline-offset-4"
                                 >
                                     {isAr ? "عرض الكل" : "View All"}
                                     <ChevIcon size={16} className="transition-transform group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5" />
@@ -655,20 +655,20 @@ export default function HomeClient({
                                             className="group relative rounded-2xl bg-slate-50 dark:bg-[#0b1326] border border-slate-100 dark:border-[#171f33] p-8 transition-all hover:bg-white dark:hover:bg-[#171f33] hover:border-slate-200 dark:hover:border-[#45474c] hover:shadow-md dark:hover:shadow-none hover:-translate-y-1"
                                         >
                                             {client && (
-                                                <span className="inline-flex items-center gap-1.5 rounded-full bg-[#d4af37]/10 dark:bg-[#e9c176]/10 px-3 py-1 font-['Inter'] text-xs font-semibold text-[#d4af37] dark:text-[#e9c176] mb-4">
+                                                <span className="inline-flex items-center gap-1.5 rounded-full bg-[#d4af37]/10 dark:bg-[#e9c176]/10 px-3 py-1 text-xs font-semibold text-[#d4af37] dark:text-[#e9c176] mb-4">
                                                     <Globe size={12} />
                                                     {client}
                                                 </span>
                                             )}
-                                            <h4 className="font-['Manrope'] text-xl font-bold text-slate-900 dark:text-[#dae2fd] group-hover:text-[#d4af37] dark:group-hover:text-[#e9c176] transition-colors">
+                                            <h4 className="text-xl font-bold text-slate-900 dark:text-[#dae2fd] group-hover:text-[#d4af37] dark:group-hover:text-[#e9c176] transition-colors">
                                                 {title}
                                             </h4>
                                             {desc && (
-                                                <p className="mt-3 font-['Inter'] text-sm leading-relaxed text-slate-500 dark:text-[#8f9097] line-clamp-3">
+                                                <p className="mt-3 text-sm leading-relaxed text-slate-500 dark:text-[#8f9097] line-clamp-3">
                                                     {desc}
                                                 </p>
                                             )}
-                                            <span className="mt-5 inline-flex items-center gap-1 font-['Inter'] text-xs font-semibold text-[#d4af37] dark:text-[#e9c176]">
+                                            <span className="mt-5 inline-flex items-center gap-1 text-xs font-semibold text-[#d4af37] dark:text-[#e9c176]">
                                                 {isAr ? "عرض التفاصيل" : "View Details"}
                                                 <ChevIcon size={14} />
                                             </span>
@@ -688,10 +688,10 @@ export default function HomeClient({
                 <section className="bg-slate-50 dark:bg-[#0b1326] transition-colors py-24 relative">
                     <AnimatedSection className="mx-auto max-w-7xl px-6 lg:px-8" animation="fade-up" delay={0.15}>
                         <div className="text-center mb-16">
-                            <span className="font-['Inter'] text-xs font-bold uppercase tracking-widest text-[#d4af37] dark:text-[#e9c176]">
+                            <span className="text-xs font-bold uppercase tracking-widest text-[#d4af37] dark:text-[#e9c176]">
                                 {isAr ? "آراء الشركاء" : "Client Endorsements"}
                             </span>
-                            <h2 className="mt-3 font-['Manrope'] text-3xl font-extrabold text-slate-900 dark:text-[#dae2fd] sm:text-4xl">
+                            <h2 className="mt-3 text-3xl font-extrabold text-slate-900 dark:text-[#dae2fd] sm:text-4xl">
                                 {isAr ? "ماذا يقول شركاؤنا" : "What Our Partners Say"}
                             </h2>
                         </div>
@@ -721,19 +721,19 @@ export default function HomeClient({
                                                 />
                                             ))}
                                         </div>
-                                        <p className="font-['Inter'] text-sm leading-relaxed italic text-slate-600 dark:text-[#c5c6cd] relative z-10">
+                                        <p className=" text-sm leading-relaxed italic text-slate-600 dark:text-[#c5c6cd] relative z-10">
                                             &ldquo;{quote}&rdquo;
                                         </p>
                                         <div className="mt-6 pt-6 border-t border-slate-100 dark:border-[#222a3d] flex items-center gap-4">
-                                            <div className="flex size-11 items-center justify-center rounded-full bg-gradient-to-br from-[#d4af37]/20 to-[#d4af37]/5 dark:from-[#e9c176]/20 dark:to-[#e9c176]/5 font-['Manrope'] font-bold text-[#d4af37] dark:text-[#e9c176] text-sm">
+                                            <div className="flex size-11 items-center justify-center rounded-full bg-gradient-to-br from-[#d4af37]/20 to-[#d4af37]/5 dark:from-[#e9c176]/20 dark:to-[#e9c176]/5  font-bold text-[#d4af37] dark:text-[#e9c176] text-sm">
                                                 {name.charAt(0)}
                                             </div>
                                             <div>
-                                                <h4 className="font-['Manrope'] text-sm font-bold text-slate-900 dark:text-[#dae2fd]">
+                                                <h4 className=" text-sm font-bold text-slate-900 dark:text-[#dae2fd]">
                                                     {name}
                                                 </h4>
                                                 {role && (
-                                                    <p className="font-['Inter'] text-xs text-slate-500 dark:text-[#8f9097] mt-0.5">
+                                                    <p className=" text-xs text-slate-500 dark:text-[#8f9097] mt-0.5">
                                                         {role}
                                                     </p>
                                                 )}
@@ -760,12 +760,12 @@ export default function HomeClient({
                         <Mail className="text-[#d4af37] dark:text-[#e9c176]" size={28} />
                     </div>
 
-                    <h2 className="font-['Manrope'] text-3xl font-extrabold text-slate-900 dark:text-[#dae2fd] sm:text-4xl">
+                    <h2 className=" text-3xl font-extrabold text-slate-900 dark:text-[#dae2fd] sm:text-4xl">
                         {ctaTitle}
                     </h2>
 
                     {ctaSubtitle && (
-                        <p className="mx-auto mt-4 max-w-2xl font-['Inter'] text-lg text-slate-600 dark:text-[#8f9097]">
+                        <p className="mx-auto mt-4 max-w-2xl  text-lg text-slate-600 dark:text-[#8f9097]">
                             {ctaSubtitle}
                         </p>
                     )}
@@ -773,7 +773,7 @@ export default function HomeClient({
                     <div className="mt-10">
                         <Link
                             href={ctaBtnLink as any}
-                            className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#d4af37] to-[#997a15] dark:from-[#e9c176] dark:to-[#C5A059] px-10 py-4 font-['Inter'] text-sm font-bold text-white dark:text-[#0b1326] transition-all hover:shadow-xl hover:shadow-[#d4af37]/20 dark:hover:shadow-[#e9c176]/20 hover:-translate-y-0.5 active:translate-y-0"
+                            className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#d4af37] to-[#997a15] dark:from-[#e9c176] dark:to-[#C5A059] px-10 py-4  text-sm font-bold text-white dark:text-[#0b1326] transition-all hover:shadow-xl hover:shadow-[#d4af37]/20 dark:hover:shadow-[#e9c176]/20 hover:-translate-y-0.5 active:translate-y-0"
                         >
                             {ctaBtnText}
                             <ArrowIcon size={18} />

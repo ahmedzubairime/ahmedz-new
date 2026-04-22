@@ -50,10 +50,10 @@ export function PublicFooter({ info, social }: { info: any, social: any }) {
                 <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
                     {/* Brand */}
                     <div className="lg:col-span-2">
-                        <h3 className="font-['Manrope'] text-xl font-extrabold text-[#dae2fd]">
+                        <h3 className=" text-xl font-extrabold text-[#dae2fd]">
                             Ahmed Al-Zubairi
                         </h3>
-                        <p className="mt-4 max-w-md font-['Inter'] text-sm leading-relaxed text-[#8f9097]">
+                        <p className="mt-4 max-w-md  text-sm leading-relaxed text-[#8f9097]">
                             {info?.short_bio_en || "Sovereign authority in project management. Architecting sustainable solutions in complex environments."}
                         </p>
                         <div className="mt-6 flex flex-wrap gap-3">
@@ -80,7 +80,7 @@ export function PublicFooter({ info, social }: { info: any, social: any }) {
 
                     {/* Quick Links */}
                     <div>
-                        <h4 className="font-['Manrope'] text-xs font-bold uppercase tracking-widest text-[#e9c176]">
+                        <h4 className=" text-xs font-bold uppercase tracking-widest text-[#e9c176]">
                             Quick Links
                         </h4>
                         <ul className="mt-4 space-y-3">
@@ -95,7 +95,7 @@ export function PublicFooter({ info, social }: { info: any, social: any }) {
                                 <li key={link.href}>
                                     <Link
                                         href={link.href as any}
-                                        className="font-['Inter'] text-sm text-[#8f9097] transition-colors hover:text-[#dae2fd]"
+                                        className=" text-sm text-[#8f9097] transition-colors hover:text-[#dae2fd]"
                                     >
                                         {link.label}
                                     </Link>
@@ -106,10 +106,10 @@ export function PublicFooter({ info, social }: { info: any, social: any }) {
 
                     {/* Contact */}
                     <div>
-                        <h4 className="font-['Manrope'] text-xs font-bold uppercase tracking-widest text-[#e9c176]">
+                        <h4 className=" text-xs font-bold uppercase tracking-widest text-[#e9c176]">
                             Contact
                         </h4>
-                        <ul className="mt-4 space-y-4 font-['Inter'] text-sm text-[#8f9097]">
+                        <ul className="mt-4 space-y-4  text-sm text-[#8f9097]">
                             {(info?.primary_email || info?.secondary_email) && (
                                 <li className="flex items-start gap-3">
                                     <Mail size={16} className="mt-0.5 text-[#45474c]" />
@@ -141,10 +141,10 @@ export function PublicFooter({ info, social }: { info: any, social: any }) {
                 </div>
 
                 <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-[#45474c]/15 pt-8 sm:flex-row">
-                    <p className="font-['Inter'] text-xs text-[#8f9097]">
+                    <p className=" text-xs text-[#8f9097]">
                         &copy; {year} Ahmed Al-Zubairi. {t("rights")}
                     </p>
-                    <p className="font-['Inter'] text-xs text-[#8f9097] flex items-center gap-1">
+                    <p className=" text-xs text-[#8f9097] flex items-center gap-1">
                         {t("builtWith")} <span className="text-[#e9c176]">❤</span> & Next.js
                     </p>
                 </div>
